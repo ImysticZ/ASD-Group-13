@@ -6,16 +6,7 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: azure;
-         }
-        .navbar {
-             margin:0;
-         }
-    </style>   
-    <%--Navigation bar moved to another page--%>
+    <%--Navigation bar and css imports moved to another page--%>
     <jsp:include page="nav.jsp"/> 
 </head>
 <body>
