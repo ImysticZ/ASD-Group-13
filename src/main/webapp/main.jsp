@@ -11,7 +11,7 @@
             User user = (User) session.getAttribute("user");
         %>
         <div>
-            <h1><a href="main.jsp">IoTBay</a></h1>
+            <h1><a href="main.jsp">Four Seasons Hotel</a></h1>
             <a href="LogoutServlet">logout</a>
             <a href="main.jsp">main</a>
         </div>

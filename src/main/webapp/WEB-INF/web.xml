@@ -15,6 +15,10 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>uts.asd.controller.RegisterServlet</servlet-class>
     </servlet>    
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>uts.asd.controller.LogoutServlet</servlet-class>
+    </servlet>  
 
     <!-- insert servlet mapping stuff here -->
     <servlet-mapping>
@@ -24,6 +28,10 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
 
     <!-- yo whats up -->
