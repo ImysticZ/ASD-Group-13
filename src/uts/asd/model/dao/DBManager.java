@@ -14,11 +14,12 @@ public class DBManager {
 
     //USER DAO METHODS
     public void addUser(String firstname, String lastname, String email, String phone, String password, String address, String type) throws SQLException {
-        st.executeUpdate("INSERT INTO bc2dyro2kdvcc2jmmd9e.\"USER\"(\"FIRST_NAME\", LAST_NAME, EMAIL, PHONE, PASSWORD, ADDRESS, TYPE)" + "VALUES ('" + firstname + "', '" + lastname + "', '" + email + "', '" + phone + "', '" + password + "', '" + address + "', " + type + ")");
+        String query = "insert into USER (FIRST_NAME, LAST_NAME, EMAIL, PHONE, PASSWORD, ADDRESS, TYPE)" + "values (' "+ firstname + " ',' "+  lastname + "','+ email +','+ phone +','+ password +','+ address +', 'c')";
+        st.executeUpdate(query);
     }
 
     public User findUserByEmail(String email) throws SQLException {
-        String fetch = "SELECT * FROM bc2dyro2kdvcc2jmmd9e.\"USER\" WHERE EMAIL = '" + email + "'";
+        String fetch = "select * from USER where " + "EMAIL = email";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {

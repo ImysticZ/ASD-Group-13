@@ -44,21 +44,21 @@ public class RegisterServlet extends HttpServlet {
                 User check = manager.findUserByEmail(email);
                 if (check == null) {
                     if (type.isEmpty()){
-                        // manager.addUser(first_name, last_name, email, phone, password, address, "c");
-                        // User user = manager.findUserByEmail(email);
-                        // session.setAttribute("user", user);
+                        manager.addUser(first_name, last_name, email, phone, password, address, type);
+                        User user = manager.findUserByEmail(email);
+                        session.setAttribute("user", user);
                         request.getRequestDispatcher("main.jsp").include(request, response);
                     } 
                     else if (type.equals("s")){
-                        // manager.addUser(first_name, last_name, email, phone, password, address, "s");
-                        // User user = manager.findUserByEmail(email);
-                        // session.setAttribute("user", user);
+                        manager.addUser(first_name, last_name, email, phone, password, address, "s");
+                        User user = manager.findUserByEmail(email);
+                        session.setAttribute("user", user);
                         request.getRequestDispatcher("main.jsp").include(request, response);
                     } 
                     else if (type.equals("a")){
-                        // manager.addUser(first_name, last_name, email, phone, password, address, "a");
-                        // User user = manager.findUserByEmail(email);
-                        // session.setAttribute("user", user);
+                        manager.addUser(first_name, last_name, email, phone, password, address, "a");
+                        User user = manager.findUserByEmail(email);
+                        session.setAttribute("user", user);
                         request.getRequestDispatcher("main.jsp").include(request, response);
                     }
                 }   else {
@@ -66,7 +66,7 @@ public class RegisterServlet extends HttpServlet {
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 }
             } catch (SQLException | NullPointerException ex) {
-                System.out.println(ex.getMessage() == null ? "User doesn't exist" : "Welcome!");
+                System.out.println(ex.getMessage() == null ? "User doesn't exist" : ex.getMessage());
             }
         }
     validator.clear(session);
