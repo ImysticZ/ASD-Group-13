@@ -14,7 +14,7 @@ public class DBManager {
 
     //USER DAO METHODS
     public void addUser(String firstname, String lastname, String email, String phone, String password, String address, String type) throws SQLException {
-        String query = "insert into USER (FIRST_NAME, LAST_NAME, EMAIL, PHONE, PASSWORD, ADDRESS, TYPE)" + "values (' "+ firstname + " ',' "+  lastname + "','+ email +','+ phone +','+ password +','+ address +', 'c')";
+        String query = "insert into USER (FIRST_NAME, LAST_NAME, EMAIL, PHONE, PASSWORD, ADDRESS, TYPE)" + "values (' "+ firstname + " ',' "+  lastname + "',' "+ email + " ',' "+ phone + " ',' "+ password +"',' "+ address + " ', 'c')";
         st.executeUpdate(query);
     }
 
