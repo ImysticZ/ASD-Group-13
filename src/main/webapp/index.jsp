@@ -13,8 +13,6 @@
     <img src="https://cdn.britannica.com/86/156586-050-EFB37140/Harbour-Bridge-Sydney.jpg" width="100%"></img>
     <div class="container">
             <center><h1>Four Seasons Hotel</h1></center>
-            <h4>This is a test John Cena</h4>
-            <h2>why doesnt it work lmao</h2>
     </div>
 </body>
 </html>
