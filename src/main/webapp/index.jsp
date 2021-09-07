@@ -1,3 +1,7 @@
+<%@page import="uts.asd.model.*"%>
+<%@page import="uts.asd.controller.*"%>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,8 +17,7 @@
     <img src="https://cdn.britannica.com/86/156586-050-EFB37140/Harbour-Bridge-Sydney.jpg" width="100%"></img>
     <div class="container">
             <center><h1>Four Seasons Hotel</h1></center>
-            <h4>This is a test John Cenaa</h4>
-            <h2>why doesnt it work lmao</h2>
     </div>
+    <jsp:include page="/ConnServlet" />
 </body>
 </html>

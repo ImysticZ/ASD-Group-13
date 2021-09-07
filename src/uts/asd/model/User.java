@@ -1,28 +1,45 @@
-public class User  {
+package uts.asd.model;
+
+import java.sql.*;
+import java.io.Serializable;
+
+public class User implements Serializable{
 
     private int id;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNum;
+    private String password;
     private String address;
-    private char type;
+    private String type;
 
-    public User() {
-        
-    }
-
-    public User(int id, String firstName, String lastName, String email, String phoneNum, String address, char type) {
+    public User(int id, String firstName, String lastName, String email, String phoneNum, String password, String address, String type) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNum = phoneNum;
+        this.password = password;
         this.address = address;
         this.type = type;
     }
 
-    
+    public User(ResultSet rs) { //uses an sql result set's rows to fill in User attributes
+        try {
+            this.id = rs.getInt(1);
+            this.firstName = rs.getString(2);
+            this.lastName = rs.getString(3);
+            this.email = rs.getString(4);
+            this.phoneNum = rs.getString(5);
+            this.password = rs.getString(6);
+            this.address = rs.getString(7);
+            this.type = rs.getString(8);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage() == null ? "Unable to load user" : "New user object created");
+        }
+    }
+
     public int getId() {
         return id;
     }
@@ -63,6 +80,14 @@ public class User  {
         this.phoneNum = phoneNum;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -71,11 +96,11 @@ public class User  {
         this.address = address;
     }
 
-    public char getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(char type) {
+    public void setType(String type) {
         this.type = type;
     }
 
