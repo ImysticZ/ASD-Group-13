@@ -9,6 +9,7 @@
       <ul class="nav navbar-nav">
         <li><a href="view_room.jsp">Rooms</a></li>
         <li><a href="#">Booking</a></li>
+        <li><a href="userEnquiry.jsp">Enquiries</a></li>
         <li><a href="#">About us</a></li>
 
         <%--Conditions: ONLY LOGGED IN USERS--%>
