@@ -23,6 +23,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>uts.asd.controller.LoginServlet</servlet-class>
     </servlet>     
+    <servlet>
+        <servlet-name>AdminManagementServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminManagementServlet</servlet-class>
+    </servlet>     
 
     <!-- insert servlet mapping stuff here -->
     <servlet-mapping>
