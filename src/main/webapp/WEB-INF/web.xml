@@ -45,6 +45,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminManagementServlet</servlet-name>
+        <url-pattern>/AdminManagementServlet</url-pattern>
+    </servlet-mapping>
 
     <!-- yo whats up -->
     <session-config>
