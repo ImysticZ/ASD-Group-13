@@ -49,7 +49,7 @@
                     </tr>
                     <tr>
                         <td>Address</td>
-                        <td><input type="text" placeholder="<%= addressErr != null ? addressErr : "Enter First Name"%>" name="address" required></td>
+                        <td><input type="text" placeholder="<%= addressErr != null ? addressErr : "Enter Address"%>" name="address" required></td>
                     </tr>
                     <tr>
                         <td>User type</td>
