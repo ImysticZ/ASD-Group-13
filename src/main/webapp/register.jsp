@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register Page</title>
+        <jsp:include page="nav.jsp"/> 
 </head>
 <%
         String existErr = (String) session.getAttribute("existErr");
@@ -18,9 +19,9 @@
 %>
 <body>
         <div>
-            <h1><a href="index.jsp">Four Seasons Hotel</a></h1>
+            <%-- <h1><a href="index.jsp">Four Seasons Hotel</a></h1>
             <a href="login.jsp">login</a>
-            <a href="register.jsp">register</a>
+            <a href="register.jsp">register</a> --%>
         </div>
         <br>
         <div>

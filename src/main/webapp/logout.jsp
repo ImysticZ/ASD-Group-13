@@ -1,7 +1,5 @@
 <%@page import="uts.asd.model.*"%>
-
 <%@page import="uts.asd.controller.*"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

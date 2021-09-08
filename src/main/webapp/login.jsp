@@ -1,11 +1,14 @@
 <%@page import="uts.asd.model.*"%>
 <%@page import="uts.asd.controller.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Page</title>
+        <jsp:include page="nav.jsp"/> 
     </head>
     <body>
         <%
@@ -13,11 +16,11 @@
             String emailErr = (String) session.getAttribute("emailErr");
             String passErr = (String) session.getAttribute("passErr");
         %>
-        <div>
+        <%-- <div>
             <h1><a href="index.jsp">Four Seasons Hotel</a></h1>
             <a href="login.jsp">Login</a>
             <a href="register.jsp">Register</a>
-        </div>
+        </div> --%>
         <br>
         <div>
             <form action ="LoginServlet" method ="post">
