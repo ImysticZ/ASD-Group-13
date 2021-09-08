@@ -12,28 +12,29 @@
         <%
             Random random = new Random();
             String submitted = request.getParameter("submitted");
-
-            ArrayList<User> UserList = new ArrayList<User>();
-                for(int i = 0; i < 10; i++) {
-                    UserList.add(new User(random.nextInt(99999), ("FirstName" + i), ("LastName" + i), ("Email" + i), "000000000", "s", ("Address" + i), "a"));
-                }
+            
+            ArrayList<User> userList = new ArrayList<User>();
+            for(int i = 0; i < 10; i++) {
+                userList.add(new User(random.nextInt(99999), ("FirstName" + i), ("LastName" + i), ("Email" + i), "000000000", "s", ("Address" + i), "a"));
+            }
 
             if(submitted != null) {
                 String submittedEmail = request.getParameter("email");
 
                 ArrayList<User> temp = new ArrayList<User>();
-                for(User user : UserList) {
+                for(User user : userList) {
                     if(user.getEmail().equals(submittedEmail)) {
                         temp.add(user);
                     }
                 }
-                UserList = temp;
+                userList = temp;
             }
         %>
 
         <div>
             <table>
                 <form action="admin_user_management.jsp" method="GET">
+                    <th>Search User</th>
                     <tr>
                         <td>E-mail address</td>
                         <td><input type="text" placeholder="name@something.com" name="email"></td>
@@ -53,7 +54,7 @@
                         <td>Phone Number</td>
                     </tr>
                     <%
-                        for(User user : UserList) {
+                        for(User user : userList) {
                     %>
                     <tr>
                         <td><%= user.getId() %></td>
