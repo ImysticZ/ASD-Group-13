@@ -4,10 +4,10 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.jsp">Four seasons</a>
+        <a class="navbar-brand" href="main.jsp">Four seasons</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="view_room.jsp">Rooms</a></li>
+        <li><a href="#">Rooms</a></li>
         <li><a href="#">Booking</a></li>
         <li><a href="#">About us</a></li>
 
@@ -25,8 +25,8 @@
         <%--Condition end--%>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="register.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="main.jsp"><span class="glyphicon glyphicon-user"></span> Main</a></li>
+        <li><a href="LogoutServlet"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
 </nav>
