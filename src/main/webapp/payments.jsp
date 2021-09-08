@@ -82,22 +82,23 @@
             }
             render() {
                 return (
-                    <form className="container" method="GET" action="success.jsp" onSubmit={this.handleSubmit}>
+                    <form className="container" method="POST" action="success.jsp" onSubmit={this.handleSubmit}>
                         <Total />
                         <DisplayCard />
                         <div class="form-group">
                             <label for="card">Card Number</label>
                             <p style={{ color: "red" }}>{this.state.card}</p>
-                            <input type="text" class="form-control" id="card" name="card" placeholder="Enter card number" maxlength="16" onBlur={(e) => this.ValidateCard(e)} />
+                            <input type="text" class="form-control" id="card" name="card" placeholder="Enter card number" maxlength="16" onBlur={(e) => this.ValidateCard(e)} required />
                         </div>
                         <div class="form-group">
                             <label for="cvc">CVC</label>
                             <p style={{ color: "red" }}>{this.state.cvc}</p>
-                            <input type="text" class="form-control" id="cvc" name="cvc" placeholder="Enter CVC" maxlength="3" onBlur={(e)=> this.ValidateCVC(e)} />
+                            <input type="text" class="form-control" id="cvc" name="cvc" placeholder="Enter CVC" maxlength="3" onBlur={(e)=> this.ValidateCVC(e)} required />
                         </div>
                         <div class="form-group">
                             <label for="cvc">Expiry Date</label>
                             <p style={{ color: "red" }}>{this.state.date}</p>
+                            <p>{this.state.dateValue.toString()}</p>
                             <input type="date" class="form-control" id="date" name="date" placeholder="Enter the Expiry Date" onBlur={(e) => this.setState({dateValue: e.target.value})} />
                         </div>
                         <button type="submit" class="btn btn-primary">Book Now</button>
