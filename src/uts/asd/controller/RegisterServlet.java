@@ -50,19 +50,19 @@ public class RegisterServlet extends HttpServlet {
                         request.getRequestDispatcher("main.jsp").include(request, response);
                     } 
                     else if (type.equals("s")){
-                        manager.addUser(first_name, last_name, email, phone, password, address, "s");
+                        manager.addUser(first_name, last_name, email, phone, password, address, type);
                         User user = manager.findUserByEmail(email);
                         session.setAttribute("user", user);
                         request.getRequestDispatcher("main.jsp").include(request, response);
                     } 
                     else if (type.equals("a")){
-                        manager.addUser(first_name, last_name, email, phone, password, address, "a");
+                        manager.addUser(first_name, last_name, email, phone, password, address, type);
                         User user = manager.findUserByEmail(email);
                         session.setAttribute("user", user);
                         request.getRequestDispatcher("main.jsp").include(request, response);
                     }
                 }   else {
-                    session.setAttribute("codeErr", "Incorrect Code");
+                    session.setAttribute("emailErr", "Email already in use");
                     request.getRequestDispatcher("register.jsp").include(request, response);
                 }
             } catch (SQLException | NullPointerException ex) {
