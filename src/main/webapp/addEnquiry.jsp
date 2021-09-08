@@ -2,7 +2,7 @@
 
 <head>
     <jsp:include page="nav.jsp" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/enquiry.css"> 
 </head>
 
 <body>
