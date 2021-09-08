@@ -4,3 +4,7 @@ body {
 .navbar {
      margin:0;
  }
+ hr {
+     background-color: darkgrey;
+     
+ }
