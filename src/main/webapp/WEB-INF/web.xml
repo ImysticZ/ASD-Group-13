@@ -23,6 +23,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>uts.asd.controller.LoginServlet</servlet-class>
     </servlet>     
+    <servlet>
+        <servlet-name>AdminManagementServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminManagementServlet</servlet-class>
+    </servlet>     
 
     <!-- insert servlet mapping stuff here -->
     <servlet-mapping>
@@ -40,6 +44,10 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminManagementServlet</servlet-name>
+        <url-pattern>/AdminManagementServlet</url-pattern>
     </servlet-mapping>
 
     <!-- yo whats up -->

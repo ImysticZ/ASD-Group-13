@@ -21,8 +21,7 @@
         <%--Condition end--%>
 
         <%--Conditions: ONLY ADMIN--%>
-        <li><a href="admin_user_management.jsp">Manage Users</a></li>
-        <li><a href="admin_room_management.jsp">Manage Rooms</a></li>
+        
         <%--Condition end--%>
       </ul>
       <ul class="nav navbar-nav navbar-right">
