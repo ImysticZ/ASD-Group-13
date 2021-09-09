@@ -60,7 +60,7 @@
                     <tr>
                         <td><%= room.getRoomId() %></td>
                         <td><%= room.getRoomTypeId() %></td>
-                        <td><%= room.isAvailable() %></td>
+                        <td><%= room.getAvailability() %></td>
                         <td>
                             <%--EDIT USER BUTTON--%>
                             <form action="#" method="post">
