@@ -3,7 +3,7 @@ CREATE TABLE Payment (
     FOREIGN KEY (BookingID) REFERENCES Booking(BookingID),
     FOREIGN KEY (CardID) REFERENCES CreditCard(CardID)
 );
-CREATE TABLE CreditCard (
+CREATE TABLE Card (
     CardID int NOT NULL AUTO_INCREMENT,
     Card_Number int NOT NULL,
     CVC int NOT NULL,

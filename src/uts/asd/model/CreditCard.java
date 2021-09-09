@@ -1,18 +1,18 @@
 package uts.asd.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 public class CreditCard implements Serializable {
 
     private int cardID;
     private int number;
     private int cvc;
-    private LocalDate date;
+    private String date;
 
     //constructor
 
-    public CreditCard(int cardID, int num, int cvc, LocalDate date) {
+    public CreditCard(int cardID, int num, int cvc, String date) {
         this.cardID= cardID;
         this.number= num;
         this.cvc= cvc;
@@ -33,7 +33,7 @@ public class CreditCard implements Serializable {
         return cvc;
     }
 
-    private LocalDate getdate() {
+    private String getdate() {
         return date;
     }
 
@@ -51,7 +51,7 @@ public class CreditCard implements Serializable {
         this.cvc= cvc;
     }
 
-    private void setdate(LocalDate date) {
+    private void setdate(String date) {
         this.date= date;
     }
 }
