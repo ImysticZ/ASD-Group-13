@@ -82,7 +82,7 @@
             <% } %>
                 <div style="float:right">
                     <p>Please check in 30 minutes early upon your arrival</p>
-                    <a href="/webapp"><button class="btn btn-info">Return ></button></a>
+                    <a href="index.jsp"><button class="btn btn-info">Return ></button></a>
                 </div>
     </section>
 </body>

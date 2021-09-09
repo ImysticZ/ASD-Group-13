@@ -104,6 +104,12 @@
                                     <p style={{ color: "red" }}>{this.state.date}</p>
                                     <input type="date" class="form-control" id="date" name="date" placeholder="Enter the Expiry Date" onBlur={(e) => this.setState({ dateValue: e.target.value })} />
                                 </div>
+                                <div class="checkbox" style={{padding: '1%'}}>
+                                    <label>
+                                        <input type="checkbox" value="save" name="save" />
+                                        Save credit card information?
+                                    </label>
+                                </div>
                                 <button type="submit" class="btn btn-primary">Book Now</button>
                             </form>
                         );
@@ -115,7 +121,7 @@
                 <h4>The Total Cost is <b>$100.00</b></h4>
             </center>
             <div id="home">
-                <% if (user.getType()=="C") { %>
+                <% if (user.getType()=="C" ) { %>
                     <div class="checkbox" style="padding: 1%">
                         <label>
                             <input type="checkbox" value="save" name="save" />

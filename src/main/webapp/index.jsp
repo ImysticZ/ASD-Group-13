@@ -15,9 +15,6 @@
 </head>
 <body>
     <img src="https://cdn.britannica.com/86/156586-050-EFB37140/Harbour-Bridge-Sydney.jpg" width="100%"></img>
-    <div class="container">
-            <center><h1>Four Seasons Hotel</h1></center>
-    </div>
     <jsp:include page="/ConnServlet" />
 </body>
 </html>
