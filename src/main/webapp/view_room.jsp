@@ -1,10 +1,12 @@
 <html lang="en">
+    <%@page import="java.util.*"%>
+    <%@page import="uts.asd.model.*"%>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>View Rooms</title>
     <jsp:include page="nav.jsp" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
@@ -192,6 +194,15 @@
         }
     </style>
 </head>
+<%
+    ArrayList<RoomType> rooms = new ArrayList<RoomType>();
+    rooms.add(new RoomType(0, 149.99, 1, "Junior Suite", "A small and cosy room"));
+    rooms.add(new RoomType(1, 199.99, 2, "Regular Suite", "A nice room"));
+    rooms.add(new RoomType(2, 229.99, 2, "Deluxe Suite", "A fancy room"));
+    rooms.add(new RoomType(3, 259.99, 3, "Executive Suite", "A nice room for executives"));
+    rooms.add(new RoomType(4, 459.99, 6, "Villa", "A large villa"));
+    rooms.add(new RoomType(5, 999.99, 15, "Penthouse Suite", "The best and fanciest room"));
+%>
 
 <body>
     <div class="row text-center container-fluid">
@@ -205,47 +216,23 @@
                 </div>
               </div>
             </div>
-          </section>
-          <p></p>
+        </section>
+        <p></p>
+        <% for (RoomType roomType : rooms) { %>
         <div class="col-xl-3 col-md-4 col-sm-6 mb-4">
             <div class="card h-100 box-shadow">
-                <h6 class="card-header text-muted">Small</h6>
+                <h6 class="card-header text-muted"><%= roomType.getSuite()%></h6>
                 <div class="card-body">
-                    <p class="card-text">Price: $150</p>
-                    <p class="card-text">1 Bed</p>
-                    <p class="card-text">This is our smallest, cosy room that we have!</p>
+                    <p class="card-text">Price: $<%= roomType.getCost()%></p>
+                    <p class="card-text"><%= roomType.getNumBeds()%> Bed</p>
+                    <p class="card-text"><%= roomType.getDescription()%></p>
                 </div>
                 <div class="card-footer">
                     <a class="btn btn-outline-info" href="">More</a>
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-md-4 col-sm-6 mb-4">
-            <div class="card h-100 box-shadow">
-                <h6 class="card-header text-muted">Medium</h6>
-                <div class="card-body">
-                    <p class="card-text">Price: $200</p>
-                    <p class="card-text">1 Bed</p>
-                    <p class="card-text">This is a nice and comfortable room for a single person!</p>
-                </div>
-                <div class="card-footer">
-                    <a class="btn btn-outline-info" href="">More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-4 col-sm-6 mb-4">
-            <div class="card h-100 box-shadow">
-                <h6 class="card-header text-muted">Large</h6>
-                <div class="card-body">
-                    <p class="card-text">Price: $300</p>
-                    <p class="card-text">2 Bed</p>
-                    <p class="card-text">A large room that accomodates nicely for a larger amount of guests!</p>
-                </div>
-                <div class="card-footer">
-                    <a class="btn btn-outline-info" href="">More</a>
-                </div>
-            </div>
-        </div>
+        <% } %>
     </div>
 </body>
 <script>
