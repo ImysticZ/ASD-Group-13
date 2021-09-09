@@ -13,11 +13,10 @@ import javax.servlet.http.HttpSession;
 import uts.asd.model.User;
 import uts.asd.model.dao.DBManager;
 
-@WebServlet("/AdminManagementServlet")
 public class AdminManagementServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
         String email = request.getParameter("email");

@@ -2,6 +2,9 @@
 <%@page import="uts.asd.model.*"%>
 <%@page import="uts.asd.controller.*"%>
 <%@page import="java.util.*"%>
+<%@page import="uts.asd.model.dao.DBConnector"%>
+<%@page import="uts.asd.model.dao.DBManager"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
@@ -31,9 +34,18 @@
             }
         %>
 
-        <div>
+        <%--
+            ArrayList<User> userList = (ArrayList<User>)session.getAttribute("userList");
+            
+            if(userList == null) {
+                DBManager db = (DBManager) session.getAttribute("manager");
+                userList = db.fetchAllUsers();
+            }
+        --%>
+
+        <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
             <table>
-                <form action="admin_user_management.jsp" method="GET">
+                <form action="admin_user_management.jsp" method="POST">
                     <th>Search User</th>
                     <tr>
                         <td>E-mail address</td>
@@ -45,8 +57,8 @@
             </table>
         </div>
 
-        <div>
-            <table>
+        <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
+            <table class='table'>
                     <tr>
                         <td>ID</td>
                         <td>Full name</td>
@@ -59,8 +71,22 @@
                     <tr>
                         <td><%= user.getId() %></td>
                         <td><%= (user.getFirstName() + " " + user.getLastName()) %></td>
-                        <td><%= user.getEmail() %>l</td>
+                        <td><%= user.getEmail() %></td>
                         <td><%= user.getPhoneNum() %></td>
+                        <td>
+                            <%--EDIT USER BUTTON--%>
+                            <form action="#" method="post">
+                                <input type="hidden" name="id" value="<%=user.getId()%>">
+                                <input type="submit" value="Edit" class="button">
+                            </form>
+                        </td>
+                        <td>
+                            <%--DELETE USER BUTTON--%>
+                            <form action="#" method="post">
+                                <input type="hidden" name="id" value="<%=user.getId()%>">
+                                <input type="submit" value="Delete" class="button">
+                            </form>
+                        </td>
                     </tr>
                     <%
                         }

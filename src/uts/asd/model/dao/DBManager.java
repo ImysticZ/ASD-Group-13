@@ -61,7 +61,7 @@ public class DBManager {
     // Fetch every single users
     public ArrayList<User> fetchAllUsers() throws SQLException {
         ResultSet rs = st.executeQuery("select * from USER");
-        ArrayList<User> temp = new ArrayList<>();
+        ArrayList<User> temp = new ArrayList<User>();
 
         while(rs.next()) {
             temp.add(new User(rs));
