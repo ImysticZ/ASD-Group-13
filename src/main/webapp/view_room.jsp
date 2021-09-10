@@ -224,7 +224,7 @@
                 <h6 class="card-header text-muted"><%= roomType.getSuite()%></h6>
                 <div class="card-body">
                     <p class="card-text">Price: $<%= roomType.getCost()%></p>
-                    <p class="card-text"><%= roomType.getNumBeds()%> Beds</p>
+                    <p class="card-text"><%= roomType.getNumBeds()%> Bed</p>
                     <p class="card-text"><%= roomType.getDescription()%></p>
                 </div>
                 <div class="card-footer">
