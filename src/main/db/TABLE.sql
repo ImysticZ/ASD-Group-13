@@ -30,4 +30,13 @@ CREATE TABLE Enquiry (
     Reply VARCHAR (150),
     Resolved BOOLEAN
     FOREIGN KEY (UserID) REFERENCES User
-)
+);
+
+CREATE TABLE RoomType (
+    RoomTypeID INT NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 10000, INCREMENT BY 1),
+    CostPerDay DOUBLE NOT NULL,
+    NumBeds INT NOT NULL,
+    Suite VARCHAR(150),
+    Description VARCHAR(255),
+    PRIMARY KEY(RoomTypeID)
+);
