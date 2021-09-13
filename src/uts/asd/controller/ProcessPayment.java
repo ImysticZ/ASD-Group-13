@@ -8,11 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import uts.asd.model.*;
+import uts.asd.model.dao.DBManager;
 
 public class ProcessPayment extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+        DBManager manager = (DBManager) session.getAttribute("manager");
         User user= session.getAttribute("User")!=null ? (User) session.getAttribute("User") : 
         new User(1, "Berat", "Appak" , "appak123@gmail.com" , "045768" , "password" , "street" , "C" );
         int cardNo= Integer.parseInt(request.getParameter("card"));
