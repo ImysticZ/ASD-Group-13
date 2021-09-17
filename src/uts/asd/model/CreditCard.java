@@ -1,7 +1,6 @@
 package uts.asd.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class CreditCard implements Serializable {
 
@@ -21,37 +20,37 @@ public class CreditCard implements Serializable {
 
     //getters
 
-    private int getcardID() {
+    public int getcardID() {
         return cardID;
     }
 
-    private int getnumber() {
+    public int getnumber() {
         return number;
     }
 
-    private int getcvc() {
+    public int getcvc() {
         return cvc;
     }
 
-    private String getdate() {
+    public String getdate() {
         return date;
     }
 
     //setters
 
-    private void setcardID(int cardID) {
+    public void setcardID(int cardID) {
         this.cardID= cardID;
     }
 
-    private void setnumber(int num) {
+    public void setnumber(int num) {
         this.number= num;
     }
 
-    private void setcvc(int cvc) {
+    public void setcvc(int cvc) {
         this.cvc= cvc;
     }
 
-    private void setdate(String date) {
+    public void setdate(String date) {
         this.date= date;
     }
 }
