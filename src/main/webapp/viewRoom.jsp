@@ -1,6 +1,7 @@
 <html lang="en">
     <%@page import="java.util.*"%>
     <%@page import="uts.asd.model.*"%>
+    <%@page import="uts.asd.model.dao.*"%>
 
 <head>
     <meta charset="UTF-8">
@@ -195,30 +196,32 @@
     </style>
 </head>
 <%
-    ArrayList<RoomType> rooms = new ArrayList<RoomType>();
-    rooms.add(new RoomType(0, 149.99, 1, "Junior Suite", "A small and cosy room"));
-    rooms.add(new RoomType(1, 199.99, 2, "Regular Suite", "A nice room"));
-    rooms.add(new RoomType(2, 229.99, 2, "Deluxe Suite", "A fancy room"));
-    rooms.add(new RoomType(3, 259.99, 3, "Executive Suite", "A nice room for executives"));
-    rooms.add(new RoomType(4, 459.99, 6, "Villa", "A large villa"));
-    rooms.add(new RoomType(5, 999.99, 15, "Penthouse Suite", "The best and fanciest room"));
+    //ArrayList<RoomType> rooms = ((RoomDBManager)session.getAttribute("room")).listRooms();
 %>
 
 <body>
     <div class="row text-center container-fluid">
-        <section class="container">
-            <div class="product-quantity">
-              <h3>Beds</h3>
-              <input data-min="1" data-max="0" type="text" name="quantity" value="1" readonly="true"><div class="quantity-selectors-container">
-                <div class="quantity-selectors">
-                  <button type="button" class="increment-quantity" aria-label="Add one" data-direction="1"><span>&#43;</span></button>
-                  <button type="button" class="decrement-quantity" aria-label="Subtract one" data-direction="-1" disabled="disabled"><span>&#8722;</span></button>
+        <form method="post" action="RoomFilterServlet">
+            <section class="container"> 
+                <div>
+                    <h3>Beds</h3>
+                    <input min="0" name="quantity" value="1" type="number">
                 </div>
-              </div>
-            </div>
-        </section>
+                <div>
+                    <h3>Sort By</h3>
+                    <select name="sort">
+                        <option value="ascending">Ascending</option>
+                        <option value="descending">Descending</option>
+                    </select>
+                    <p>
+                </div>
+                <div>
+                    <button type="submit">Filter</button>
+                </div>
+            </section>
+        </form>
         <p></p>
-        <% for (RoomType roomType : rooms) { %>
+        <% for (RoomType roomType : (ArrayList<RoomType>)session.getAttribute("rooms")) { %>
         <div class="col-xl-3 col-md-4 col-sm-6 mb-4">
             <div class="card h-100 box-shadow">
                 <h6 class="card-header text-muted"><%= roomType.getSuite()%></h6>
@@ -235,35 +238,4 @@
         <% } %>
     </div>
 </body>
-<script>
-    $("button").on("click", function(ev) {
-  var currentQty = $('input[name="quantity"]').val();
-  var qtyDirection = $(this).data("direction");
-  var newQty = 0;
-  
-  if (qtyDirection == "1") {
-    newQty = parseInt(currentQty) + 1;
-  }
-  else if (qtyDirection == "-1") {
-    newQty = parseInt(currentQty) - 1;
-  }
-
-  if (newQty == 1) {
-    $(".decrement-quantity").attr("disabled", "disabled");
-  }
-  
-  if (newQty > 1) {
-    $(".decrement-quantity").removeAttr("disabled");
-  }
-  
-  if (newQty > 0) {
-    newQty = newQty.toString();
-    $('input[name="quantity"]').val(newQty);
-  }
-  else {
-    $('input[name="quantity"]').val("1");
-  }
-});
-</script>
-
 </html>
