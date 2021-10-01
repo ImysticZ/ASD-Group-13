@@ -26,7 +26,19 @@
     <servlet>
         <servlet-name>AdminManagementServlet</servlet-name>
         <servlet-class>uts.asd.controller.AdminManagementServlet</servlet-class>
-    </servlet>     
+    </servlet>
+    <servlet>
+        <servlet-name>RoomServlet</servlet-name>
+        <servlet-class>uts.asd.controller.RoomServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RoomFilterServlet</servlet-name>
+        <servlet-class>uts.asd.controller.RoomFilterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewRoomServlet</servlet-name>
+        <servlet-class>uts.asd.controller.ViewRoomServlet</servlet-class>
+    </servlet> 
 
     <!-- insert servlet mapping stuff here -->
     <servlet-mapping>
@@ -48,6 +60,18 @@
     <servlet-mapping>
         <servlet-name>AdminManagementServlet</servlet-name>
         <url-pattern>/AdminManagementServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoomServlet</servlet-name>
+        <url-pattern>/RoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoomFilterServlet</servlet-name>
+        <url-pattern>/RoomFilterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewRoomServlet</servlet-name>
+        <url-pattern>/ViewRoomServlet</url-pattern>
     </servlet-mapping>
 
     <!-- yo whats up -->
