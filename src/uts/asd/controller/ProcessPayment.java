@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import uts.asd.model.*;
 import uts.asd.model.dao.PaymentDB;
 
+
 public class ProcessPayment extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -57,6 +58,7 @@ public class ProcessPayment extends HttpServlet {
                 System.out.println(e.getMessage());
             }
             request.getRequestDispatcher("success.jsp").include(request, response);
+
         }
         // if (request.getParameter("save")!=null) { //save credit card to user database
         // if user clicked 'save'

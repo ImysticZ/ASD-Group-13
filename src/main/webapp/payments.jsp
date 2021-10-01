@@ -31,6 +31,7 @@
                 <%
                 String cardErr = ((String) session.getAttribute("cardErr")!=null) ? (String) session.getAttribute("cardErr") : "";
                 %>
+
                 <script>
                 </script>
                 <script type="text/babel">
@@ -55,6 +56,7 @@
                         }
                         handleSubmit = (e) => {
                             if (this.state.cardValue.match(/[0-9]{16}/) == 0 || this.state.cvcValue.match(/[0-9]{3}/) == null || !this.state.dateValue) {
+
                                 e.preventDefault();
                             }
                         }
@@ -100,6 +102,7 @@
                                         <label for="cvc">CVC</label>
                                         <p style={{ color: "red" }}>{this.state.cvc}</p>
                                         <input type="text" class="form-control" id="cvc" name="cvc" value={this.state.cvcValue} placeholder="Enter CVC" maxlength="3"
+
                                             onChange={(e) => this.setState({ cvcValue: e.target.value })} onBlur={(e) => this.ValidateCVC(e)} required />
                                     </div>
                                     <div class="form-group">
@@ -108,6 +111,7 @@
                                         <input type="date" class="form-control" id="date" name="date" placeholder="Enter the Expiry Date" onChange={(e) => this.setState({ dateValue: e.target.value })} />
                                     </div>
                                     <% if (user!=null && user.getType().equals("c")) { %>
+
                                     <div class="checkbox" style={{ padding: '1%' }}>
                                         <label>
                                             <input type="checkbox" value="save" name="save" />
@@ -115,6 +119,7 @@
                                         </label>
                                     </div>
                                     <% } %>
+
                                     <button type="submit" class="btn btn-primary">Book Now</button><DisplayCard />
                                 </form>
                             );
@@ -126,6 +131,7 @@
                     <h4>The Total Cost is <b>$100</b></h4>
                 </center>
                 <div id="home">
+
                 </div>
             </body>
 
