@@ -56,7 +56,6 @@
                         }
                         handleSubmit = (e) => {
                             if (this.state.cardValue.match(/[0-9]{16}/) == 0 || this.state.cvcValue.match(/[0-9]{3}/) == null || !this.state.dateValue) {
-
                                 e.preventDefault();
                             }
                         }
