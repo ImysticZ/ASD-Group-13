@@ -11,7 +11,10 @@ public class Validator implements Serializable {
     private String passwordPattern = "^[a-zA-Z0-9!@#$&]{4,}";
     private String phonePattern = "([0]{1}[4]{1}[0-9]{8})*";
     private String addressPattern = "^[a-zA-Z0-9!@#$&]{4,}";
+    private String cardPattern = "^[0-9]{16}";
+    private String cvcPattern = "^[0-9]{3}";
     private String typePattern = "."; //staff registration code
+
 
     public Validator() {}
 
@@ -51,6 +54,12 @@ public class Validator implements Serializable {
     
     public boolean validateAddress(String address) {
         return validate(addressPattern, address);
+    }
+    public boolean validateCard(String cardNo) {
+        return validate(cardPattern, cardNo);
+    }
+    public boolean validateCVC(String cvc) {
+        return validate(cvcPattern, cvc);
     }
     
     public void clear(HttpSession session) {

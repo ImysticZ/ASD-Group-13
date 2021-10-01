@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <%@page import="uts.asd.model.*" %>
+    <% User user=(session.getAttribute("user")!=null) ? (User) session.getAttribute("user") : null; %>
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +18,7 @@
 <body>
     <section class="container">
         <center>
-            <h4>Thank you for Booking </h4>
+            <h4>Thank you for Booking <%= user.getFirstName()%> <%= user.getLastName() %></h4>
         </center>
         <hr />
         <article class="row">
@@ -82,7 +84,7 @@
             <% } %>
                 <div style="float:right">
                     <p>Please check in 30 minutes early upon your arrival</p>
-                    <a href="index.jsp"><button class="btn btn-info">Return ></button></a>
+                    <form method="POST" action="success"><button type="submit" class="btn btn-info">Return ></button></form>
                 </div>
     </section>
 </body>

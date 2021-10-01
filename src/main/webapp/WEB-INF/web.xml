@@ -27,6 +27,14 @@
         <servlet-name>AdminManagementServlet</servlet-name>
         <servlet-class>uts.asd.controller.AdminManagementServlet</servlet-class>
     </servlet>     
+    <servlet>
+        <servlet-name>ProcessPayment</servlet-name>
+        <servlet-class>uts.asd.controller.ProcessPayment</servlet-class>
+    </servlet>     
+    <servlet>
+        <servlet-name>PaymentSuccess</servlet-name>
+        <servlet-class>uts.asd.controller.PaymentSuccess</servlet-class>
+    </servlet>     
 
     <!-- insert servlet mapping stuff here -->
     <servlet-mapping>
@@ -48,6 +56,14 @@
     <servlet-mapping>
         <servlet-name>AdminManagementServlet</servlet-name>
         <url-pattern>/AdminManagementServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessPayment</servlet-name>
+        <url-pattern>/process</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentSuccess</servlet-name>
+        <url-pattern>/success</url-pattern>
     </servlet-mapping>
 
     <!-- yo whats up -->

@@ -15,6 +15,7 @@ import uts.asd.model.dao.*;
 public class ConnServlet extends HttpServlet {
     private DBConnector db;
     private DBManager manager;
+    private PaymentDB paymentDB;
     private Connection conn;
     
     @Override //Create and instance of DBConnector for the deployment session
@@ -35,11 +36,13 @@ public class ConnServlet extends HttpServlet {
         conn = db.openConnection();
         try {
             manager = new DBManager(conn);
+            paymentDB= new PaymentDB(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //export the DB manager to the view-session (JSPs)
         session.setAttribute("manager", manager);
+        session.setAttribute("paymentDB", paymentDB);
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)
