@@ -34,6 +34,10 @@
     <servlet>
         <servlet-name>RoomFilterServlet</servlet-name>
         <servlet-class>uts.asd.controller.RoomFilterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewRoomServlet</servlet-name>
+        <servlet-class>uts.asd.controller.ViewRoomServlet</servlet-class>
     </servlet> 
 
     <!-- insert servlet mapping stuff here -->
@@ -64,6 +68,10 @@
     <servlet-mapping>
         <servlet-name>RoomFilterServlet</servlet-name>
         <url-pattern>/RoomFilterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewRoomServlet</servlet-name>
+        <url-pattern>/ViewRoomServlet</url-pattern>
     </servlet-mapping>
 
     <!-- yo whats up -->

@@ -38,5 +38,12 @@ public class RoomDBManager {
         return ret;
     }
 
+    public RoomType findRoomById(int id) throws SQLException {
+        ResultSet rs = st.executeQuery("SELECT * FROM RoomType WHERE RoomTypeID=" + id);
+        rs.next();
+        RoomType ret = new RoomType(rs.getInt(1), rs.getDouble(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+        return ret;
+    }
+
 
 }

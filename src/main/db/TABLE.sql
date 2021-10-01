@@ -40,3 +40,24 @@ CREATE TABLE RoomType (
     Description VARCHAR(255),
     PRIMARY KEY(RoomTypeID)
 );
+
+CREATE TABLE Room (
+    RoomID INT NOT NULL AUTO_INCREMENT,
+    RoomTypeID INT NOT NULL,
+    PRIMARY KEY(RoomID),
+    FOREIGN KEY(RoomTypeID) REFERENCES RoomType(RoomTypeID)
+);
+
+CREATE TABLE Booking (
+    BookingID INT NOT NULL AUTO_INCREMENT,
+    UserID INT NOT NULL,
+    RoomID INT NOT NULL,
+    Starting_Date DATE NOT NULL,
+    Ending_Date DATE NOT NULL,
+    Status VARCHAR(20) NOT NULL,
+    Paid BOOLEAN NOT NULL,
+    Total_Cost FLOAT NOT NULL,
+    PRIMARY KEY(BookingID),
+    FOREIGN KEY(UserID) REFERENCES USER(ID),
+    FOREIGN KEY(RoomID) REFERENCES Room(RoomID)
+);

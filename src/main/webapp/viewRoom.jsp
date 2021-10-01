@@ -8,7 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Rooms</title>
-    <jsp:include page="nav.jsp" />
+    <jsp:include page="ConnServlet"/>
+    <%if (session.getAttribute("user") != null) { %>
+    <jsp:include page="navMain.jsp"/>
+    <%}
+    else {%>
+    <jsp:include page="nav.jsp"/>
+    <%}%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         .card {
@@ -195,9 +201,6 @@
         }
     </style>
 </head>
-<%
-    //ArrayList<RoomType> rooms = ((RoomDBManager)session.getAttribute("room")).listRooms();
-%>
 
 <body>
     <div class="row text-center container-fluid">
@@ -231,7 +234,10 @@
                     <p class="card-text"><%= roomType.getDescription()%></p>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-outline-info" href="">More</a>
+                    <form method="get" action="ViewRoomServlet">
+                        <input type="hidden" name="roomid" value="<%= roomType.getRoomTypeId()%>">
+                        <button type="submit" class="btn btn-outline-info">More</a>
+                    </form>
                 </div>
             </div>
         </div>
