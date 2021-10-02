@@ -1,5 +1,6 @@
 <%@page import="uts.asd.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +13,7 @@
             User user = (User) session.getAttribute("user");
         %>
         <div>
-            <h2>Welcome</h2>
+            <h2>Welcome,&nbsp;<%= user.getType().equals("s") ? "Staff Member " + user.getFirstName() : user.getType().equals("a") ? "System Admin" + user.getFirstName() : user.getFirstName() %></h2>
         </div>
     </body>
 </html>

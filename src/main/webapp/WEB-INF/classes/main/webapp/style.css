@@ -1,0 +1,20 @@
+body {
+    background-color: azure;
+ }
+.navbar {
+     margin:0;
+ }
+hr {
+     background-color: grey;   
+ }
+table {
+    margin:1% auto;
+    border-collapse: collapse;
+    width:100%;
+}
+td, th {
+    border-top:1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 10%;
+}
