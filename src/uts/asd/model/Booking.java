@@ -5,7 +5,6 @@ import java.text.*;
 
 public class Booking implements Serializable {
     private int bookingID, userID, roomID;
-
     private Date startingDate, endingDate;
     private String status;
     private boolean paid;
