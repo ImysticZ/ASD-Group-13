@@ -42,7 +42,7 @@
                     </tr>
                 </table>
                 <p>Please edit the fields above to update any information.</p>
-                <p><input type="submit" value="update"> <a href="deleteAcc.jsp">Delete account</a></p>
+                <p><input type="submit" value="update"></p>
             </form>
             <p><%= updated != null ? updated : ""%></p>
         </div>

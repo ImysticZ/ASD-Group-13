@@ -109,4 +109,8 @@ public class DBManager {
     public void updateEmail(int id, String email) throws SQLException {
         st.executeUpdate("UPDATE USER SET EMAIL = '" + email + "' WHERE ID = " + id);
     }
+
+    public void deleteUser(int id) throws SQLException {
+        st.executeUpdate("DELETE FROM USER WHERE ID =" + id);
+    }
 }
