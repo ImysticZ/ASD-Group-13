@@ -10,6 +10,7 @@
     <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>uts.asd.controller.ConnServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
@@ -24,8 +25,8 @@
         <servlet-class>uts.asd.controller.LoginServlet</servlet-class>
     </servlet>     
     <servlet>
-        <servlet-name>AdminManagementServlet</servlet-name>
-        <servlet-class>uts.asd.controller.AdminManagementServlet</servlet-class>
+        <servlet-name>AdminUserManagementServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminUserManagementServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RoomServlet</servlet-name>
@@ -58,8 +59,8 @@
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AdminManagementServlet</servlet-name>
-        <url-pattern>/AdminManagementServlet</url-pattern>
+        <servlet-name>AdminUserManagementServlet</servlet-name>
+        <url-pattern>/AdminUserManagementServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RoomServlet</servlet-name>
