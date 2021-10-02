@@ -33,7 +33,7 @@
                     <th>Search Room</th>
                     <tr>
                         <td>Room Type</td>
-                        <td><input type="number" placeholder="Regular" name="type"></td>
+                        <td><input type="text" placeholder="Single" name="type"></td>
                         <input type="hidden" value="yes" name="submitted">
                         <td><input type="submit" value="submit" class="button"></td>
                     </tr>
