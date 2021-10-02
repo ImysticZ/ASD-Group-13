@@ -4,13 +4,16 @@ import java.util.*;
 import java.text.*;
 
 public class Booking implements Serializable {
-    private int userID, roomID;
+    private int bookingID, userID, roomID;
+
     private Date startingDate, endingDate;
     private String status;
     private boolean paid;
     private double totalCost;
 
-    public Booking(int userID, int roomID, String startingDate, String endingDate, String status, boolean paid, double totalCost) {
+    public Booking(int bookingID, int userID, int roomID, String startingDate, String endingDate, String status, boolean paid, double totalCost) {
+        this.bookingID = bookingID;
+
         this.userID = userID;
         this.roomID = roomID;
         DateFormat formatter = new SimpleDateFormat("d-MMM-yyyy");
@@ -26,6 +29,9 @@ public class Booking implements Serializable {
         this.totalCost = totalCost;
     }
 
+    public int getBookingID() {
+        return bookingID;
+    }
     public int getUserID() {
         return userID;
     }
@@ -54,3 +60,4 @@ public class Booking implements Serializable {
         return totalCost;
     }
 }
+

@@ -17,7 +17,7 @@
         <%--Condition end--%>
 
         <%--Conditions: ONLY STAFF--%>
-        <li><a href="bookings.jsp">Bookings</a></li>
+        <li><a href="bookings">Customer Bookings</a></li>
         <%--Condition end--%>
 
         <%--Conditions: ONLY ADMIN--%>
