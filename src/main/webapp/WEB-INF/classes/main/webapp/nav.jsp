@@ -4,11 +4,12 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.jsp">Four seasons</a>
+        <a class="navbar-brand" href="index.jsp">Four Semester Hotel</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="#">Rooms</a></li>
+        <li><a href="view_room.jsp">Rooms</a></li>
         <li><a href="#">Booking</a></li>
+        <li><a href="faq.jsp">FAQ</a></li>
         <li><a href="#">About us</a></li>
 
         <%--Conditions: ONLY LOGGED IN USERS--%>
@@ -16,12 +17,11 @@
         <%--Condition end--%>
 
         <%--Conditions: ONLY STAFF--%>
-        
+        <li><a href="bookings.jsp">Bookings</a></li>
         <%--Condition end--%>
 
         <%--Conditions: ONLY ADMIN--%>
-        <li><a href="admin_user_management.jsp">Manage Users</a></li>
-        <li><a href="admin_room_management.jsp">Manage Rooms</a></li>
+        
         <%--Condition end--%>
       </ul>
       <ul class="nav navbar-nav navbar-right">

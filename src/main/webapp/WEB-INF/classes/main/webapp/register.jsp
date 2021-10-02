@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register Page</title>
+        <jsp:include page="nav.jsp"/> 
 </head>
 <%
         String existErr = (String) session.getAttribute("existErr");
@@ -18,9 +19,9 @@
 %>
 <body>
         <div>
-            <h1><a href="index.jsp">Four Seasons Hotel</a></h1>
+            <%-- <h1><a href="index.jsp">Four Seasons Hotel</a></h1>
             <a href="login.jsp">login</a>
-            <a href="register.jsp">register</a>
+            <a href="register.jsp">register</a> --%>
         </div>
         <br>
         <div>
@@ -44,11 +45,11 @@
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="text" placeholder="<%= passErr != null ? passErr : "Enter Password"%>" name="password" required></td>
+                        <td><input type="password" placeholder="<%= passErr != null ? passErr : "Enter Password"%>" name="password" required></td>
                     </tr>
                     <tr>
                         <td>Address</td>
-                        <td><input type="text" placeholder="<%= addressErr != null ? addressErr : "Enter First Name"%>" name="address" required></td>
+                        <td><input type="text" placeholder="<%= addressErr != null ? addressErr : "Enter Address"%>" name="address" required></td>
                     </tr>
                     <tr>
                         <td>User type</td>

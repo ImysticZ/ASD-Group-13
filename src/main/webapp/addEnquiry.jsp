@@ -1,7 +1,8 @@
 <html>
 <head>
     <jsp:include page="nav.jsp" />
-    <link rel="stylesheet" href="css/enquiry.css"> 
+    <link rel="stylesheet" href="css/enquiry.css">
+    <title>New Enquiry</title> 
 </head>
 <body>
 

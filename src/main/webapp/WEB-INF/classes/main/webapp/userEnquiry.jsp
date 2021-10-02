@@ -48,9 +48,5 @@
             <a href="addEnquiry.jsp">New Enquiry</a>
         </div>
         
-        <div class="button">
-            <a href="faq.jsp">Return</a>
-        </div>
-
     </body>
 </html>
