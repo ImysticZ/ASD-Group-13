@@ -5,6 +5,7 @@ import java.text.*;
 
 public class Booking implements Serializable {
     private int bookingID, userID, roomID;
+
     private Date startingDate, endingDate;
     private String status;
     private boolean paid;
@@ -12,6 +13,7 @@ public class Booking implements Serializable {
 
     public Booking(int bookingID, int userID, int roomID, String startingDate, String endingDate, String status, boolean paid, double totalCost) {
         this.bookingID = bookingID;
+
         this.userID = userID;
         this.roomID = roomID;
         DateFormat formatter = new SimpleDateFormat("d-MMM-yyyy");
@@ -30,7 +32,6 @@ public class Booking implements Serializable {
     public int getBookingID() {
         return bookingID;
     }
-
     public int getUserID() {
         return userID;
     }
@@ -59,3 +60,4 @@ public class Booking implements Serializable {
         return totalCost;
     }
 }
+
