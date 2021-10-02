@@ -45,7 +45,7 @@
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="text" placeholder="<%= passErr != null ? passErr : "Enter Password"%>" name="password" required></td>
+                        <td><input type="password" placeholder="<%= passErr != null ? passErr : "Enter Password"%>" name="password" required></td>
                     </tr>
                     <tr>
                         <td>Address</td>
@@ -53,7 +53,7 @@
                     </tr>
                     <tr>
                         <td>User type</td>
-                        <td><input type="text" placeholder="<%= typeErr != null ? typeErr : "Enter Type"%>" name="type"></td>
+                        <td><input type="text" placeholder="<%= typeErr != null ? typeErr : "Enter Type c/s/a"%>" name="type" required></td>
                     </tr>
                 </table>
                 <input type="submit" value="sign up">

@@ -39,28 +39,17 @@ public class RegisterServlet extends HttpServlet {
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passwordErr", "Invalid Password Format");
             request.getRequestDispatcher("register.jsp").include(request, response);
+        } else if (!validator.validateType(type)) {
+            session.setAttribute("typeErr", "Invalid Type");
+            request.getRequestDispatcher("register.jsp").include(request, response);
         } else {
             try {
                 User check = manager.findUserByEmail(email);
                 if (check == null) {
-                    if (type.isEmpty()){
                         manager.addUser(first_name, last_name, email, phone, password, address, type);
                         User user = manager.findUserByEmail(email);
                         session.setAttribute("user", user);
                         request.getRequestDispatcher("main.jsp").include(request, response);
-                    } 
-                    else if (type.equals("s")){
-                        manager.addUser(first_name, last_name, email, phone, password, address, type);
-                        User user = manager.findUserByEmail(email);
-                        session.setAttribute("user", user);
-                        request.getRequestDispatcher("main.jsp").include(request, response);
-                    } 
-                    else if (type.equals("a")){
-                        manager.addUser(first_name, last_name, email, phone, password, address, type);
-                        User user = manager.findUserByEmail(email);
-                        session.setAttribute("user", user);
-                        request.getRequestDispatcher("main.jsp").include(request, response);
-                    }
                 }   else {
                     session.setAttribute("emailErr", "Email already in use");
                     request.getRequestDispatcher("register.jsp").include(request, response);

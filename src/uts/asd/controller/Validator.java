@@ -6,12 +6,12 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpSession;
 
 public class Validator implements Serializable {
-    private String emailPattern = "[a-zA-Z0-9]{3,}"; //^(.+)@(.+)$
+    private String emailPattern = "[a-zA-Z0-9]{3,}"; //hard coded
     private String namePattern = "[a-zA-Z0-9]{3,}";
     private String passwordPattern = "^[a-zA-Z0-9!@#$&]{4,}";
     private String phonePattern = "([0]{1}[4]{1}[0-9]{8})*";
     private String addressPattern = "^[a-zA-Z0-9!@#$&]{4,}";
-    private String typePattern = "."; //staff registration code
+    private String typePattern = "[csa]"; //hard coded
 
     public Validator() {}
 
@@ -26,7 +26,10 @@ public class Validator implements Serializable {
     }
 
     public boolean validateEmail(String email) {
-        return validate(emailPattern, email);
+        if (email.contains("@") | email.contains(".")){
+            return true;
+        }
+        return false;
     }
 
     public boolean validateFirstName(String name) {
@@ -46,7 +49,10 @@ public class Validator implements Serializable {
     }
     
     public boolean validateType(String type) {
-        return validate(typePattern, type);
+        if (type.equals("c") | type.equals("s") | type.equals("a")){
+            return true;
+        }
+        return false;
     }
     
     public boolean validateAddress(String address) {

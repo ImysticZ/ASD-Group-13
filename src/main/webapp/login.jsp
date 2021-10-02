@@ -30,7 +30,7 @@
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="text" placeholder="<%= passErr != null ? passErr : "Enter Password"%>" name="password" required></td>
+                        <td><input type="password" placeholder="<%= passErr != null ? passErr : "Enter Password"%>" name="password" required></td>
                     </tr>
                 </table>
                 <input type="submit" value="login">
