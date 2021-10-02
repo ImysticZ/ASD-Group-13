@@ -81,6 +81,23 @@ public class AdminDBManager {
         return temp;
     }
 
+    public ArrayList<Room> fetchRooms(int id, String suite) throws SQLException {
+        ResultSet rs = st.executeQuery("select * from Room where RoomID = " + id + " and RoomTypeId = " + checkRTypeID(suite));
+        ArrayList<Room> temp = new ArrayList<Room>();
+
+        while(rs.next()) {
+            int roomId = rs.getInt(1);
+            int roomTypeId = rs.getInt(2);
+            temp.add(new Room(roomId, roomTypeId));
+        }
+
+        for(Room room : temp) {
+            boolean isAvailable = checkRoomAvailability(room.getRoomId());
+            room.setAvailability(!isAvailable);
+        }
+        return temp;
+    }
+
 
     // Helper function to check room availability
     private boolean checkRoomAvailability(int id) throws SQLException {

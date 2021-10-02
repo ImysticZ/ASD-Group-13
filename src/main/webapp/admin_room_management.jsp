@@ -29,8 +29,12 @@
 
         <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
             <table>
-                <form action="admin_room_management.jsp" method="POST">
+                <form action="AdminRoomManagementServlet" method="POST">
                     <th>Search Room</th>
+                    <tr>
+                        <td>Room Number</td>
+                        <td><input type="number" placeholder="123" name="roomnumber"></td>
+                    </tr>
                     <tr>
                         <td>Room Type</td>
                         <td><input type="text" placeholder="Single" name="type"></td>
