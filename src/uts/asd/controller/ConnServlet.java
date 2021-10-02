@@ -16,6 +16,7 @@ public class ConnServlet extends HttpServlet {
     private DBConnector db;
     private DBManager manager;
     private Connection conn;
+    private RoomDBManager room;
     
     @Override //Create and instance of DBConnector for the deployment session
     public void init(){
@@ -34,11 +35,13 @@ public class ConnServlet extends HttpServlet {
         HttpSession session = request.getSession();
         conn = db.openConnection();
         try {
+            room = new RoomDBManager(conn);
             manager = new DBManager(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //export the DB manager to the view-session (JSPs)
+        session.setAttribute("room", room);
         session.setAttribute("manager", manager);
     }
 

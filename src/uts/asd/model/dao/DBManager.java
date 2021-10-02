@@ -47,4 +47,25 @@ public class DBManager {
         return null;
     }
 
+    // Fetch all Users by email
+    public ArrayList<User> fetchUsersEmail(String email) throws SQLException {
+        ResultSet rs = st.executeQuery("select * from USER WHERE TRIM(EMAIL)= '"+email+"'");
+        ArrayList<User> temp = new ArrayList<>();
+
+        while(rs.next()) {
+            temp.add(new User(rs));
+        }
+        return temp;
+    }
+
+    // Fetch every single users
+    public ArrayList<User> fetchAllUsers() throws SQLException {
+        ResultSet rs = st.executeQuery("select * from USER");
+        ArrayList<User> temp = new ArrayList<User>();
+
+        while(rs.next()) {
+            temp.add(new User(rs));
+        }
+        return temp;
+    }
 }

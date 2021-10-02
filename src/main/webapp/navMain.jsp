@@ -7,7 +7,7 @@
         <a class="navbar-brand" href="main.jsp">Four seasons</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="#">Rooms</a></li>
+        <li><a href="RoomServlet">Rooms</a></li>
         <li><a href="#">Booking</a></li>
         <li><a href="#">About us</a></li>
 

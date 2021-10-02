@@ -1,5 +1,6 @@
 {
     "appService.preDeployTask": "package:demo",
     "appService.deploySubpath": "target/demo.war",
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.home": ""
 }
