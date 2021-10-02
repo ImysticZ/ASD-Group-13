@@ -68,4 +68,45 @@ public class DBManager {
         }
         return temp;
     }
+
+    public void updateFirstName(int id, String fname) throws SQLException {
+        
+    }
+
+    public void updateLastName(int id, String lname) throws SQLException {
+        
+    }
+
+    public void updatePhone(int id, String phone) throws SQLException {
+        
+    }
+
+    public void updatePassword(int id, String password) throws SQLException {
+        
+    }
+
+    public void updateAddress(int id, String address) throws SQLException {
+        
+    }
+
+    public void updateType(int id, String type) throws SQLException {
+        
+    }
+
+    public User findUserByID(int id) throws SQLException {
+        String fetch = "SELECT * FROM USER WHERE ID = " + id;
+        ResultSet rs = st.executeQuery(fetch);
+
+        while (rs.next()) {
+            int userID = rs.getInt(1);
+            if (userID == id) {
+                return new User(rs);
+            }
+        }
+        return null;
+    }
+
+    public void updateEmail(int id, String email) throws SQLException {
+        st.executeUpdate("UPDATE USER SET EMAIL = '" + email + "' WHERE ID = " + id);
+    }
 }
