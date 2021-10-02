@@ -22,12 +22,13 @@ public class ProcessPayment extends HttpServlet {
         PaymentDB paymentDB = (PaymentDB) session.getAttribute("paymentDB");
 
         User user = session.getAttribute("user") != null ? (User) session.getAttribute("user") : null; // retrieve user
-                                                                                                       // from session
-                                                                                                       // if exists
-        // also retrieve Booking from session
+                                                                                                       // from session if exists
+        // retrieve Card from session
         Card card = session.getAttribute("card") != null ? (Card) session.getAttribute("card") : null; // retrieve card
-                                                                                                       // from session
-                                                                                                       // if exists
+                                                                                                       // from session if exists
+        // also retrieve Booking from session
+        Booking booking= session.getAttribute("booking") != null ? (Booking) session.getAttribute("booking") : null; // retrieve booking
+                                                                                                                    // from session if exists
         // validator.validatecvc(request.getParameter("cvc"));
         // System.out.println("Is the cvc valid" + validator.validatecvc(cvc));
         // System.out.println("validation for cvc is successful");
@@ -54,24 +55,12 @@ public class ProcessPayment extends HttpServlet {
             }
             try {
                 paymentDB.saveCard(cardNo, cvc, date);
+              //  paymentDB.makePayment(booking.getBookingID(), card.getcardID());
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
             request.getRequestDispatcher("success.jsp").include(request, response);
 
         }
-        // if (request.getParameter("save")!=null) { //save credit card to user database
-        // if user clicked 'save'
-        // paymentDB.saveCard(cardNo, cvc, date);
-        // card= paymentDB.returnCard(user);
-        // }
-        // } catch (SQLException e) {
-        // e.printStackTrace();
-        // }
-        // }session.setAttribute("card",card); // save credit card session
-        // make payment
-        // paymentDB.makePayment(bookingID, card.getcardID());
-        // session.setAttribute("date", request.getParameter("date")); //date type
-        // cannot be resolved to a variable
     }
 }

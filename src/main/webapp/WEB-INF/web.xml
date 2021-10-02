@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<web-app 
+<web-app
     xmlns="http://xmlns.jcp.org/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
@@ -35,6 +35,10 @@
         <servlet-name>PaymentSuccess</servlet-name>
         <servlet-class>uts.asd.controller.PaymentSuccess</servlet-class>
     </servlet>     
+    <servlet>
+        <servlet-name>CustomerBooking</servlet-name>
+        <servlet-class>uts.asd.controller.CustomerBooking</servlet-class>
+    </servlet>     
 
     <!-- insert servlet mapping stuff here -->
     <servlet-mapping>
@@ -64,6 +68,10 @@
     <servlet-mapping>
         <servlet-name>PaymentSuccess</servlet-name>
         <url-pattern>/success</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerBooking</servlet-name>
+        <url-pattern>/bookings</url-pattern>
     </servlet-mapping>
 
     <!-- yo whats up -->

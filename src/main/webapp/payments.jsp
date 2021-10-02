@@ -4,6 +4,7 @@
 <% User user=(session.getAttribute("user")!=null) ? (User) session.getAttribute("user") : null; %>
 <% Payment payment=(session.getAttribute("payment")!=null) ? (Payment) session.getAttribute("payment") : null; %>
 <% Card creditcard= (session.getAttribute("card")!=null) ? (Card) session.getAttribute("card") : null;%>
+<% Booking booking= session.getAttribute("booking") != null ? (Booking) session.getAttribute("booking") : null; %>
 <% String cardnumber= (creditcard!=null) ? Integer.toString(creditcard.getnumber()) : "0" ;%>
 <% String cvcnumber= (creditcard!=null) ? Integer.toString(creditcard.getcvc()) : "0" ;%>
 
@@ -127,7 +128,7 @@
                     ReactDOM.render(<Payment />, document.getElementById('home'))
                 </script>
                 <center>
-                    <h4>The Total Cost is <b>$100</b></h4>
+                    <h4>The Total Cost is <b>$<%= (booking!=null) ? booking.getTotalCost() : 100 %></b></h4>
                 </center>
                 <div id="home">
 
