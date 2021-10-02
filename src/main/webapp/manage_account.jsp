@@ -10,6 +10,7 @@
     <body>
         <%
             User user = (User) session.getAttribute("user");
+            CreditCard card = (CreditCard) session.getAttribute("card");
             String updated = (String) session.getAttribute("updated");
         %>
 
@@ -49,6 +50,23 @@
         <br>
         <div>
             <p>Your current saved payment details are:</p>
+            <form action="UpdateServlet" method="post">
+                <input type="hidden" name="ID" value="${user.id}">
+                <table>
+                    <tr>
+                        <td>Card Number</td><td><input type="text" name="number" value="${card.number}" required></td>
+                    </tr>
+                    <tr>
+                        <td>Card CVC</td><td><input type="text" name="cvc" value="${card.cvc}" required></td>
+                    </tr>
+                    <tr>
+                        <td>Card Date</td><td><input type="text" name="date" value="${card.date}" required></td>
+                    </tr>
+                </table>
+                <p>Please edit the fields above to update any information.</p>
+                <p><input type="submit" value="update"></p>
+                </form>
+                <p><%= updated != null ? updated : ""%></p>
         </div>
         <br>
     </body>
