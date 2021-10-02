@@ -42,7 +42,7 @@ public class UpdateServlet extends HttpServlet{
         } else {
             try {
                 User check = manager.findUserByEmail(email);
-                if (check != null) {
+                if (check == null || check.getId()==id) {
                     manager.updateFirstName(id, fname);
                     manager.updateLastName(id, lname);
                     manager.updateEmail(id, email);
