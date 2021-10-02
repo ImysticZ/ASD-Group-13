@@ -30,32 +30,19 @@ public class UpdateServlet extends HttpServlet{
         
         DBManager manager = (DBManager) session.getAttribute("manager");
         session.setAttribute("updated", ""); //clear any error messages
-
-        if (!validator.validateFirstName(fname)) { //validate format for all fields
-            session.setAttribute("updated", "Invalid Name Format");
-            request.getRequestDispatcher("manage_account.jsp").include(request, response);
-        } else if (!validator.validateLastName(lname)) {
-            session.setAttribute("updated", "Invalid Name Format");
-            request.getRequestDispatcher("manage_account.jsp").include(request, response);
-        } else if (!validator.validateEmail(email)) {
+        // System.out.println("");
+        // System.out.println(fname);
+        // System.out.println(fname.trim());
+        if (!validator.validateEmail(email)) {
             session.setAttribute("updated", "Invalid Email Format");
             request.getRequestDispatcher("manage_account.jsp").include(request, response);
-        } else if (!validator.validatePhone(phone)) {
-            session.setAttribute("updated", "Invalid Phone Format");
-            request.getRequestDispatcher("manage_account.jsp").include(request, response);
-        } else if (!validator.validatePassword(password)) {
-            session.setAttribute("updated", "Invalid Password Format");
-            request.getRequestDispatcher("manage_account.jsp").include(request, response);
-        } else if (!validator.validateAddress(address)) {
-            session.setAttribute("updated", "Invalid Address Format");
-            request.getRequestDispatcher("manage_account.jsp").include(request, response);
-        } else if (!validator.validateType(password)) {
+        } else if (!validator.validateType(type)) {
             session.setAttribute("updated", "Invalid Account Type");
             request.getRequestDispatcher("manage_account.jsp").include(request, response);
         } else {
             try {
                 User check = manager.findUserByEmail(email);
-                if (check == null || check.getEmail().equals(email)) {
+                if (check != null) {
                     manager.updateFirstName(id, fname);
                     manager.updateLastName(id, lname);
                     manager.updateEmail(id, email);

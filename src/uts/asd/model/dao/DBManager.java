@@ -70,27 +70,27 @@ public class DBManager {
     }
 
     public void updateFirstName(int id, String fname) throws SQLException {
-        
+        st.executeUpdate("UPDATE USER SET FIRST_NAME = '" + fname + "' WHERE ID = " + id);
     }
 
     public void updateLastName(int id, String lname) throws SQLException {
-        
+        st.executeUpdate("UPDATE USER SET LAST_NAME = '" + lname + "' WHERE ID = " + id);
     }
 
     public void updatePhone(int id, String phone) throws SQLException {
-        
+        st.executeUpdate("UPDATE USER SET PHONE = '" + phone + "' WHERE ID = " + id);
     }
 
     public void updatePassword(int id, String password) throws SQLException {
-        
+        st.executeUpdate("UPDATE USER SET PASSWORD = '" + password + "' WHERE ID = " + id);
     }
 
     public void updateAddress(int id, String address) throws SQLException {
-        
+        st.executeUpdate("UPDATE USER SET ADDRESS = '" + address + "' WHERE ID = " + id);
     }
 
     public void updateType(int id, String type) throws SQLException {
-        
+        st.executeUpdate("UPDATE USER SET TYPE = '" + type + "' WHERE ID = " + id);
     }
 
     public User findUserByID(int id) throws SQLException {
