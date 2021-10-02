@@ -2,8 +2,7 @@
 <%@page import="uts.asd.model.*"%>
 <%@page import="uts.asd.controller.*"%>
 <%@page import="java.util.*"%>
-<%@page import="uts.asd.model.dao.DBConnector"%>
-<%@page import="uts.asd.model.dao.DBManager"%>
+<%@page import="uts.asd.model.dao.*"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
@@ -14,23 +13,18 @@
 
         <%
             String submitted = request.getParameter("submitted");
+            AdminDBManager db = (AdminDBManager)session.getAttribute("adminmngr");
+            if(db == null) {
+                db = new AdminDBManager(new DBConnector().openConnection());
+                session.setAttribute("adminmngr", db);
+                out.println("Admin manager does not exist, creating one");
+            }
             
-            ArrayList<Room> roomList = new ArrayList<Room>();
-            for(int i = 0; i < 100; i++) {
-                roomList.add(new Room(i, ((i^2)%3==0)?0:1, (i%2==0)?true:false));
-            }
-
-            if(submitted != null) {
-                int submittedType = Integer.parseInt(request.getParameter("type"));
-
-                ArrayList<Room> temp = new ArrayList<Room>();
-                for(Room room : roomList) {
-                    if(room.getRoomTypeId() == submittedType) {
-                        temp.add(room);
-                    }
-                }
-                roomList = temp;
-            }
+            ArrayList<Room> roomList = (ArrayList<Room>)session.getAttribute("roomList");
+            
+            if(roomList == null)
+                roomList = db.fetchAllRooms();
+            
         %>
 
         <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
@@ -59,7 +53,7 @@
                     %>
                     <tr>
                         <td><%= room.getRoomId() %></td>
-                        <td><%= room.getRoomTypeId() %></td>
+                        <td><%= db.getSuite(room.getRoomTypeId()) %></td>
                         <td><%= room.getAvailability() %></td>
                         <td>
                             <%--EDIT USER BUTTON--%>
