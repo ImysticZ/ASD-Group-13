@@ -13,7 +13,7 @@ public class Validator implements Serializable {
     private String addressPattern = "^[a-zA-Z0-9!@#$&]{4,}";
     private String cardPattern = "^[0-9]{16}";
     private String cvcPattern = "^[0-9]{3}";
-    private String typePattern = "."; //staff registration code
+    //private String typePattern = "."; //staff registration code
     private String typePattern = "[csa]"; //hard coded
 
 

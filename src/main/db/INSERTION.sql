@@ -7,8 +7,4 @@ VALUES
 (199.99, 2, 'Queen', 'A nice room that comfortably fits two people'),
 (219.99, 3, 'King', 'A nice room that comfortably fits three people'),
 (349.99, 6, 'Executive Suite', 'A living room connected to three bedrooms'),
-<<<<<<< HEAD
 (649.99, 10, 'President Suite', 'A deluxe and comfortable room connected to several bedrooms');
-=======
-(649.99, 10, 'President Suite', 'A deluxe and comfortable room connected to several bedrooms');
->>>>>>> origin/main
