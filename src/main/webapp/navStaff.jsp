@@ -21,7 +21,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="main.jsp"><span class="glyphicon glyphicon-user"></span> Main</a></li>
-        <li><a href="manage_account.jsp"><span class="glyphicon glyphicon-wrench"></span> Manage Account</a></li>
+        <li><a href="manage_staffAccount.jsp"><span class="glyphicon glyphicon-wrench"></span> Manage Account</a></li>
         <li><a href="LogoutServlet"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
