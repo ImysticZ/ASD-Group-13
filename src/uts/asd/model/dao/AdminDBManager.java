@@ -60,6 +60,17 @@ public class AdminDBManager {
         return temp;
     }
 
+    public ArrayList<Room> fetchRoomBySuite(String suite) throws SQLException {
+        ArrayList<Room> rooms = fetchAllRooms();
+        ArrayList<Room> temp = new ArrayList<Room>();
+        int suiteId = checkRTypeID(suite);
+        for(Room room : rooms) {
+            if(room.getRoomTypeId() == suiteId)
+                temp.add(room);
+        }
+        return temp;
+    }
+
 
     // Helper function to check room availability
     private boolean checkRoomAvailability(int id) throws SQLException {
