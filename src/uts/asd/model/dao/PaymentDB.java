@@ -41,13 +41,13 @@ public class PaymentDB {
 
     // Return credit card information of a user
     public Card returnCard(User user) throws SQLException {
-        String query = "SELECT * from inner join User on Card.CardID = Customer.CardID where Customer.UserID= "
-                + user.getId();
+        String query = "SELECT * from Card INNER JOIN CUSTOMER on Card.CardID = CUSTOMER.CardID WHERE CUSTOMER.ID= " + user.getId();
         ResultSet rs = st.executeQuery(query); // store in resultSet
         Card card = null;
         while (rs.next()) {
             card = new Card(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
         }
+        System.out.println("card sucessfully returned"); //  successful
         return card;
     }
 
