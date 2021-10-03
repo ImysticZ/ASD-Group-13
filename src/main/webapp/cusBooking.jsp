@@ -18,27 +18,31 @@
                                 margin: 1% auto;
                             }
 
-                            td, th {
+                            td,
+                            th {
                                 border-top: 1px solid #dddddd;
                                 text-align: left;
                                 padding: 8px;
                                 width: 10%;
                             }
+
                             .overlay {
                                 display: none;
-                                position:fixed;
+                                position: fixed;
                                 width: 100%;
-                                height:100vh;
-                                background-color: rgba(0,0,0,0.5);
+                                height: 100vh;
+                                background-color: rgba(0, 0, 0, 0.5);
                                 top: 0;
-                                left:0;
-                                right:0;
+                                left: 0;
+                                right: 0;
                                 z-index: 2;
                             }
+
                             .booking-container {
-                                margin: 5% auto;
-                                width:75vw;
-                                border-radius:5px;
+                                color: white;
+                                display: none;
+                                width: 100%;
+                                border-radius: 1px;
                                 background-color: rgb(54, 54, 53);
                             }
                         </style>
@@ -57,9 +61,6 @@
                                         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                                     });
                                 });
-                                $(".overlay").click(()=> {
-                                    $(".overlay").toggle();
-                                })
                             });
                         </script>
 </head>
@@ -67,7 +68,7 @@
 <body>
     <section class="container">
         <div class="form-group">
-            <input type="text" class="form-control" id="search" placeholder="Search for booking" maxlength="1" />
+            <input type="text" class="form-control" id="search" placeholder="Search for booking" />
         </div>
         <table>
             <thead>
@@ -75,7 +76,7 @@
                     <th>Booking ID</th>
                     <th>Total Cost</th>
                     <th>Booking Status</th>
-                    <th>Open</th>
+                    <th> </th>
                 </tr>
             </thead>
             <tbody id="my-table">
@@ -91,24 +92,22 @@
                             </p>
                         </td>
                         <td>
-                            <p>
-                                <%= b.getStatus() %>
-                            </p>
+                            <select class="form-control" id="bookingStatus" style="width:75%;">
+                                <option <%=b.getStatus().equals("Booked") ? "selected" : "" %>>Booked</option>
+                                <option <%=b.getStatus().equals("Checked In") ? "selected" : "" %>>Checked In</option>
+                                <option <%=b.getStatus().equals("Checked Out") ? "selected" : "" %>>Checked Out</option>
+                                <option <%=b.getStatus().equals("Cancelled") ? "selected" : "" %>>Cancelled</option>
+                            </select>
                         </td>
                         <td>
-                            <button id="<%= b.getBookingID() %>" class="btn btn-success" onclick="$('.overlay').toggle();">Open Booking ></button>
+                            <button id="<%= b.getBookingID() %>" class="btn btn-success">Update Booking ></button>
                         </td>
+                        <!--Instead of doing a drop down why dont you just make the booking status a drop down field and the button send a request that updates it-->
                     </tr>
                     <% } %>
             </tbody>
         </table>
-        <div class="overlay">
-            <div class="booking-container">
-                <% for (Booking b : allBookings) { %>
-                    out.println("this shit works lol");
-                <% } %>
-            </div>
-        </div>
     </section>
 </body>
+
 </html>
