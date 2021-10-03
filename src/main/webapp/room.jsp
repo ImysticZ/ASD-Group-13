@@ -10,7 +10,7 @@
     <title>View Rooms</title>
     <jsp:include page="ConnServlet"/>
     <%if (session.getAttribute("user") != null) { %>
-    <jsp:include page="navMain.jsp"/>
+    <jsp:include page="navcustomer.jsp"/>
     <%}
     else {%>
     <jsp:include page="nav.jsp"/>

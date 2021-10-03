@@ -120,7 +120,7 @@
                     <h4>The Total Cost is <b>$100.00</b></h4>
                 </center>
                 <div id="home">
-                    <% if (user.getType()=="C" ) { %>
+                    <% if (user.getType()=="c" ) { %>
                         <div class="checkbox" style="padding: 1%">
                             <label>
                                 <input type="checkbox" value="save" name="save" />
