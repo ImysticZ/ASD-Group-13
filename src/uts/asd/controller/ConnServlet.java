@@ -18,6 +18,8 @@ public class ConnServlet extends HttpServlet {
     private PaymentDB paymentDB;
     private Connection conn;
     private RoomDBManager room;
+    private EnquiryDBManager enquiryManager;
+    private AdminDBManager admin;
     
     @Override //Create and instance of DBConnector for the deployment session
     public void init(){
@@ -31,21 +33,27 @@ public class ConnServlet extends HttpServlet {
     }
 
     @Override //Add the DBConnector, DBManager, Connection instances to the session
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         conn = db.openConnection();
         try {
             room = new RoomDBManager(conn);
             manager = new DBManager(conn);
+            enquiryManager = new EnquiryDBManager(conn);
             paymentDB= new PaymentDB(conn);
+            admin = new AdminDBManager(conn);
+            
         } catch (SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //export the DB manager to the view-session (JSPs)
         session.setAttribute("room", room);
         session.setAttribute("manager", manager);
+        session.setAttribute("enquiryManager", enquiryManager);
         session.setAttribute("paymentDB", paymentDB);
+        session.setAttribute("adminmngr", admin);
+        System.out.println("Managers added");
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)

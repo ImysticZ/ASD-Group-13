@@ -129,7 +129,14 @@
                     <h4>The Total Cost is <b>$<%= (booking!=null) ? booking.getTotalCost() : 100 %></b></h4>
                 </center>
                 <div id="home">
-
+                    <% if (user.getType()=="c" ) { %>
+                        <div class="checkbox" style="padding: 1%">
+                            <label>
+                                <input type="checkbox" value="save" name="save" />
+                                Save credit card information?
+                            </label>
+                        </div>
+                        <% } %>
                 </div>
             </body>
 

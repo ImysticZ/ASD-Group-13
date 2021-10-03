@@ -68,4 +68,55 @@ public class DBManager {
         }
         return temp;
     }
+
+    public void updateFirstName(int id, String fname) throws SQLException {
+        st.executeUpdate("UPDATE USER SET FIRST_NAME = '" + fname + "' WHERE ID = " + id);
+    }
+
+    public void updateLastName(int id, String lname) throws SQLException {
+        st.executeUpdate("UPDATE USER SET LAST_NAME = '" + lname + "' WHERE ID = " + id);
+    }
+
+    public void updatePhone(int id, String phone) throws SQLException {
+        st.executeUpdate("UPDATE USER SET PHONE = '" + phone + "' WHERE ID = " + id);
+    }
+
+    public void updatePassword(int id, String password) throws SQLException {
+        st.executeUpdate("UPDATE USER SET PASSWORD = '" + password + "' WHERE ID = " + id);
+    }
+
+    public void updateAddress(int id, String address) throws SQLException {
+        st.executeUpdate("UPDATE USER SET ADDRESS = '" + address + "' WHERE ID = " + id);
+    }
+
+    public void updateType(int id, String type) throws SQLException {
+        st.executeUpdate("UPDATE USER SET TYPE = '" + type + "' WHERE ID = " + id);
+    }
+
+    public User findUserByID(int id) throws SQLException {
+        String fetch = "SELECT * FROM USER WHERE ID = " + id;
+        ResultSet rs = st.executeQuery(fetch);
+
+        while (rs.next()) {
+            int userID = rs.getInt(1);
+            if (userID == id) {
+                return new User(rs);
+            }
+        }
+        return null;
+    }
+
+    public void updateEmail(int id, String email) throws SQLException {
+        st.executeUpdate("UPDATE USER SET EMAIL = '" + email + "' WHERE ID = " + id);
+    }
+
+    public void deleteUser(int id) throws SQLException {
+        st.executeUpdate("DELETE FROM USER WHERE ID =" + id);
+    }
+
+    //CUSTOMER DAO METHODS
+    public void addCustomer(int id) throws SQLException {
+        String query = "insert into CUSTOMER (ID)" + "values (' "+ id + " ')";
+        st.executeUpdate(query);
+    }
 }
