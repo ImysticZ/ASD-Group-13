@@ -9,6 +9,18 @@ VALUES
 (349.99, 6, 'Executive Suite', 'A living room connected to three bedrooms'),
 (649.99, 10, 'President Suite', 'A deluxe and comfortable room connected to several bedrooms');
 
+
+INSERT INTO Room(RoomTypeID)
+VALUES
+(10),
+(11),
+(12),
+(13),
+(14),
+(15),
+(16),
+(17);
+
 INSERT INTO Enquiry (Question, Reply, Resolved, UserID)
 VALUES
 ('How do I search for available rooms?', 'Rooms can be found on the "Rooms" page, the link can be found in the navigation bar.', true, 1011),
@@ -21,3 +33,4 @@ VALUES
 ('My payment for a booking is not going through', '', false, 1011),
 ('How do I view past bookings?', '', false, 1011),
 ('What is the maximum number of people for one room?', '', false, 1011);
+
