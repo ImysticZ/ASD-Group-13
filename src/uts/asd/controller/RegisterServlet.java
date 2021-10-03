@@ -49,6 +49,9 @@ public class RegisterServlet extends HttpServlet {
                         manager.addUser(first_name, last_name, email, phone, password, address, type);
                         User user = manager.findUserByEmail(email);
                         session.setAttribute("user", user);
+                        if (user.getType().equals("c")){
+                            manager.addCustomer(user.getId());
+                        }
                         request.getRequestDispatcher("main.jsp").include(request, response);
                 }   else {
                     session.setAttribute("emailErr", "Email already in use");

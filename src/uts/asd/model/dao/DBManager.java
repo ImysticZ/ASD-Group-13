@@ -113,4 +113,10 @@ public class DBManager {
     public void deleteUser(int id) throws SQLException {
         st.executeUpdate("DELETE FROM USER WHERE ID =" + id);
     }
+
+    //CUSTOMER DAO METHODS
+    public void addCustomer(int id) throws SQLException {
+        String query = "insert into CUSTOMER (ID)" + "values (' "+ id + " ')";
+        st.executeUpdate(query);
+    }
 }
