@@ -51,6 +51,14 @@
         <servlet-name>ViewRoomServlet</servlet-name>
         <servlet-class>uts.asd.controller.ViewRoomServlet</servlet-class>
     </servlet> 
+    <servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>uts.asd.controller.UpdateServlet</servlet-class>
+    </servlet> 
+    <servlet>
+        <servlet-name>DeleteAccServlet</servlet-name>
+        <servlet-class>uts.asd.controller.DeleteAccServlet</servlet-class>
+    </servlet> 
 
     <!-- insert servlet mapping stuff here -->
     <servlet-mapping>
@@ -96,6 +104,14 @@
     <servlet-mapping>
         <servlet-name>ViewRoomServlet</servlet-name>
         <url-pattern>/ViewRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccServlet</servlet-name>
+        <url-pattern>/DeleteAccServlet</url-pattern>
     </servlet-mapping>
 
     <!-- yo whats up -->
