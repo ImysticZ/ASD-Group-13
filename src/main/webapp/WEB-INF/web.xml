@@ -10,6 +10,7 @@
     <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>uts.asd.controller.ConnServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
@@ -38,7 +39,47 @@
     <servlet>
         <servlet-name>CustomerBooking</servlet-name>
         <servlet-class>uts.asd.controller.CustomerBooking</servlet-class>
-    </servlet>     
+    </servlet>  
+    <servlet>   
+        <servlet-name>AdminUserManagementServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminUserManagementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminRoomManagementServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminRoomManagementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminCreateUserServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminCreateUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminCreateRoomServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminCreateRoomServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateUserServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminUpdateUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateRoomServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminUpdateRoomServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateRoomsServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminUpdateRoomsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteUserServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminDeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteRoomServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminDeleteRoomServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteRoomsServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminDeleteRoomsServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>RoomServlet</servlet-name>
         <servlet-class>uts.asd.controller.RoomServlet</servlet-class>
@@ -82,8 +123,44 @@
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AdminManagementServlet</servlet-name>
-        <url-pattern>/AdminManagementServlet</url-pattern>
+        <servlet-name>AdminUserManagementServlet</servlet-name>
+        <url-pattern>/AdminUserManagementServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminRoomManagementServlet</servlet-name>
+        <url-pattern>/AdminRoomManagementServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCreateUserServlet</servlet-name>
+        <url-pattern>/AdminCreateUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCreateRoomServlet</servlet-name>
+        <url-pattern>/AdminCreateRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateUserServlet</servlet-name>
+        <url-pattern>/AdminUpdateUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateRoomServlet</servlet-name>
+        <url-pattern>/AdminUpdateRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateRoomsServlet</servlet-name>
+        <url-pattern>/AdminUpdateRoomsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteUserServlet</servlet-name>
+        <url-pattern>/AdminDeleteUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteRoomServlet</servlet-name>
+        <url-pattern>/AdminDeleteRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteRoomsServlet</servlet-name>
+        <url-pattern>/AdminDeleteRoomsServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProcessPayment</servlet-name>

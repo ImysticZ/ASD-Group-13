@@ -1,3 +1,5 @@
+<%-- NAVBAR FOR NEW USERS --%>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="style.css">
 
@@ -12,17 +14,6 @@
         <li><a href="faq.jsp">FAQ</a></li>
         <li><a href="#">About us</a></li>
 
-        <%--Conditions: ONLY LOGGED IN USERS--%>
-        
-        <%--Condition end--%>
-
-        <%--Conditions: ONLY STAFF--%>
-        <li><a href="bookings.jsp">Bookings</a></li>
-        <%--Condition end--%>
-
-        <%--Conditions: ONLY ADMIN--%>
-        
-        <%--Condition end--%>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="register.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
