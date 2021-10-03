@@ -63,8 +63,8 @@
                         <td>Card Date</td><td><input type="text" name="date" value="${card.date}" required></td>
                     </tr>
                 </table>
-                <p>Please edit the fields above to update any information.</p>
-                <p><input type="submit" value="update"></p>
+                <%-- <p>Please edit the fields above to update any information.</p>
+                <p><input type="submit" value="update"></p> --%>
                 </form>
                 <p><%= updated != null ? updated : ""%></p>
         </div>
