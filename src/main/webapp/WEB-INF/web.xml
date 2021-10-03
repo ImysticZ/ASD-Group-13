@@ -39,8 +39,17 @@
     <servlet>
         <servlet-name>CustomerBooking</servlet-name>
         <servlet-class>uts.asd.controller.CustomerBooking</servlet-class>
+<<<<<<< HEAD
     </servlet>   
     <servlet>  
+=======
+    </servlet>     
+    <servlet>
+        <servlet-name>UpdateBooking</servlet-name>
+        <servlet-class>uts.asd.controller.UpdateBooking</servlet-class>
+    </servlet>  
+    <servlet>   
+>>>>>>> ce45dc814c6aef8ff29d1e65443a78479f321626
         <servlet-name>AdminUserManagementServlet</servlet-name>
         <servlet-class>uts.asd.controller.AdminUserManagementServlet</servlet-class>
     </servlet>
@@ -100,6 +109,18 @@
         <servlet-name>DeleteAccServlet</servlet-name>
         <servlet-class>uts.asd.controller.DeleteAccServlet</servlet-class>
     </servlet> 
+    <servlet>
+        <servlet-name>AddEnquiryServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AddEnquiryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EnquiryReplyServlet</servlet-name>
+        <servlet-class>uts.asd.controller.EnquiryReplyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteEnquiryServlet</servlet-name>
+        <servlet-class>uts.asd.controller.DeleteEnquiryServlet</servlet-class>
+    </servlet>
 
     <!-- insert servlet mapping stuff here -->
     <servlet-mapping>
@@ -171,6 +192,10 @@
         <url-pattern>/bookings</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>UpdateBooking</servlet-name>
+        <url-pattern>/UpdateBooking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>RoomServlet</servlet-name>
         <url-pattern>/RoomServlet</url-pattern>
     </servlet-mapping>
@@ -189,6 +214,18 @@
     <servlet-mapping>
         <servlet-name>DeleteAccServlet</servlet-name>
         <url-pattern>/DeleteAccServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddEnquiryServlet</servlet-name>
+        <url-pattern>/AddEnquiryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnquiryReplyServlet</servlet-name>
+        <url-pattern>/EnquiryReplyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteEnquiryServlet</servlet-name>
+        <url-pattern>/DeleteEnquiryServlet</url-pattern>
     </servlet-mapping>
 
     <!-- yo whats up -->

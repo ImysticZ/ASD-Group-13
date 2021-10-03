@@ -18,6 +18,7 @@ public class ConnServlet extends HttpServlet {
     private PaymentDB paymentDB;
     private Connection conn;
     private RoomDBManager room;
+    private EnquiryDBManager enquiryManager;
     private AdminDBManager admin;
     
     @Override //Create and instance of DBConnector for the deployment session
@@ -39,6 +40,7 @@ public class ConnServlet extends HttpServlet {
         try {
             room = new RoomDBManager(conn);
             manager = new DBManager(conn);
+            enquiryManager = new EnquiryDBManager(conn);
             paymentDB= new PaymentDB(conn);
             admin = new AdminDBManager(conn);
             
@@ -48,6 +50,7 @@ public class ConnServlet extends HttpServlet {
         //export the DB manager to the view-session (JSPs)
         session.setAttribute("room", room);
         session.setAttribute("manager", manager);
+        session.setAttribute("enquiryManager", enquiryManager);
         session.setAttribute("paymentDB", paymentDB);
         session.setAttribute("adminmngr", admin);
         System.out.println("Managers added");
