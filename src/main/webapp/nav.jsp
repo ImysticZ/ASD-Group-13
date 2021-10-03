@@ -1,6 +1,8 @@
 <%-- NAVBAR FOR NEW USERS --%>
 <%@page import="uts.asd.model.*"%>
-
+<% 
+  Card card = (Card) session.getAttribute("card");
+%>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="style.css">
 <% if (session.getAttribute("user") == null) {%>

@@ -5,12 +5,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Edit Page</title>
-        <jsp:include page="navCustomer.jsp"/> 
+        <jsp:include page="nav.jsp"/> 
     </head>
     <body>
         <%
             User user = (User) session.getAttribute("user");
-            CreditCard card = (CreditCard) session.getAttribute("card");
+            Card card = (Card) session.getAttribute("card");
             String updated = (String) session.getAttribute("updated");
         %>
 
@@ -63,8 +63,8 @@
                         <td>Card Date</td><td><input type="text" name="date" value="${card.date}" required></td>
                     </tr>
                 </table>
-                <p>Please edit the fields above to update any information.</p>
-                <p><input type="submit" value="update"></p>
+                <%-- <p>Please edit the fields above to update any information.</p>
+                <p><input type="submit" value="update"></p> --%>
                 </form>
                 <p><%= updated != null ? updated : ""%></p>
         </div>
