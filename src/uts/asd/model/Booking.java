@@ -15,7 +15,7 @@ public class Booking implements Serializable {
 
         this.userID = userID;
         this.roomID = roomID;
-        DateFormat formatter = new SimpleDateFormat("d-MMM-yyyy");
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
             this.startingDate = formatter.parse(startingDate);
             this.endingDate = formatter.parse(endingDate);

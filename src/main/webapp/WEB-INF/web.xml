@@ -108,6 +108,10 @@
     <servlet>
         <servlet-name>DeleteAccServlet</servlet-name>
         <servlet-class>uts.asd.controller.DeleteAccServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmBookingServlet</servlet-name>
+        <servlet-class>uts.asd.controller.ConfirmBookingServlet</servlet-class>
     </servlet> 
     <servlet>
         <servlet-name>AddEnquiryServlet</servlet-name>
@@ -214,6 +218,10 @@
     <servlet-mapping>
         <servlet-name>DeleteAccServlet</servlet-name>
         <url-pattern>/DeleteAccServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmBookingServlet</servlet-name>
+        <url-pattern>/ConfirmBookingServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddEnquiryServlet</servlet-name>

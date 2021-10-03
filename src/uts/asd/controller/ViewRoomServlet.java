@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.asd.model.*;
 import uts.asd.model.dao.*;
+import java.util.*;
 
 public class ViewRoomServlet extends HttpServlet {
 
@@ -18,7 +19,9 @@ public class ViewRoomServlet extends HttpServlet {
         try {
             int roomId = Integer.parseInt(request.getParameter("roomid"));
             RoomType room = manager.findRoomById(roomId);
+            ArrayList<Room> rooms = manager.listRoomsByID(roomId);
             session.setAttribute("theroom", room);
+            session.setAttribute("allrooms", rooms);
             request.getRequestDispatcher("room.jsp").include(request, response);
         }
         catch (Exception e) {
