@@ -39,6 +39,24 @@ public class AdminDBManager {
         return temp;
     }
 
+    // Add User
+    public void addUser(String firstname, String lastname, String email, String phone, String password, String address, String type) throws SQLException {
+        String query = "insert into USER (FIRST_NAME, LAST_NAME, EMAIL, PHONE, PASSWORD, ADDRESS, TYPE)" + "values (' "+ firstname + " ',' "+  lastname + "',' "+ email + " ',' "+ phone + " ',' "+ password +"',' "+ address + " ', '"+type+"')";
+        st.executeUpdate(query);
+    }
+
+    // Remove User
+    public void deleteUser(int id) throws SQLException {
+        String query = "delete from USER where ID = " + id;
+        st.executeUpdate(query);
+    }
+
+    // Update User
+    public void updateUser(int id, String firstName, String lastName, String email, String phone, String password, String address, String type) throws SQLException {
+        String query = "update USER set FIRST_NAME = '"+firstName+"', LAST_NAME = '"+lastName+"', EMAIL = '"+email+"', PHONE = '"+phone+"', PASSWORD = '"+password+"', ADDRESS = '"+address+"', TYPE = '"+type+"' where ID = "+id;
+        st.executeUpdate(query);
+    }
+
     /*
         Admin Room management
      */
@@ -60,6 +78,7 @@ public class AdminDBManager {
         return temp;
     }
 
+    // Fetch rooms by suite
     public ArrayList<Room> fetchRoomBySuite(String suite) throws SQLException {
         ArrayList<Room> rooms = fetchAllRooms();
         ArrayList<Room> temp = new ArrayList<Room>();
@@ -71,6 +90,7 @@ public class AdminDBManager {
         return temp;
     }
 
+    // Fetch rooms by number
     public ArrayList<Room> fetchRoomByNumber(int id) throws SQLException {
         ArrayList<Room> rooms = fetchAllRooms();
         ArrayList<Room> temp = new ArrayList<Room>();
@@ -81,6 +101,7 @@ public class AdminDBManager {
         return temp;
     }
 
+    // Fetch rooms by both number and suite
     public ArrayList<Room> fetchRooms(int id, String suite) throws SQLException {
         ResultSet rs = st.executeQuery("select * from Room where RoomID = " + id + " and RoomTypeId = " + checkRTypeID(suite));
         ArrayList<Room> temp = new ArrayList<Room>();
@@ -98,7 +119,14 @@ public class AdminDBManager {
         return temp;
     }
 
+    // Add room by range
+    // Delete room
+    // Update room
 
+
+    /*
+        Helper Functions
+    */
     // Helper function to check room availability
     private boolean checkRoomAvailability(int id) throws SQLException {
         ResultSet rset = st.executeQuery("select * from Booking where RoomID =" + id);
