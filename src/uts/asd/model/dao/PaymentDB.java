@@ -12,9 +12,18 @@ public class PaymentDB {
     
     // Payment DAO METHODS
     //saves user card for payment of booking
-    public void saveCard(String cardNo, String cvc, String date) throws SQLException {
+    public Card saveCard(String cardNo, String cvc, String date) throws SQLException {
         String query = "INSERT INTO Card (Card_Number, cvc, Expiry) VALUES('" + cardNo + "', '" + cvc + "', '" + date + "')";
-        st.execute(query);
+        st.execute(query); 
+         System.out.println("Card successfully inserted"); //successful
+        query="SELECT * FROM Card WHERE CardID= (SELECT MAX(CardID) FROM Card)";
+        ResultSet rs= st.executeQuery(query);
+        System.out.println("Card return works"); //successful
+        Card card= null;
+        while (rs.next()) {
+            card = new Card(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+        }
+        return card;
     }
 
     // To create payment when user completes transaction
@@ -23,9 +32,11 @@ public class PaymentDB {
         st.execute(query);
     }
 
-    // Saves card to User
-    public void saveCardToUser() throws SQLException {
-        // st.execute(query);
+    // Saves card details to user account
+    public void saveCardToUser(int userID, Card card) throws SQLException {
+        String query="UPDATE CUSTOMER SET CardID= " + card.getcardID() + " WHERE ID= " + userID;
+        st.executeUpdate(query);
+        System.out.println("card sucessfully saved to customer record"); //  successful
     }
 
     // Return credit card information of a user
@@ -35,7 +46,7 @@ public class PaymentDB {
         ResultSet rs = st.executeQuery(query); // store in resultSet
         Card card = null;
         while (rs.next()) {
-            card = new Card(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
+            card = new Card(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
         }
         return card;
     }

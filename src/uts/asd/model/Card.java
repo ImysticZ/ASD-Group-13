@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class Card implements Serializable {
     private int cardID;
-    private int number;
-    private int cvc;
+    private String number;
+    private String cvc;
     private String date;
 
-    public Card(int ID, int num, int cvc, String date) {
+    public Card(int ID, String num, String cvc, String date) {
         cardID = ID;
         number = num;
         this.cvc = cvc;
@@ -20,11 +20,11 @@ public class Card implements Serializable {
         return cardID;
     }
 
-    public int getnumber() {
+    public String getnumber() {
         return number;
     }
 
-    public int getcvc() {
+    public String getcvc() {
         return cvc;
     }
 
@@ -38,11 +38,11 @@ public class Card implements Serializable {
         this.cardID = cardID;
     }
 
-    public void setnumber(int num) {
+    public void setnumber(String num) {
         this.number = num;
     }
 
-    public void setcvc(int cvc) {
+    public void setcvc(String cvc) {
         this.cvc = cvc;
     }
 

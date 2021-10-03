@@ -2,12 +2,10 @@
 <html lang="en">
 <%@page import="uts.asd.model.*" %>
 <% User user=(session.getAttribute("user")!=null) ? (User) session.getAttribute("user") : null; %>
-<% Payment payment=(session.getAttribute("payment")!=null) ? (Payment) session.getAttribute("payment") : null; %>
 <% Card creditcard= (session.getAttribute("card")!=null) ? (Card) session.getAttribute("card") : null;%>
-<% Booking booking= session.getAttribute("booking") != null ? (Booking) session.getAttribute("booking") : null; %>
-<% String cardnumber= (creditcard!=null) ? Integer.toString(creditcard.getnumber()) : "0" ;%>
-<% String cvcnumber= (creditcard!=null) ? Integer.toString(creditcard.getcvc()) : "0" ;%>
-
+<% Booking booking= (session.getAttribute("booking")) != null ? (Booking) session.getAttribute("booking") : null; %>
+<% String cardnumber= (creditcard!=null) ? creditcard.getnumber() : "0" ;%>
+<% String cvcnumber= (creditcard!=null) ? creditcard.getcvc() : "0" ;%>
             <head>
                 <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
