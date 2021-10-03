@@ -66,7 +66,7 @@
                         <td><%= room.getAvailability() %></td>
                         <td>
                             <%--EDIT USER BUTTON--%>
-                            <form action="#" method="post">
+                            <form action="admin_update_room.jsp" method="post">
                                 <input type="hidden" name="id" value="<%=room.getRoomId()%>">
                                 <input type="submit" value="Edit" class="button">
                             </form>

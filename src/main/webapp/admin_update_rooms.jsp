@@ -26,16 +26,19 @@
                 <%
             }
 
-            int id = Integer.parseInt(request.getParameter("id"));
             ArrayList<RoomType> roomTypes = db.getRoomTypes();
         %>
 
-        <h1>Update Room #<%=id%></h1>
+        <h1>Create Room</h1>
 
         <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
-            <form action="AdminUpdateRoomServlet" method="POST">
-                <input type="hidden" name="id" value="<%=id%>">
+            <form action="AdminUpdateRoomsServlet" method="POST">
                 <table class='table'>
+                    <tr>
+                        <td>Number Range: </td>
+                        <td>Lower bound (inclusive): <input type="number" placeholder="0" name="lowerbound"></td>
+                        <td>Upper bound (inclusive): <input type="number" placeholder="999" name="upperbound"></td>
+                    </tr>
                     <tr>
                         <td>Type: </td>
                         <td>
