@@ -18,12 +18,14 @@ CREATE TABLE CUSTOMER (
 );
 
 CREATE TABLE Payment (
-    PaymentID int NOT NULL AUTO_INCREMENT,
+    PaymentID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    BookingID int,
+    CardId int,
     FOREIGN KEY (BookingID) REFERENCES Booking(BookingID),
-    FOREIGN KEY (CardID) REFERENCES CreditCard(CardID)
+    FOREIGN KEY (CardID) REFERENCES Card(CardID)
 );
 CREATE TABLE Card (
-    CardID int NOT NULL AUTO_INCREMENT,
+    CardID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Card_Number int NOT NULL,
     CVC int NOT NULL,
     Expiry date
