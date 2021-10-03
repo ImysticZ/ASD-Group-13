@@ -57,6 +57,16 @@ public class AdminDBManager {
         st.executeUpdate(query);
     }
 
+    public User getUser(int id) throws SQLException {
+        ResultSet rs = st.executeQuery("select * from USER where ID="+id);
+        User temp = null;
+
+        while(rs.next()) {
+            temp= new User(rs);
+        }
+        return temp;
+    }
+
     /*
         Admin Room management
      */

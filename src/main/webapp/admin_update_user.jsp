@@ -25,42 +25,47 @@
                     </div>
                 <%
             }
+
+            String idStr =request.getParameter("id");
+            int id = Integer.parseInt(idStr);
+            User user = db.getUser(id);
         %>
 
-        <h1>Create user</h1>
+        <h1>Update user</h1>
 
         <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
-            <form action="AdminCreateUserServlet" method="POST">
+            <form action="AdminUpdateUserServlet" method="POST">
+            <input type="hidden" name="id" value="<%=user.getId()%>">
                 <table class='table'>
                     <tr>
                         <td>First Name: </td>
-                        <td><input type="text" placeholder="Joe" name="firstname"></td>
+                        <td><input type="text" value="<%=user.getFirstName()%>" name="firstname"></td>
                     </tr>
                     <tr>
                         <td>Last Name: </td>
-                        <td><input type="text" placeholder="Naatz" name="lastname"></td>
+                        <td><input type="text" value="<%=user.getLastName()%>" name="lastname"></td>
                     </tr>
                     <tr>
                         <td>Email: </td>
-                        <td><input type="text" placeholder="joenaatz@something.com" name="email"></td>
+                        <td><input type="text" value="<%=user.getEmail()%>" name="email"></td>
                     </tr>
                     <tr>
                         <td>Phone Number: </td>
-                        <td><input type="text" placeholder="0412345678" name="phone"></td>
+                        <td><input type="text" value="<%=user.getPhoneNum()%>" name="phone"></td>
                     </tr>
                     <tr>
                         <td>Password: </td>
-                        <td><input type="password" name="password"></td>
+                        <td><input type="password" value="<%=user.getPassword()%>" name = password></td>
                     </tr>
                     <tr>
                         <td>Address: </td>
-                        <td><input type="text" placeholder="0 Jomumsbadroum St" name="address"></td>
+                        <td><input type="text" value="<%=user.getAddress()%>" name="address"></td>
                     </tr>
                     <tr>
                         <td>Type: </td>
                         <td>
                             <select name="type">
-                                <option value="c" selected>Customer</option>
+                                <option value="c">Customer</option>
                                 <option value="s">Staff</option>
                                 <option value="a">Admin</option>
                               </select>
@@ -68,7 +73,6 @@
                     </tr>
                     <tr>
                         <td><input type="submit" value="submit" class="button"></td>
-                        <td><a href="admin_user_management.jsp" class="button">Back</a></td>
                     </tr>
                 </table>
             </form>

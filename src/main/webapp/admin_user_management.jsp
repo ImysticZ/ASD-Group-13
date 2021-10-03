@@ -45,6 +45,7 @@
                         <td><input type="text" placeholder="Joe" name="firstname"></td>
                         <input type="hidden" value="yes" name="submitted">
                         <td><input type="submit" value="submit" class="button"></td>
+                        <td><a href="admin_create_user.jsp" class="button">Create user</a></td>
                     </tr>
                 </form>
             </table>
@@ -68,14 +69,14 @@
                         <td><%= user.getPhoneNum() %></td>
                         <td>
                             <%--EDIT USER BUTTON--%>
-                            <form action="#" method="post">
+                            <form action="admin_update_user.jsp" method="post">
                                 <input type="hidden" name="id" value="<%=user.getId()%>">
                                 <input type="submit" value="Edit" class="button">
                             </form>
                         </td>
                         <td>
                             <%--DELETE USER BUTTON--%>
-                            <form action="#" method="post">
+                            <form action="AdminDeleteUserServlet" method="post">
                                 <input type="hidden" name="id" value="<%=user.getId()%>">
                                 <input type="submit" value="Delete" class="button">
                             </form>
