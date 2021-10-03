@@ -39,7 +39,8 @@
     <servlet>
         <servlet-name>CustomerBooking</servlet-name>
         <servlet-class>uts.asd.controller.CustomerBooking</servlet-class>
-    </servlet>     
+    </servlet>  
+    <servlet>   
         <servlet-name>AdminUserManagementServlet</servlet-name>
         <servlet-class>uts.asd.controller.AdminUserManagementServlet</servlet-class>
     </servlet>
