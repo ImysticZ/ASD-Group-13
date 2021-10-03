@@ -12,16 +12,6 @@ body {
      padding-bottom: 20px;
  }
 
- h2{
-   font-size:medium;
-   padding-left: 10%;
- }
-
- p{
-   padding-left: 10%;
-   padding-bottom: 20px;
- }
-
  table {
     margin-left: auto;
     margin-right: auto;
@@ -57,4 +47,3 @@ body {
  .textbox{
     width: 100%;
  }
-

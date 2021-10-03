@@ -104,6 +104,14 @@
         <servlet-name>AddEnquiryServlet</servlet-name>
         <servlet-class>uts.asd.controller.AddEnquiryServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnquiryReplyServlet</servlet-name>
+        <servlet-class>uts.asd.controller.EnquiryReplyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteEnquiryServlet</servlet-name>
+        <servlet-class>uts.asd.controller.DeleteEnquiryServlet</servlet-class>
+    </servlet>
 
     <!-- insert servlet mapping stuff here -->
     <servlet-mapping>
@@ -197,6 +205,14 @@
     <servlet-mapping>
         <servlet-name>AddEnquiryServlet</servlet-name>
         <url-pattern>/AddEnquiryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnquiryReplyServlet</servlet-name>
+        <url-pattern>/EnquiryReplyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteEnquiryServlet</servlet-name>
+        <url-pattern>/DeleteEnquiryServlet</url-pattern>
     </servlet-mapping>
 
     <!-- yo whats up -->
