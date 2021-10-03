@@ -17,6 +17,7 @@ public class ConnServlet extends HttpServlet {
     private DBManager manager;
     private Connection conn;
     private RoomDBManager room;
+    private EnquiryDBManager enquiryManager;
     
     @Override //Create and instance of DBConnector for the deployment session
     public void init(){
@@ -37,12 +38,14 @@ public class ConnServlet extends HttpServlet {
         try {
             room = new RoomDBManager(conn);
             manager = new DBManager(conn);
+            enquiryManager = new EnquiryDBManager(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //export the DB manager to the view-session (JSPs)
         session.setAttribute("room", room);
         session.setAttribute("manager", manager);
+        session.setAttribute("enquiryManager", enquiryManager);
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)

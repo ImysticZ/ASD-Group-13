@@ -18,7 +18,7 @@ public class EnquiryDBManager {
     //Create
     public void addEnquiry(String question, String reply, int userID) throws SQLException {
         st.executeUpdate("INSERT INTO Enquiry (Question, Reply, Resolved, UserID) "
-                + "VALUES ('" + question + "','" + reply + "', " + false + ")");
+                + "VALUES ('" + question + "','" + reply + "', " + false + "," + userID + ")");
     }
 
     //Read
