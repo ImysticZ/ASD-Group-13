@@ -49,6 +49,14 @@
         <servlet-class>uts.asd.controller.AdminDeleteUserServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AdminDeleteRoomServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminDeleteRoomServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteRoomsServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminDeleteRoomsServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>RoomServlet</servlet-name>
         <servlet-class>uts.asd.controller.RoomServlet</servlet-class>
     </servlet>
@@ -101,6 +109,14 @@
     <servlet-mapping>
         <servlet-name>AdminDeleteUserServlet</servlet-name>
         <url-pattern>/AdminDeleteUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteRoomServlet</servlet-name>
+        <url-pattern>/AdminDeleteRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteRoomsServlet</servlet-name>
+        <url-pattern>/AdminDeleteRoomsServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RoomServlet</servlet-name>

@@ -42,6 +42,11 @@
                         <td><input type="submit" value="submit" class="button"></td>
                     </tr>
                 </form>
+                <tr>
+                    <td><a href="admin_create_room.jsp">Add Range</a></td>
+                    <td><a href="admin_delete_rooms.jsp">Delete Range</a></td>
+                    <td><a href="#">Update Range</a></td>
+                </tr>
             </table>
         </div>
 
@@ -68,7 +73,7 @@
                         </td>
                         <td>
                             <%--DELETE USER BUTTON--%>
-                            <form action="#" method="post">
+                            <form action="AdminDeleteRoomServlet" method="post">
                                 <input type="hidden" name="id" value="<%=room.getRoomId()%>">
                                 <input type="submit" value="Delete" class="button">
                             </form>

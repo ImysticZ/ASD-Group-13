@@ -135,7 +135,10 @@ public class AdminDBManager {
         for(int i = min; i <= max; i++) {
             boolean exists = false;
             for(Room room : rooms) {
-                if(i == room.getRoomId()) exists = true;
+                if(i == room.getRoomId()) {
+                    exists = true;
+                    break;
+                } 
             }
             if(!exists) addRoom(i, typeId);
         }
@@ -145,9 +148,46 @@ public class AdminDBManager {
         String query = "insert into Room (RoomID, RoomTypeID)" + "values ("+id+","+typeId+")";
         st.executeUpdate(query);
     }
+    // Delete room by range
+    public void deleteRoomRange(int min, int max) throws SQLException {
+        ArrayList<Room> rooms = fetchAllRooms();
+        for(int i = min; i <= max; i++) {
+            boolean exists = false;
+            for(Room room : rooms) {
+                if(i == room.getRoomId()) {
+                    exists = true;
+                    break;
+                } 
+            }
+            if(exists) deleteRoom(i);;
+        }
+    }
     // Delete room
-    // Update room
+    public void deleteRoom(int id) throws SQLException {
+        String query = "delete from Room where RoomID = " + id;
+        st.executeUpdate(query);
+    }
 
+    // Update room by range
+    public void updateRoomRange(int min, int max, int typeId) throws SQLException {
+        ArrayList<Room> rooms = fetchAllRooms();
+        for(int i = min; i <= max; i++) {
+            boolean exists = false;
+            for(Room room : rooms) {
+                if(i == room.getRoomId()) {
+                    exists = true;
+                    break;
+                } 
+            }
+            if(exists) updateRoom(i, typeId);;
+        }
+    }
+
+    // update room
+    public void updateRoom(int id, int typeId) throws SQLException {
+        String query = "update Room set RoomTypeID = "+typeId+" where RoomID = " + id;
+        st.executeUpdate(query);
+    }
 
     /* 
         Room Types
