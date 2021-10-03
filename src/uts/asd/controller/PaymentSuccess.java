@@ -8,12 +8,13 @@ import javax.servlet.http.HttpSession;
 
 public class PaymentSuccess extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.removeAttribute("card");
         session.removeAttribute("cvc");
         session.removeAttribute("date");
-        request.getRequestDispatcher("/webapp").include(request, response);
+        session.removeAttribute("cardErr");
+        request.getRequestDispatcher("/index.jsp").include(request, response);
     }
     
 }

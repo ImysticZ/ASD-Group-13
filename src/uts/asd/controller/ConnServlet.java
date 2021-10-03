@@ -15,6 +15,7 @@ import uts.asd.model.dao.*;
 public class ConnServlet extends HttpServlet {
     private DBConnector db;
     private DBManager manager;
+    private PaymentDB paymentDB;
     private Connection conn;
     private RoomDBManager room;
     private EnquiryDBManager enquiryManager;
@@ -39,6 +40,7 @@ public class ConnServlet extends HttpServlet {
             room = new RoomDBManager(conn);
             manager = new DBManager(conn);
             enquiryManager = new EnquiryDBManager(conn);
+            paymentDB= new PaymentDB(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -46,6 +48,7 @@ public class ConnServlet extends HttpServlet {
         session.setAttribute("room", room);
         session.setAttribute("manager", manager);
         session.setAttribute("enquiryManager", enquiryManager);
+        session.setAttribute("paymentDB", paymentDB);
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)

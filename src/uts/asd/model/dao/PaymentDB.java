@@ -2,38 +2,56 @@ package uts.asd.model.dao;
 
 import uts.asd.model.*;
 import java.sql.*;
-
+import java.util.ArrayList;
 public class PaymentDB {
     private Statement st; // statement object
 
     public PaymentDB(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
-
+    
     // Payment DAO METHODS
-
-    // To save Credit Card
+    //saves user card for payment of booking
     public void saveCard(String cardNo, String cvc, String date) throws SQLException {
-        String query = "insert into CARD (Card_Number, CVC, Expiry)" + "values ('" + Integer.parseInt(cardNo) + "', "
-                + Integer.parseInt(cvc) + ", '" + date + "')";
-        st.executeUpdate(query);
+        String query = "INSERT INTO Card (Card_Number, cvc, Expiry) VALUES('" + cardNo + "', '" + cvc + "', '" + date + "')";
+        st.execute(query);
     }
 
     // To create payment when user completes transaction
     public void makePayment(int bookingID, int cardID) throws SQLException {
-        String query = "insert into Payment (BookingID, cardID)" + "values (" + bookingID + ", " + cardID + ")";
-        st.executeQuery(query);
+        String query = "INSERT INTO Payment (BookingID, cardId) VALUES (" + bookingID + ", " + cardID + ")";
+        st.execute(query);
+    }
+
+    // Saves card to User
+    public void saveCardToUser() throws SQLException {
+        // st.execute(query);
     }
 
     // Return credit card information of a user
-    public CreditCard returnCard(User user) throws SQLException {
+    public Card returnCard(User user) throws SQLException {
         String query = "SELECT * from inner join User on Card.CardID = Customer.CardID where Customer.UserID= "
                 + user.getId();
         ResultSet rs = st.executeQuery(query); // store in resultSet
-        CreditCard card = null;
+        Card card = null;
         while (rs.next()) {
-            card = new CreditCard(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
+            card = new Card(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
         }
         return card;
+    }
+
+    public ArrayList<Booking> fetchBooking() throws SQLException {
+        String query = "SELECT * from Booking";
+        ResultSet rs = st.executeQuery(query); // store in resultSet
+        ArrayList<Booking> allBooking = new ArrayList<Booking>();
+        while (rs.next()) {
+            allBooking.add(new Booking(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getBoolean(7), rs.getDouble(8)));
+        }
+        return allBooking;
+    }
+
+    public void updateBooking(Booking booking, String status) throws SQLException {
+        String query = "UPDATE Booking SET Status = '" + status + "' WHERE BookingID =" + booking.getBookingID();
+        st.executeUpdate(query);
     }
 }
