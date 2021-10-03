@@ -10,7 +10,7 @@
     <body>
         <%
             User user = (User) session.getAttribute("user");
-            CreditCard card = (CreditCard) session.getAttribute("card");
+            Card card = (Card) session.getAttribute("card");
             String updated = (String) session.getAttribute("updated");
         %>
 

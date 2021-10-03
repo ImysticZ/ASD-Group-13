@@ -39,17 +39,12 @@
     <servlet>
         <servlet-name>CustomerBooking</servlet-name>
         <servlet-class>uts.asd.controller.CustomerBooking</servlet-class>
-<<<<<<< HEAD
-    </servlet>   
-    <servlet>  
-=======
     </servlet>     
     <servlet>
         <servlet-name>UpdateBooking</servlet-name>
         <servlet-class>uts.asd.controller.UpdateBooking</servlet-class>
     </servlet>  
     <servlet>   
->>>>>>> ce45dc814c6aef8ff29d1e65443a78479f321626
         <servlet-name>AdminUserManagementServlet</servlet-name>
         <servlet-class>uts.asd.controller.AdminUserManagementServlet</servlet-class>
     </servlet>

@@ -65,4 +65,18 @@ public class PaymentDB {
         String query = "UPDATE Booking SET Status = '" + status + "' WHERE BookingID =" + booking.getBookingID();
         st.executeUpdate(query);
     }
+
+    public Card authenticateCustomer(int id, String card) throws SQLException { 
+        ResultSet rs = st.executeQuery("select * from CUSTOMER WHERE TRIM(ID)= '"+id+"'" + " AND TRIM(CardID)= '"+card+"'");
+
+        while (rs.next()) {
+            String userID = rs.getString(1);
+            String cardNo = rs.getString(2);
+            if (userID.replaceAll("\\s+","").equalsIgnoreCase(userID.replaceAll("\\s+","")) && cardNo.replaceAll("\\s+","").equalsIgnoreCase(cardNo.replaceAll("\\s+",""))) {
+                System.out.println("customer verified");
+                return new Card(rs);
+            }
+        }
+        return null;
+    }
 }

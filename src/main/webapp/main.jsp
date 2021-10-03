@@ -11,9 +11,11 @@
     <body>
         <%
             User user = (User) session.getAttribute("user");
+            Card card = (Card) session.getAttribute("card");
         %>
         <div>
             <h2>Welcome,&nbsp;<%= user.getType().equals("s") ? "Staff Member " + user.getFirstName() : user.getType().equals("a") ? "System Admin" + user.getFirstName() : user.getFirstName() %></h2>
+            <h3><%= card.getcardID() %></h3>
         </div>
     </body>
 </html>
