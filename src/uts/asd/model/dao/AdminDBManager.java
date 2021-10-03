@@ -130,9 +130,45 @@ public class AdminDBManager {
     }
 
     // Add room by range
+    public void addRoomRange(int min, int max, int typeId) throws SQLException {
+        ArrayList<Room> rooms = fetchAllRooms();
+        for(int i = min; i <= max; i++) {
+            boolean exists = false;
+            for(Room room : rooms) {
+                if(i == room.getRoomId()) exists = true;
+            }
+            if(!exists) addRoom(i, typeId);
+        }
+    }
+    // Add room
+    public void addRoom(int id, int typeId) throws SQLException {
+        String query = "insert into Room (RoomID, RoomTypeID)" + "values ("+id+","+typeId+")";
+        st.executeUpdate(query);
+    }
     // Delete room
     // Update room
 
+
+    /* 
+        Room Types
+    */
+    // Get list of room types
+    public ArrayList<RoomType> getRoomTypes() throws SQLException {
+        ResultSet rs = st.executeQuery("select * from RoomType");
+        ArrayList<RoomType> temp = new ArrayList<RoomType>();
+
+        while(rs.next()) {
+            int roomTypeId = rs.getInt(1);
+            double costPerDay = rs.getDouble(2);
+            int numBeds = rs.getInt(3);
+            String suite = rs.getString(4);
+            String desc = rs.getString(5);
+
+            temp.add(new RoomType(roomTypeId, costPerDay, numBeds, suite, desc));
+        }
+
+        return temp;
+    }
 
     /*
         Helper Functions

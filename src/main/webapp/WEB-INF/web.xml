@@ -37,6 +37,10 @@
         <servlet-class>uts.asd.controller.AdminCreateUserServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AdminCreateRoomServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminCreateRoomServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AdminUpdateUserServlet</servlet-name>
         <servlet-class>uts.asd.controller.AdminUpdateUserServlet</servlet-class>
     </servlet>
@@ -85,6 +89,10 @@
     <servlet-mapping>
         <servlet-name>AdminCreateUserServlet</servlet-name>
         <url-pattern>/AdminCreateUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCreateRoomServlet</servlet-name>
+        <url-pattern>/AdminCreateRoomServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminUpdateUserServlet</servlet-name>
