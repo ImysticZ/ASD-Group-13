@@ -2,8 +2,7 @@
 <%@page import="uts.asd.model.*"%>
 <%@page import="uts.asd.controller.*"%>
 <%@page import="java.util.*"%>
-<%@page import="uts.asd.model.dao.DBConnector"%>
-<%@page import="uts.asd.model.dao.DBManager"%>
+<%@page import="uts.asd.model.dao.*"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
@@ -13,25 +12,19 @@
     <body>
 
         <%
-            Random random = new Random();
             String submitted = request.getParameter("submitted");
+            AdminDBManager db = (AdminDBManager)session.getAttribute("adminmngr");
+            if(db == null) {
+                db = new AdminDBManager(new DBConnector().openConnection());
+                session.setAttribute("adminmngr", db);
+                out.println("Admin manager does not exist, creating one");
+            }
             
-            ArrayList<User> userList = new ArrayList<User>();
-            for(int i = 0; i < 10; i++) {
-                userList.add(new User(random.nextInt(99999), ("FirstName" + i), ("LastName" + i), ("Email" + i), "000000000", "s", ("Address" + i), "a"));
-            }
-
-            if(submitted != null) {
-                String submittedEmail = request.getParameter("email");
-
-                ArrayList<User> temp = new ArrayList<User>();
-                for(User user : userList) {
-                    if(user.getEmail().equals(submittedEmail)) {
-                        temp.add(user);
-                    }
-                }
-                userList = temp;
-            }
+            ArrayList<User> userList = (ArrayList<User>)session.getAttribute("userList");
+            
+            if(userList == null)
+                userList = db.fetchAllUsers();
+            
         %>
 
         <%--
@@ -45,13 +38,14 @@
 
         <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
             <table>
-                <form action="admin_user_management.jsp" method="POST">
+                <form action="AdminUserManagementServlet" method="POST">
                     <th>Search User</th>
                     <tr>
-                        <td>E-mail address</td>
-                        <td><input type="text" placeholder="name@something.com" name="email"></td>
+                        <td>First Name</td>
+                        <td><input type="text" placeholder="Joe" name="firstname"></td>
                         <input type="hidden" value="yes" name="submitted">
                         <td><input type="submit" value="submit" class="button"></td>
+                        <td><a href="admin_create_user.jsp" class="button">Create user</a></td>
                     </tr>
                 </form>
             </table>
@@ -75,14 +69,14 @@
                         <td><%= user.getPhoneNum() %></td>
                         <td>
                             <%--EDIT USER BUTTON--%>
-                            <form action="#" method="post">
+                            <form action="admin_update_user.jsp" method="post">
                                 <input type="hidden" name="id" value="<%=user.getId()%>">
                                 <input type="submit" value="Edit" class="button">
                             </form>
                         </td>
                         <td>
                             <%--DELETE USER BUTTON--%>
-                            <form action="#" method="post">
+                            <form action="AdminDeleteUserServlet" method="post">
                                 <input type="hidden" name="id" value="<%=user.getId()%>">
                                 <input type="submit" value="Delete" class="button">
                             </form>

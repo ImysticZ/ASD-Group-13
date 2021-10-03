@@ -11,6 +11,12 @@ public class Room implements Serializable {
         this.availability = availability;
     }
 
+    public Room(int roomId, int roomTypeId) {
+        this.roomId = roomId;
+        this.roomTypeId = roomTypeId;
+        this.availability = false;
+    }
+
     public int getRoomId() {
         return roomId;
     }
@@ -21,5 +27,9 @@ public class Room implements Serializable {
 
     public boolean getAvailability() {
         return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
     }
 }

@@ -15,6 +15,6 @@
 </head>
 <body>
     <img src="https://cdn.britannica.com/86/156586-050-EFB37140/Harbour-Bridge-Sydney.jpg" width="100%"></img>
-    <jsp:include page="/ConnServlet" />
+    <jsp:include page="/ConnServlet" flush="true" />
 </body>
 </html>
