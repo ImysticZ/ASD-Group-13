@@ -1,5 +1,6 @@
 <%@page import="java.util.*"%>
 <%@page import="uts.asd.model.*"%>
+<%@page import="uts.asd.model.dao.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,15 +11,8 @@
     <body>
 
         <%
-            ArrayList<Enquiry> enquiries = new ArrayList<Enquiry>();
-            enquiries.add(new Enquiry(1,"How do I seach for hotels by price?", "Use the search filter", true, 1));
-            enquiries.add(new Enquiry(1,"Where can I find the contact details for the hotel?", "", false, 1));
-            enquiries.add(new Enquiry(1,"How do I find directions to the hotel?", "", false, 1));
-            String question = request.getParameter("question");
-            if(question != null && enquiries != null){
-                Enquiry enquiry = new Enquiry(1, question, "", false, 1);
-                enquiries.add(enquiry);
-            }
+            EnquiryDBManager manager = (EnquiryDBManager) session.getAttribute("enquiryManager");
+            ArrayList<Enquiry> enquiries = manager.fetchAll();
         %>
         
         <h1>Enquiries</h1>
@@ -48,5 +42,9 @@
             <a href="addEnquiry.jsp">New Enquiry</a>
         </div>
         
+        <div class="button">
+            <a href="faq.jsp">Return</a>
+        </div>
+
     </body>
 </html>
