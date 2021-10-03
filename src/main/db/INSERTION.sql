@@ -9,6 +9,7 @@ VALUES
 (349.99, 6, 'Executive Suite', 'A living room connected to three bedrooms'),
 (649.99, 10, 'President Suite', 'A deluxe and comfortable room connected to several bedrooms');
 
+
 INSERT INTO Room(RoomTypeID)
 VALUES
 (10),
@@ -19,3 +20,17 @@ VALUES
 (15),
 (16),
 (17);
+
+INSERT INTO Enquiry (Question, Reply, Resolved, UserID)
+VALUES
+('How do I search for available rooms?', 'Rooms can be found on the "Rooms" page, the link can be found in the navigation bar.', true, 1011),
+('How do I find directions to the hotel?', 'We suggest looking up our hotel on services like Google Maps.', true, 1011),
+('Do you offer any discounts?', 'No, there are currently no discounts being provided.', true, 1011),
+('I would like to cancel a booking, will I receive a refund?', 'Yes, cancelled bookings will be refunded.', true, 1011),
+('Do you charge cancellation fees?', '', false, 1011),
+('What happens if I arrive late?', '', false, 1011),
+('Can I save more than one credit card to my account?', '', false, 1011),
+('My payment for a booking is not going through', '', false, 1011),
+('How do I view past bookings?', '', false, 1011),
+('What is the maximum number of people for one room?', '', false, 1011);
+

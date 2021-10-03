@@ -8,12 +8,14 @@ public class Enquiry implements Serializable{
     private String question;
     private String reply;
     private boolean resolved;
+    private int userID;
 
-    public Enquiry(int enquiryID, String question, String reply, boolean resolved){
+    public Enquiry(int enquiryID, String question, String reply, boolean resolved, int userID){
         this.enquiryID = enquiryID;
         this.question = question;
         this.reply = reply;
         this.resolved = resolved;
+        this.userID = userID;
     }
 
     public int getEnquiryID(){
@@ -46,5 +48,13 @@ public class Enquiry implements Serializable{
 
     public void setResolved(boolean resolved){
         this.resolved = resolved;
+    }
+
+    public int getUserID(){
+        return userID;
+    }
+
+    public void setUserID(int userID){
+        this.userID = userID;
     }
 }

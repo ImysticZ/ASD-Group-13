@@ -51,6 +51,10 @@ public class Booking implements Serializable {
         return status;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public boolean getPaid() {
         return paid;
     }
