@@ -9,12 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Rooms</title>
     <jsp:include page="ConnServlet"/>
-    <%if (session.getAttribute("user") != null) { %>
-    <jsp:include page="navCustomer.jsp"/>
-    <%}
-    else {%>
     <jsp:include page="nav.jsp"/>
-    <%}%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         .card {
@@ -204,7 +199,7 @@
 
 <body>
     <div class="row text-center container-fluid">
-        <form method="post" action="RoomFilterServlet">
+        <form method="POST" action="RoomFilterServlet">
             <section class="container"> 
                 <div>
                     <h3>Beds</h3>
@@ -229,7 +224,7 @@
             <div class="card h-100 box-shadow">
                 <h6 class="card-header text-muted"><%= roomType.getSuite()%></h6>
                 <div class="card-body">
-                    <p class="card-text">Price: $<%= roomType.getCost()%></p>
+                    <p class="card-text">Price: $<%= roomType.getCost()%> per night</p>
                     <p class="card-text"><%= roomType.getNumBeds()%> Bed</p>
                     <p class="card-text"><%= roomType.getDescription()%></p>
                 </div>

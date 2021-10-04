@@ -1,35 +1,36 @@
 <%@page import="java.util.*"%>
 <%@page import="uts.asd.model.*"%>
 <%@page import="uts.asd.model.dao.*"%>
+
 <html>
-<head>
-    <jsp:include page="nav.jsp" />
-    <link rel="stylesheet" href="css/enquiry.css">
-    <title>New Enquiry</title> 
-</head>
-<body>
+    <head>
+        <jsp:include page="nav.jsp" />
+        <link rel="stylesheet" href="css/enquiry.css">
+        <title>New Enquiry</title> 
+    </head>
+    <body>
 
-    <h1>New Enquiry</h1>
+        <h1>Submit Enquiry</h1>
 
-    <form method="post" action="AddEnquiryServlet">
-        <table class="center">
-            <tr>
-                <th>Enquiry Details: </th>
-            </tr>
-            <tr>
-                <td><input class="textbox" type="text" placeholder="Enter details" name="question" required="true"></td>
-            </tr>
-            <div class="submit">
+        <%--Add enquiry details--%>
+        <form method="post" action="AddEnquiryServlet">
+            <table class="enquiryForm">
                 <tr>
-                    <td><input type="submit" value="Submit"></td>
+                    <th>Enquiry Details: </th>
                 </tr>
-            </div>
-        </table>
-    </form>
+                <tr>
+                    <td><textarea class="textbox" type="text" placeholder="Enter details" name="question" required="true"></textarea></td>
+                </tr>
+                <tr>
+                    <td><input class="submit" type="submit" value="Submit"></td>
+                </tr>
+            </table>
+        </form>
 
-    <div class="button">
-        <a href="userEnquiry.jsp">Return</a>
-    </div>
-    
-</body>
+        <%--Return to enquiries page--%>
+        <div class="button">
+            <a href="userEnquiry.jsp">Return</a>
+        </div>
+        
+    </body>
 </html>

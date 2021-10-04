@@ -57,7 +57,6 @@ public class EnquiryDBManager {
         return enquiries;
     }
 
-    
     //Update
     public void updateEnquiry(int enquiryID, String question, String reply, boolean status, int userID) throws SQLException {
         st.executeUpdate("UPDATE Enquiry SET Question='" + question + "', Reply= '" + reply + "', Resolved= " + status

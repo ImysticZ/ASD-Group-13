@@ -2,31 +2,53 @@
     <%@page import="java.util.*"%>
     <%@page import="uts.asd.model.*"%>
     <%@page import="uts.asd.model.dao.*"%>
-
+    <%@page import="java.time.LocalDate"%>
+    <%@page import="java.time.format.DateTimeFormatter"%>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Rooms</title>
     <jsp:include page="ConnServlet"/>
-    <%if (session.getAttribute("user") != null) { %>
-    <jsp:include page="navcustomer.jsp"/>
-    <%}
-    else {%>
     <jsp:include page="nav.jsp"/>
-    <%}%>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 <%
     RoomType room = (RoomType)session.getAttribute("theroom");
+    ArrayList<Room> all = (ArrayList<Room>)session.getAttribute("allrooms");
+    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+    String time = LocalDate.now().format(myFormatObj);
 %>
 
 <body>
     <div class="container">
         <h1><%= room.getSuite()%></h1>
-        <h5><%= room.getNumBeds()%></h5>
+        <h5><%= room.getNumBeds()%> bed</h5>
         <p><%= room.getDescription()%></p>
-        <p><%= room.getCost() %></p>
+        <p>$<%= room.getCost() %> per night</p>
+        <form method="POST" action="viewBooking.jsp">
+            <input type="text" name="daterange"/>
+            <select name="choice">
+                <%for (Room a : all) {%>
+                    <option value="<%=a.getRoomId()%>">Room <%= a.getRoomId() %></option>
+                <%}%>
+            </select>
+            <button type="submit">View Booking Details</a>
+        </form>
     </div>
 </body>
 </html>
+<script>
+    $(function() {
+      $('input[name="daterange"]').daterangepicker({
+        opens: 'left',
+        minDate: '<%=time%>',
+        locale: {
+            format: "YYYY/MM/DD"
+        }
+      });
+    });
+    </script>

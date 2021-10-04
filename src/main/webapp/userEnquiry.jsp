@@ -1,6 +1,7 @@
 <%@page import="java.util.*"%>
 <%@page import="uts.asd.model.*"%>
 <%@page import="uts.asd.model.dao.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,12 +17,13 @@
         %>
         
         <h1>Enquiries</h1>
-
-        <table>
+        
+        <%--List of enquiries from the customer that is logged in--%>
+        <table class="enquiriesTable">
             <tr>
-                <th>Enquiry</th>
+                <th class="tableColumn">Enquiry</th>
                 <th>Status</th>
-                <th>Reply</th>
+                <th class="tableColumn">Reply</th>
             </tr>
             <% for(Enquiry e : enquiries) {%>
                 <tr>
@@ -38,13 +40,11 @@
             <%}%>
         </table>
         
-        <div class="button">
-            <a href="addEnquiry.jsp">New Enquiry</a>
-        </div>
+        <%--Add new enquiry--%>
+        <a class="newEnquiryButton" href="addEnquiry.jsp">New Enquiry</a>
         
-        <div class="button">
-            <a href="faq.jsp">Return</a>
-        </div>
+        <%--Return to FAQ page--%>
+        <a class="button" href="faq.jsp">Return</a>
 
     </body>
 </html>

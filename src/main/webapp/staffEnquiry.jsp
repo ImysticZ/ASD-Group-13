@@ -1,6 +1,7 @@
 <%@page import="java.util.*"%>
 <%@page import="uts.asd.model.*"%>
 <%@page import="uts.asd.model.dao.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,12 +17,13 @@
         %>
         
         <h1>Enquiries</h1>
-
-        <table>
+        
+        <%--List of enquiries from all customers--%>
+        <table class="enquiriesTable">
             <tr>
-                <th>Enquiry</th>
+                <th class="tableColumn">Enquiry</th>
                 <th>Status</th>
-                <th>Reply</th>
+                <th class="tableColumn">Reply</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -42,8 +44,5 @@
             <%}%>
         </table>
         
-
-        
-
     </body>
 </html>

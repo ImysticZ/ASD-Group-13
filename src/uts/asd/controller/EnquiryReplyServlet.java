@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import uts.asd.model.dao.*;
 
 public class EnquiryReplyServlet extends HttpServlet{
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -31,7 +32,6 @@ public class EnquiryReplyServlet extends HttpServlet{
             Logger.getLogger(EnquiryReplyServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
     }
 
 }

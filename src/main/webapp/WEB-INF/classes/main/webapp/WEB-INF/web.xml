@@ -39,6 +39,10 @@
     <servlet>
         <servlet-name>CustomerBooking</servlet-name>
         <servlet-class>uts.asd.controller.CustomerBooking</servlet-class>
+    </servlet>     
+    <servlet>
+        <servlet-name>UpdateBooking</servlet-name>
+        <servlet-class>uts.asd.controller.UpdateBooking</servlet-class>
     </servlet>  
     <servlet>   
         <servlet-name>AdminUserManagementServlet</servlet-name>
@@ -99,6 +103,10 @@
     <servlet>
         <servlet-name>DeleteAccServlet</servlet-name>
         <servlet-class>uts.asd.controller.DeleteAccServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmBookingServlet</servlet-name>
+        <servlet-class>uts.asd.controller.ConfirmBookingServlet</servlet-class>
     </servlet> 
     <servlet>
         <servlet-name>AddEnquiryServlet</servlet-name>
@@ -183,6 +191,10 @@
         <url-pattern>/bookings</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>UpdateBooking</servlet-name>
+        <url-pattern>/UpdateBooking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>RoomServlet</servlet-name>
         <url-pattern>/RoomServlet</url-pattern>
     </servlet-mapping>
@@ -201,6 +213,10 @@
     <servlet-mapping>
         <servlet-name>DeleteAccServlet</servlet-name>
         <url-pattern>/DeleteAccServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmBookingServlet</servlet-name>
+        <url-pattern>/ConfirmBookingServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddEnquiryServlet</servlet-name>
