@@ -48,7 +48,7 @@ public class ProcessPayment extends HttpServlet {
             try {
                 userCard = paymentDB.saveCard(cardNo, cvc, date); // card details inserted by user
                 System.out.println("card detail stored");
-                // paymentDB.makePayment(booking.getBookingID(), userCard.getcardID());
+                paymentDB.makePayment(booking.getBookingID(), userCard.getcardID());
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
