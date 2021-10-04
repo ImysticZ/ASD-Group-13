@@ -1,6 +1,8 @@
 <%-- NAVBAR FOR NEW USERS --%>
 <%@page import="uts.asd.model.*"%>
-
+<% 
+  Card card = (Card) session.getAttribute("card");
+%>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="style.css">
 <% if (session.getAttribute("user") == null) {%>
@@ -31,7 +33,7 @@ else if (((User)session.getAttribute("user")).getType().equals("c")) { %>
       </div>
       <ul class="nav navbar-nav">
         <li><a href="RoomServlet">Rooms</a></li>
-        <li><a href="#">Booking</a></li>
+        <li><a href="ViewBookingServlet">Booking</a></li>
         <li><a href="faq.jsp">FAQ</a></li>
         <li><a href="#">About us</a></li>
 
@@ -52,12 +54,12 @@ else if (((User)session.getAttribute("user")).getType().equals("c")) { %>
         </div>
         <ul class="nav navbar-nav">
           <li><a href="RoomServlet">Rooms</a></li>
-          <li><a href="#">Booking</a></li>
+          <li><a href="ViewBookingServlet">Booking</a></li>
           <li><a href="staffEnquiry.jsp">Enquiries</a></li>
           <li><a href="#">About us</a></li>
   
           <%--Conditions: ONLY STAFF--%>
-          <li><a href="bookings.jsp">Bookings</a></li>
+          <li><a href="bookings">Customer Bookings</a></li>
           <%--Condition end--%>
   
         </ul>
@@ -77,7 +79,7 @@ else {%>
       </div>
       <ul class="nav navbar-nav">
         <li><a href="RoomServlet">Rooms</a></li>
-        <li><a href="#">Booking</a></li>
+        <li><a href="ViewBookingServlet">Booking</a></li>
         <li><a href="#">About us</a></li>
 
         <%--Conditions: ONLY ADMIN--%>

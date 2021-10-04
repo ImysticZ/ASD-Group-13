@@ -15,6 +15,8 @@ public class ConfirmBookingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         RoomDBManager manager = (RoomDBManager) session.getAttribute("room");
+        PaymentDB paymentDB = (PaymentDB) session.getAttribute("paymentDB"); // retrieve paymentDB from session
+
         try {
             int userID = ((User)session.getAttribute("user")).getId();
             int roomID = Integer.parseInt(request.getParameter("roomID"));
@@ -24,6 +26,8 @@ public class ConfirmBookingServlet extends HttpServlet {
             int bookingID = manager.addNewBooking(userID, roomID, startingDate, endingDate, "Booked", false, totalCost);
             Booking newBooking = manager.findBookingByID(bookingID);
             session.setAttribute("booking", newBooking);
+            Card card= paymentDB.returnCard((User)session.getAttribute("user"));
+            session.setAttribute("card", card);
             request.getRequestDispatcher("payments.jsp").include(request, response);
         }
         catch (Exception e) {

@@ -17,9 +17,17 @@
             if(db == null) {
                 db = new AdminDBManager(new DBConnector().openConnection());
                 session.setAttribute("adminmngr", db);
-                out.println("Admin manager does not exist, creating one");
             }
             
+            String msg = (String) session.getAttribute("roommsg");
+            if(msg!=null) {
+                %>
+                    <div class="alert alert-primary" role="alert">
+                        <%=msg%>
+                    </div>
+                <%
+            }
+
             ArrayList<Room> roomList = (ArrayList<Room>)session.getAttribute("roomList");
             
             if(roomList == null)
@@ -45,7 +53,7 @@
                 <tr>
                     <td><a href="admin_create_room.jsp">Add Range</a></td>
                     <td><a href="admin_delete_rooms.jsp">Delete Range</a></td>
-                    <td><a href="#">Update Range</a></td>
+                    <td><a href="admin_update_rooms.jsp">Update Range</a></td>
                 </tr>
             </table>
         </div>

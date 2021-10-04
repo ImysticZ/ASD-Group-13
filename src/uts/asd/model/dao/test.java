@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
+import uts.asd.model.*;
 
 public class test {
     public static void main(String[] args) {
@@ -14,6 +15,16 @@ public class test {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection=DriverManager.getConnection(url, dbuser, dbpass);
             System.out.println("DB WOKRS");
+            String query = "SELECT * from Card INNER JOIN CUSTOMER on Card.CardID = CUSTOMER.CardID WHERE CUSTOMER.ID= " + 1028;
+            try (Statement st = connection.createStatement()){
+                ResultSet rs = st.executeQuery(query); // store in resultSet
+                while (rs.next()) {
+                    int id = rs.getInt(1);
+                    String card = rs.getString(2);
+                    String cvc = rs.getString(3);
+                    System.out.println(id + ", " + card + ", " + cvc);
+                }
+            }
         } catch (ClassNotFoundException e){
             e.printStackTrace();
         } catch (SQLException e){

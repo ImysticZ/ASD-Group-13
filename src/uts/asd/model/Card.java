@@ -1,5 +1,6 @@
 package uts.asd.model;
 
+import java.sql.*;
 import java.io.Serializable;
 
 public class Card implements Serializable {
@@ -14,6 +15,18 @@ public class Card implements Serializable {
         this.cvc = cvc;
         this.date = date;
     }
+
+    public Card(ResultSet rs) { //uses an sql result set's rows to fill in User attributes
+        try {
+            this.cardID = rs.getInt(1);
+            this.number = rs.getString(2);
+            this.cvc = rs.getString(3);
+            this.date = rs.getString(4);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage() == null ? "Unable to load card" : "New card object created");
+        }
+    }
+
     // getters
 
     public int getcardID() {

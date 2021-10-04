@@ -8,7 +8,6 @@ public class DBConnector extends DB {
     public DBConnector() throws ClassNotFoundException, SQLException {
         Class.forName(driver);
         conn = DriverManager.getConnection(url, dbuser, dbpass);
-        System.out.println("uwu");
     }
 
     public Connection openConnection() {

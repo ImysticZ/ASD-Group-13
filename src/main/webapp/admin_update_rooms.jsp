@@ -15,9 +15,8 @@
             if(db == null) {
                 db = new AdminDBManager(new DBConnector().openConnection());
                 session.setAttribute("adminmngr", db);
-                out.println("Admin manager does not exist, creating one");
             }
-            String msg = (String) session.getAttribute("createroommsg");
+            String msg = (String) session.getAttribute("updateroommsg");
             if(msg!=null) {
                 %>
                     <div class="alert alert-primary" role="alert">
@@ -29,7 +28,7 @@
             ArrayList<RoomType> roomTypes = db.getRoomTypes();
         %>
 
-        <h1>Create Room</h1>
+        <h1>Update Rooms</h1>
 
         <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
             <form action="AdminUpdateRoomsServlet" method="POST">
