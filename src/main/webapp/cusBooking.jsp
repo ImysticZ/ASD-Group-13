@@ -42,12 +42,14 @@
         <div class="form-group">
             <input type="text" class="form-control" id="search" placeholder="Search for booking" />
         </div>
-        <table>
-            <article class="row">
+        <article class="row">
+            <table>
                 <thead>
                     <tr>
                         <th>Booking ID</th>
                         <th>Total Cost</th>
+                        <th>Arrival</th>
+                        <th>Departure</th>
                         <th>Booking Status</th>
                         <th> </th>
                     </tr>
@@ -62,6 +64,16 @@
                             </td>
                             <td>
                                 <p>$<%= b.getTotalCost() %>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <%= b.getStartingDate() %>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <%= b.getEndingDate() %>
                                 </p>
                             </td>
                             <td>
@@ -86,7 +98,7 @@
                         </tr>
                         <% } %>
                 </tbody>
-        </table>
+            </table>
         </article>
     </section>
 </body>

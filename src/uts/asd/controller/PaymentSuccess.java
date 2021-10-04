@@ -15,7 +15,8 @@ public class PaymentSuccess extends HttpServlet {
         String cardNo = request.getParameter("card");
         User user = (User) session.getAttribute("user");
         int userID = user.getId();
-        PaymentDB manager = (PaymentDB) session.getAttribute("manager");
+        PaymentDB manager = (PaymentDB) session.getAttribute("paymentDB");
+        session.removeAttribute("cardErr");
         Card card = null;
         try {
             card = manager.authenticateCustomer(userID, cardNo);
@@ -24,10 +25,9 @@ public class PaymentSuccess extends HttpServlet {
                 request.getRequestDispatcher("/main.jsp").include(request, response);
             }
         } catch (Exception ex) {
-            System.out.println(ex.getMessage() == null ? "Error" : ex.getMessage());
+            System.out.println(ex.getMessage() == null ? "Error" : "System error " + ex.getMessage());
             request.getRequestDispatcher("/payments.jsp").include(request, response);
         }
-        session.removeAttribute("cardErr");
     }
     
 }
