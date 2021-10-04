@@ -203,10 +203,10 @@
             <section class="container"> 
                 <div>
                     <h3>Beds</h3>
-                    <input min="0" name="quantity" value="1" type="number">
+                    <input min="0" name="quantity" value="" type="number">
                 </div>
                 <div>
-                    <h3>Sort By</h3>
+                    <h3>Sort By Price</h3>
                     <select name="sort">
                         <option value="ascending">Ascending</option>
                         <option value="descending">Descending</option>
