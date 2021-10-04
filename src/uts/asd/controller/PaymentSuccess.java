@@ -12,22 +12,7 @@ public class PaymentSuccess extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String cardNo = request.getParameter("card");
-        User user = (User) session.getAttribute("user");
-        int userID = user.getId();
-        PaymentDB manager = (PaymentDB) session.getAttribute("paymentDB");
-        session.removeAttribute("cardErr");
-        Card card = null;
-        try {
-            card = manager.authenticateCustomer(userID, cardNo);
-            if (card != null){
-                session.setAttribute("card", card);
-                request.getRequestDispatcher("/main.jsp").include(request, response);
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage() == null ? "Error" : "System error " + ex.getMessage());
-            request.getRequestDispatcher("/payments.jsp").include(request, response);
-        }
-    }
-    
+        request.getRequestDispatcher("/index.jsp").include(request, response);
+        session.removeAttribute("cardErr");  
+    }  
 }

@@ -47,6 +47,7 @@
                 <thead>
                     <tr>
                         <th>Booking ID</th>
+                        <th>Room</th>
                         <th>Total Cost</th>
                         <th>Arrival</th>
                         <th>Departure</th>
@@ -60,6 +61,11 @@
                             <td>
                                 <p>
                                     <%= b.getBookingID() %>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <%= b.getRoomID() %>
                                 </p>
                             </td>
                             <td>
