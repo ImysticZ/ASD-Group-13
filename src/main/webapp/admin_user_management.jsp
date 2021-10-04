@@ -17,7 +17,6 @@
             if(db == null) {
                 db = new AdminDBManager(new DBConnector().openConnection());
                 session.setAttribute("adminmngr", db);
-                out.println("Admin manager does not exist, creating one");
             }
             
             ArrayList<User> userList = (ArrayList<User>)session.getAttribute("userList");
@@ -25,6 +24,14 @@
             if(userList == null)
                 userList = db.fetchAllUsers();
             
+            String msg = (String) session.getAttribute("msg");
+            if(msg!=null) {
+                %>
+                    <div class="alert alert-primary" role="alert">
+                        <%=msg%>
+                    </div>
+                <%
+            }
         %>
 
         <%--

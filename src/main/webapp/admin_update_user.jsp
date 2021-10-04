@@ -15,9 +15,8 @@
             if(db == null) {
                 db = new AdminDBManager(new DBConnector().openConnection());
                 session.setAttribute("adminmngr", db);
-                out.println("Admin manager does not exist, creating one");
             }
-            String msg = (String) session.getAttribute("createusermsg");
+            String msg = (String) session.getAttribute("editusermsg");
             if(msg!=null) {
                 %>
                     <div class="alert alert-primary" role="alert">
@@ -73,6 +72,7 @@
                     </tr>
                     <tr>
                         <td><input type="submit" value="submit" class="button"></td>
+                        <td><a href="admin_user_management.jsp" class="button">Back</a></td>
                     </tr>
                 </table>
             </form>

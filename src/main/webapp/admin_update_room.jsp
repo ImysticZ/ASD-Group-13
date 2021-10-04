@@ -15,9 +15,8 @@
             if(db == null) {
                 db = new AdminDBManager(new DBConnector().openConnection());
                 session.setAttribute("adminmngr", db);
-                out.println("Admin manager does not exist, creating one");
             }
-            String msg = (String) session.getAttribute("createroommsg");
+            String msg = (String) session.getAttribute("editroommsg");
             if(msg!=null) {
                 %>
                     <div class="alert alert-primary" role="alert">
