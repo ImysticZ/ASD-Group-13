@@ -36,7 +36,13 @@
 
         <%--To Enquiries page--%>
         <h3>Couldn't find an answer to your question? Send us an enquiry:</h3>
-        <a class="enquiriesButton" href="userEnquiry.jsp">Enquiries</a>
+        <%
+            if(session.getAttribute("user") == null){%>
+                <a class="enquiriesButton" href="login.jsp">Enquiries</a>
+            <%}
+            else{%>
+                <a class="enquiriesButton" href="userEnquiry.jsp">Enquiries</a>
+            <%}%>
         
     </body>
 </html>

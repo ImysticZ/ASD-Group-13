@@ -9,17 +9,23 @@
         <title>New Enquiry</title> 
     </head>
     <body>
+        <%
+            User user = (User) session.getAttribute("user");
+            String emptyErr = (String) session.getAttribute("enquiryEmptyErr");
+        %>
 
         <h1>Submit Enquiry</h1>
 
         <%--Add enquiry details--%>
+        <p class="emptyErr"><%= emptyErr != null ? emptyErr : ""%></p>
         <form method="post" action="AddEnquiryServlet">
             <table class="enquiryForm">
+                <input type="hidden" value="<%=user.getId()%>" name="id">
                 <tr>
                     <th>Enquiry Details: </th>
                 </tr>
                 <tr>
-                    <td><textarea class="textbox" type="text" placeholder="Enter details" name="question" required="true"></textarea></td>
+                    <td><textarea class="textbox" type="text" placeholder="Enter details" name="question"></textarea></td>
                 </tr>
                 <tr>
                     <td><input class="submit" type="submit" value="Submit"></td>

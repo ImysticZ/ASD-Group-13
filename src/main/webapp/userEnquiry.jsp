@@ -13,7 +13,8 @@
 
         <%
             EnquiryDBManager manager = (EnquiryDBManager) session.getAttribute("enquiryManager");
-            ArrayList<Enquiry> enquiries = manager.fetchAll();
+            User user = (User) session.getAttribute("user");
+            ArrayList<Enquiry> enquiries = manager.findEnquiriesByID(user.getId());
         %>
         
         <h1>Enquiries</h1>

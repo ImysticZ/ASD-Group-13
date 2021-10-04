@@ -14,15 +14,21 @@
         <%
             EnquiryDBManager manager = (EnquiryDBManager) session.getAttribute("enquiryManager");
             String id = request.getParameter("enquiryID");
+            if(id == null){
+                id = (String) session.getAttribute("enquiryID");
+            }
             Enquiry enquiry = manager.findEnquiryByID(Integer.parseInt(id));
+            String emptyErr = (String) session.getAttribute("enquiryEmptyErr");
         %>
         
         <h1>Reply</h1>
 
         <%--Add reply--%>
+        <p class="emptyErr"><%= emptyErr != null ? emptyErr : ""%></p>
         <form method="post" action="EnquiryReplyServlet">
             <table class="enquiryForm">
                 <input type="hidden" value="<%=enquiry.getEnquiryID()%>" name="id">
+                <input type="hidden" value="<%=enquiry.getUserID()%>" name="UserID">
                 <tr>
                     <th>Enquiry: </th>
                 </tr>

@@ -18,20 +18,29 @@ public class EnquiryReplyServlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        Validator validator = new Validator();
 
         String id = request.getParameter("id");
         String question = request.getParameter("question");
         String reply = request.getParameter("reply");
+        String userID = request.getParameter("UserID");
         
         EnquiryDBManager manager = (EnquiryDBManager) session.getAttribute("enquiryManager");
 
-        try {
-            manager.updateEnquiry(Integer.parseInt(id), question, reply, true, 1011);
-            request.getRequestDispatcher("staffEnquiry.jsp").include(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(EnquiryReplyServlet.class.getName()).log(Level.SEVERE, null, ex);
+        if(validator.checkEmpty(reply, "a")){
+            session.setAttribute("enquiryID", id);
+            session.setAttribute("enquiryEmptyErr", "Please fill in your reply.");
+            request.getRequestDispatcher("enquiryReply.jsp").include(request, response);
+        }else{
+            try {
+                manager.updateEnquiry(Integer.parseInt(id), question, reply, true, Integer.parseInt(userID));
+                request.getRequestDispatcher("staffEnquiry.jsp").include(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(EnquiryReplyServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-
+        
+        validator.clear(session);
     }
 
 }
