@@ -33,7 +33,7 @@ else if (((User)session.getAttribute("user")).getType().equals("c")) { %>
       </div>
       <ul class="nav navbar-nav">
         <li><a href="RoomServlet">Rooms</a></li>
-        <li><a href="#">Booking</a></li>
+        <li><a href="ViewBookingServlet">Booking</a></li>
         <li><a href="#">About us</a></li>
 
       </ul>
@@ -53,7 +53,7 @@ else if (((User)session.getAttribute("user")).getType().equals("c")) { %>
         </div>
         <ul class="nav navbar-nav">
           <li><a href="RoomServlet">Rooms</a></li>
-          <li><a href="#">Booking</a></li>
+          <li><a href="ViewBookingServlet">Booking</a></li>
           <li><a href="userEnquiry.jsp">Enquiries</a></li>
           <li><a href="#">About us</a></li>
   
@@ -78,7 +78,7 @@ else {%>
       </div>
       <ul class="nav navbar-nav">
         <li><a href="RoomServlet">Rooms</a></li>
-        <li><a href="#">Booking</a></li>
+        <li><a href="ViewBookingServlet">Booking</a></li>
         <li><a href="#">About us</a></li>
 
         <%--Conditions: ONLY ADMIN--%>

@@ -15,21 +15,39 @@ public class RoomFilterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+        int num = -1;
 
-        int num = Integer.parseInt(request.getParameter("quantity"));
+        if (!request.getParameter("quantity").equals("")) {
+            num = Integer.parseInt(request.getParameter("quantity"));
+        }
         String sort = request.getParameter("sort");
 
         RoomDBManager manager = (RoomDBManager) session.getAttribute("room");
         try {
-            if (sort.equals("ascending")) {
-                ArrayList<RoomType> rooms = manager.listRoomByBedsAscending(num);
-                session.setAttribute("rooms", rooms);
-                request.getRequestDispatcher("viewRoom.jsp").include(request, response);
+            if (num == -1) {
+                if (sort.equals("ascending")) {
+                    ArrayList<RoomType> rooms = manager.listRoomAscending();
+                    session.setAttribute("rooms", rooms);
+                    request.getRequestDispatcher("viewRoom.jsp").include(request, response);
+                }
+                else {
+                    ArrayList<RoomType> rooms = manager.listRoomDescending();
+                    session.setAttribute("rooms", rooms);
+                    request.getRequestDispatcher("viewRoom.jsp").include(request, response);
+                }
             }
+
             else {
-                ArrayList<RoomType> rooms = manager.listRoomByBedsDescending(num);
-                session.setAttribute("rooms", rooms);
-                request.getRequestDispatcher("viewRoom.jsp").include(request, response);
+                if (sort.equals("ascending")) {
+                    ArrayList<RoomType> rooms = manager.listRoomByBedsAscending(num);
+                    session.setAttribute("rooms", rooms);
+                    request.getRequestDispatcher("viewRoom.jsp").include(request, response);
+                }
+                else {
+                    ArrayList<RoomType> rooms = manager.listRoomByBedsDescending(num);
+                    session.setAttribute("rooms", rooms);
+                    request.getRequestDispatcher("viewRoom.jsp").include(request, response);
+                }
             }
         }
         catch (Exception e) {
