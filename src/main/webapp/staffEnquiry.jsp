@@ -22,6 +22,8 @@
                 <th>Enquiry</th>
                 <th>Status</th>
                 <th>Reply</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             <% for(Enquiry e : enquiries) {%>
                 <tr>
@@ -34,17 +36,14 @@
                         <%}%>
                     </td>
                     <td><%=e.getReply()%></td>
+                    <td><a href="enquiryReply.jsp?enquiryID=<%=e.getEnquiryID()%>">Reply</a></td>
+                    <td><a href="DeleteEnquiryServlet?enquiryID=<%=e.getEnquiryID()%>">Delete</a></td>
                 </tr>
             <%}%>
         </table>
         
-        <div class="button">
-            <a href="addEnquiry.jsp">New Enquiry</a>
-        </div>
+
         
-        <div class="button">
-            <a href="faq.jsp">Return</a>
-        </div>
 
     </body>
 </html>

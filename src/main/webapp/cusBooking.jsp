@@ -17,30 +17,6 @@
                                 width: 70vw;
                                 margin: 1% auto;
                             }
-
-                            td, th {
-                                border-top: 1px solid #dddddd;
-                                text-align: left;
-                                padding: 8px;
-                                width: 10%;
-                            }
-                            .overlay {
-                                display: none;
-                                position:fixed;
-                                width: 100%;
-                                height:100vh;
-                                background-color: rgba(0,0,0,0.5);
-                                top: 0;
-                                left:0;
-                                right:0;
-                                z-index: 2;
-                            }
-                            .booking-container {
-                                margin: 5% auto;
-                                width:75vw;
-                                border-radius:5px;
-                                background-color: rgb(54, 54, 53);
-                            }
                         </style>
                         <!-- bootstrap-->
                         <link rel="stylesheet"
@@ -57,9 +33,6 @@
                                         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                                     });
                                 });
-                                $(".overlay").click(()=> {
-                                    $(".overlay").toggle();
-                                })
                             });
                         </script>
 </head>
@@ -67,48 +40,55 @@
 <body>
     <section class="container">
         <div class="form-group">
-            <input type="text" class="form-control" id="search" placeholder="Search for booking" maxlength="1" />
+            <input type="text" class="form-control" id="search" placeholder="Search for booking" />
         </div>
         <table>
-            <thead>
-                <tr>
-                    <th>Booking ID</th>
-                    <th>Total Cost</th>
-                    <th>Booking Status</th>
-                    <th>Open</th>
-                </tr>
-            </thead>
-            <tbody id="my-table">
-                <% for (Booking b : allBookings) { %>
+            <article class="row">
+                <thead>
                     <tr>
-                        <td>
-                            <p>
-                                <%= b.getBookingID() %>
-                            </p>
-                        </td>
-                        <td>
-                            <p>$<%= b.getTotalCost() %>
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                <%= b.getStatus() %>
-                            </p>
-                        </td>
-                        <td>
-                            <button id="<%= b.getBookingID() %>" class="btn btn-success" onclick="$('.overlay').toggle();">Open Booking ></button>
-                        </td>
+                        <th>Booking ID</th>
+                        <th>Total Cost</th>
+                        <th>Booking Status</th>
+                        <th> </th>
                     </tr>
-                    <% } %>
-            </tbody>
+                </thead>
+                <tbody id="my-table">
+                    <% for (Booking b : allBookings) { %>
+                        <tr>
+                            <td>
+                                <p>
+                                    <%= b.getBookingID() %>
+                                </p>
+                            </td>
+                            <td>
+                                <p>$<%= b.getTotalCost() %>
+                                </p>
+                            </td>
+                            <td>
+                                <form action="UpdateBooking" method="POST">
+                                    <select class="form-control" id="bookingStatus" name="status" style="width:75%;">
+                                        <option value="Booked" <%=b.getStatus().equals("Booked") ? "selected" : "" %>
+                                            >Booked</option>
+                                        <option value="Checked In" <%=b.getStatus().equals("Checked In") ? "selected"
+                                            : "" %>>Checked In</option>
+                                        <option value="Checked Out" <%=b.getStatus().equals("Checked Out") ? "selected"
+                                            : "" %>>Checked Out</option>
+                                        <option value="Cancelled" <%=b.getStatus().equals("Cancelled") ? "selected" : ""
+                                            %>>Cancelled</option>
+                                    </select>
+                            </td>
+                            <td>
+                                <input type="hidden" name="bookingID" value="<%= b.getBookingID()%>" />
+                                <input type="submit" class="btn btn-success" value="Update Booking >" />
+                                </form>
+                            </td>
+                            <!--Instead of doing a drop down why dont you just make the booking status a drop down field and the button send a request that updates it-->
+                        </tr>
+                        <% } %>
+                </tbody>
         </table>
-        <div class="overlay">
-            <div class="booking-container">
-                <% for (Booking b : allBookings) { %>
-                    out.println("this shit works lol");
-                <% } %>
-            </div>
-        </div>
+        </article>
     </section>
 </body>
+
 </html>
