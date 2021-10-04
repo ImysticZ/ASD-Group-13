@@ -28,7 +28,7 @@ public class AdminCreateRoomServlet extends HttpServlet {
         if(min == null || max == null || typeId == null) {
             // null error
             session.setAttribute("createroommsg", "ERROR: Field is null");
-            
+            request.getRequestDispatcher("admin_create_room.jsp").include(request, response);
             System.out.println("NULLFIELD");
         }
         else if (min.isEmpty() || max.isEmpty() || typeId.isEmpty()) {

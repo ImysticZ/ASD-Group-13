@@ -42,7 +42,7 @@ public class AdminDeleteRoomServlet extends HttpServlet {
     
             }
             session.setAttribute("roomList", roomList);
-            session.setAttribute("msg", "Room deleted");
+            session.setAttribute("roommsg", "Room deleted");
             request.getRequestDispatcher("admin_room_management.jsp").include(request, response);
         }
 

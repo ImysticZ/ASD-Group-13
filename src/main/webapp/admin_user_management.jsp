@@ -24,6 +24,14 @@
             if(userList == null)
                 userList = db.fetchAllUsers();
             
+            String msg = (String) session.getAttribute("msg");
+            if(msg!=null) {
+                %>
+                    <div class="alert alert-primary" role="alert">
+                        <%=msg%>
+                    </div>
+                <%
+            }
         %>
 
         <%--

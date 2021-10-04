@@ -37,7 +37,7 @@ public class AdminDeleteRoomsServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
-            session.setAttribute("msg", "Rooms deleted");
+            session.setAttribute("roommsg", "Rooms deleted");
             request.getRequestDispatcher("admin_room_management.jsp").include(request, response);
         }
 

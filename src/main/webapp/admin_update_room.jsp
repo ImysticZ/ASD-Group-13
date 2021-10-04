@@ -16,7 +16,7 @@
                 db = new AdminDBManager(new DBConnector().openConnection());
                 session.setAttribute("adminmngr", db);
             }
-            String msg = (String) session.getAttribute("createroommsg");
+            String msg = (String) session.getAttribute("editroommsg");
             if(msg!=null) {
                 %>
                     <div class="alert alert-primary" role="alert">

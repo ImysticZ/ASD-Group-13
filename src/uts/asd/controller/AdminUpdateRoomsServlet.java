@@ -58,7 +58,7 @@ public class AdminUpdateRoomsServlet extends HttpServlet {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            session.setAttribute("updateroommsg", "Room has been added");
+            session.setAttribute("updateroommsg", "Room/s has been updated");
             request.getRequestDispatcher("admin_create_room.jsp").include(request, response);
         }
 
