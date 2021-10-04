@@ -17,7 +17,6 @@
             if(db == null) {
                 db = new AdminDBManager(new DBConnector().openConnection());
                 session.setAttribute("adminmngr", db);
-                out.println("Admin manager does not exist, creating one");
             }
             
             ArrayList<Room> roomList = (ArrayList<Room>)session.getAttribute("roomList");
