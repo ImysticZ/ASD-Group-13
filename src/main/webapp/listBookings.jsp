@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Rooms</title>
+    <title>My Bookings</title>
     <jsp:include page="ConnServlet"/>
     <jsp:include page="nav.jsp"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -37,6 +37,13 @@
                 <td><%=booking.getStatus()%></td>
                 <td><%=booking.getPaid()%></td>
                 <td>$<%=booking.getTotalCost()%></td>
+                <td>
+                    <form method="POST" action="CancelBookingServlet">
+                        <button type="submit">Cancel Booking</button>
+                        <input type="hidden" name="bookingID" value="<%=booking.getBookingID()%>">
+                    </form>
+                    
+                </td>
             </tr>
             <%}%>
         </table>
