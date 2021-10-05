@@ -41,7 +41,7 @@ public class AdminDBManager {
 
     // Add User
     public void addUser(String firstname, String lastname, String email, String phone, String password, String address, String type) throws SQLException {
-        String query = "insert into USER (FIRST_NAME, LAST_NAME, EMAIL, PHONE, PASSWORD, ADDRESS, TYPE)" + "values (' "+ firstname + " ',' "+  lastname + "',' "+ email + " ',' "+ phone + " ',' "+ password +"',' "+ address + " ', '"+type+"')";
+        String query = "insert into USER (FIRST_NAME, LAST_NAME, EMAIL, PHONE, PASSWORD, ADDRESS, TYPE)" + "values ('"+ firstname + "','"+  lastname + "','"+ email + "','"+ phone + "','"+ password +"','"+ address + "','"+type+"')";
         st.executeUpdate(query);
     }
 
@@ -229,7 +229,7 @@ public class AdminDBManager {
     }
 
     // Helper function to get room type id
-    private int checkRTypeID(String suite) throws SQLException {
+    public int checkRTypeID(String suite) throws SQLException {
         ResultSet rs = st.executeQuery("select * from RoomType where Suite = '"+suite+"'");
         while(rs.next())
             return rs.getInt(1);
