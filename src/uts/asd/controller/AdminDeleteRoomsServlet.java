@@ -33,7 +33,6 @@ public class AdminDeleteRoomsServlet extends HttpServlet {
             try {
                 manager.deleteRoomRange(Integer.parseInt(min), Integer.parseInt(max));
             } catch (NumberFormatException | SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
 

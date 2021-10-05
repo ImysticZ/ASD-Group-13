@@ -31,7 +31,6 @@ public class AdminDeleteUserServlet extends HttpServlet {
             try {
                 manager.deleteUser(Integer.parseInt(id));
             } catch (NumberFormatException | SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             try {

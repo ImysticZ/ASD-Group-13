@@ -55,7 +55,6 @@ public class AdminCreateRoomServlet extends HttpServlet {
             try {
                 manager.addRoomRange(Integer.parseInt(min), Integer.parseInt(max), Integer.parseInt(typeId));
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             session.setAttribute("createroommsg", "Room has been added");

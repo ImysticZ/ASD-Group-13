@@ -49,7 +49,6 @@ public class AdminUpdateRoomServlet extends HttpServlet {
             try {
                 manager.updateRoom(Integer.parseInt(id), Integer.parseInt(type));
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             session.setAttribute("editroommsg", "Room updated");
