@@ -61,6 +61,10 @@
         <servlet-class>uts.asd.controller.AdminCreateRoomServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AdminCreateRoomTypeServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminCreateRoomTypeServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AdminUpdateUserServlet</servlet-name>
         <servlet-class>uts.asd.controller.AdminUpdateUserServlet</servlet-class>
     </servlet>
@@ -73,6 +77,10 @@
         <servlet-class>uts.asd.controller.AdminUpdateRoomsServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AdminUpdateRoomTypeServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminUpdateRoomTypeServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AdminDeleteUserServlet</servlet-name>
         <servlet-class>uts.asd.controller.AdminDeleteUserServlet</servlet-class>
     </servlet>
@@ -83,6 +91,10 @@
     <servlet>
         <servlet-name>AdminDeleteRoomsServlet</servlet-name>
         <servlet-class>uts.asd.controller.AdminDeleteRoomsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteRoomTypeServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminDeleteRoomTypeServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RoomServlet</servlet-name>
@@ -125,6 +137,10 @@
         <servlet-class>uts.asd.controller.ViewBookingServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CancelBookingServlet</servlet-name>
+        <servlet-class>uts.asd.controller.CancelBookingServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>FilterEnquiriesServlet</servlet-name>
         <servlet-class>uts.asd.controller.FilterEnquiriesServlet</servlet-class>
     </servlet>
@@ -163,6 +179,10 @@
         <url-pattern>/AdminCreateRoomServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AdminCreateRoomTypeServlet</servlet-name>
+        <url-pattern>/AdminCreateRoomTypeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AdminUpdateUserServlet</servlet-name>
         <url-pattern>/AdminUpdateUserServlet</url-pattern>
     </servlet-mapping>
@@ -175,6 +195,10 @@
         <url-pattern>/AdminUpdateRoomsServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AdminUpdateRoomTypeServlet</servlet-name>
+        <url-pattern>/AdminUpdateRoomTypeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AdminDeleteUserServlet</servlet-name>
         <url-pattern>/AdminDeleteUserServlet</url-pattern>
     </servlet-mapping>
@@ -185,6 +209,10 @@
     <servlet-mapping>
         <servlet-name>AdminDeleteRoomsServlet</servlet-name>
         <url-pattern>/AdminDeleteRoomsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteRoomTypeServlet</servlet-name>
+        <url-pattern>/AdminDeleteRoomTypeServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProcessPayment</servlet-name>
@@ -241,6 +269,10 @@
     <servlet-mapping>
         <servlet-name>ViewBookingServlet</servlet-name>
         <url-pattern>/ViewBookingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CancelBookingServlet</servlet-name>
+        <url-pattern>/CancelBookingServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FilterEnquiriesServlet</servlet-name>
