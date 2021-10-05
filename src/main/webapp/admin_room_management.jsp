@@ -54,6 +54,7 @@
                     <td><a href="admin_create_room.jsp">Add Range</a></td>
                     <td><a href="admin_delete_rooms.jsp">Delete Range</a></td>
                     <td><a href="admin_update_rooms.jsp">Update Range</a></td>
+                    <td><a href="admin_roomtype_management.jsp">Manage Room Types</a></td>
                 </tr>
             </table>
         </div>

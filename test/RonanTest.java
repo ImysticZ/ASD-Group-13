@@ -72,13 +72,12 @@ public class RonanTest {
 
     @Test
     public void userDBTest() {
-        Random rng = new Random();
-        String firstName = "TestFirstName" + rng.nextInt(1000);
-        String lastName = "TestLastName" + rng.nextInt(1000);
+        String firstName = "TestFirstName";
+        String lastName = "TestLastName";
         String email = "TestEmail@funny.com";
-        String phoneNum = "+" + rng.nextInt(1000000000);
-        String password = "password" + rng.nextInt(1000);
-        String address = "addresssss" + rng.nextInt(10);
+        String phoneNum = "+45453453453";
+        String password = "password";
+        String address = "addresssss";
         String type = "c";
         boolean err = false;
         AdminDBManager db = null;
@@ -130,8 +129,7 @@ public class RonanTest {
 
     @Test
     public void roomDBTest() {
-        Random rng = new Random();
-        int id = rng.nextInt(5000) + 10000;
+        int id = 123456789;
         boolean err = false;
         AdminDBManager db = null;
         ArrayList<Room> rList = null;

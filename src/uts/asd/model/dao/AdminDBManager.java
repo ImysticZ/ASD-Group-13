@@ -210,6 +210,24 @@ public class AdminDBManager {
         return temp;
     }
 
+    // Add room type
+    public void addRoomType(double cost, int beds, String suite, String desc) throws SQLException {
+        String query = "insert into RoomType (CostPerDay, NumBeds, Suite, Description)" + "values ("+cost+","+beds+",'"+suite+"','"+desc+"')";
+        st.executeUpdate(query);
+    }
+
+    // Delete room type
+    public void deleteRoomType(int id) throws SQLException {
+        String query = "delete from RoomType where RoomTypeID = " + id;
+        st.executeUpdate(query);
+    }
+
+    // Update RoomType
+    public void updateRoomType(int id, double cost, int beds, String suite, String desc) throws SQLException {
+        String query = "update USER set CostPerDay="+cost+", NumBeds="+beds+", Suite='"+suite+"', Description='"+desc+"' where ID = "+id;
+        st.executeUpdate(query);
+    }
+
     /*
         Helper Functions
     */
