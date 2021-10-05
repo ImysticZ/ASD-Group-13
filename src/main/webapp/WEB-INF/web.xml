@@ -77,6 +77,10 @@
         <servlet-class>uts.asd.controller.AdminUpdateRoomsServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AdminUpdateRoomTypeServlet</servlet-name>
+        <servlet-class>uts.asd.controller.AdminUpdateRoomTypeServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AdminDeleteUserServlet</servlet-name>
         <servlet-class>uts.asd.controller.AdminDeleteUserServlet</servlet-class>
     </servlet>
@@ -185,6 +189,10 @@
     <servlet-mapping>
         <servlet-name>AdminUpdateRoomsServlet</servlet-name>
         <url-pattern>/AdminUpdateRoomsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateRoomTypeServlet</servlet-name>
+        <url-pattern>/AdminUpdateRoomTypeServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminDeleteUserServlet</servlet-name>

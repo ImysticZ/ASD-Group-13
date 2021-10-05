@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.asd.model.dao.AdminDBManager;
 
-public class AdminDeleteRoomTypeServlet extends HttpServlet {
+public class AdminUpdateRoomTypeServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,18 +18,22 @@ public class AdminDeleteRoomTypeServlet extends HttpServlet {
         Validator validator = new Validator();
 
         String id = request.getParameter("id");
+        String suite = request.getParameter("suite");
+        String cost = request.getParameter("cost");
+        String numBeds = request.getParameter("numberofbeds");
+        String desc = request.getParameter("desc");
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         System.out.println(session.toString());
 
         
-        if(id==null) {
+        if(suite == null || cost == null || numBeds == null || desc == null || id == null) {
             // null error
             session.setAttribute("roomtypemsg", "ERROR: Field is null");
             request.getRequestDispatcher("admin_roomtype_management.jsp").include(request, response);
             System.out.println("NULLFIELD");
         }
-        else if (id.isEmpty()) {
+        else if (suite.isEmpty() || cost.isEmpty() || numBeds.isEmpty() || desc.isEmpty() || id.isEmpty()) {
             // empty field error
             session.setAttribute("roomtypemsg", "ERROR: Empty field/s");
             request.getRequestDispatcher("admin_roomtype_management.jsp").include(request, response);
@@ -45,12 +49,12 @@ public class AdminDeleteRoomTypeServlet extends HttpServlet {
         else {
             // no error
             try {
-                manager.deleteRoomType(Integer.parseInt(id));;
+                manager.updateRoomType(Integer.parseInt(id), Double.parseDouble(cost), Integer.parseInt(numBeds), suite, desc);
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            session.setAttribute("roomtypemsg", "RoomType has been deleted");
+            session.setAttribute("roomtypemsg", "RoomType has been updated");
             request.getRequestDispatcher("admin_roomtype_management.jsp").include(request, response);
         }
 

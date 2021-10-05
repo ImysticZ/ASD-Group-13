@@ -224,7 +224,7 @@ public class AdminDBManager {
 
     // Update RoomType
     public void updateRoomType(int id, double cost, int beds, String suite, String desc) throws SQLException {
-        String query = "update USER set CostPerDay="+cost+", NumBeds="+beds+", Suite='"+suite+"', Description='"+desc+"' where ID = "+id;
+        String query = "update RoomType set CostPerDay="+cost+", NumBeds="+beds+", Suite='"+suite+"', Description='"+desc+"' where RoomTypeID = "+id;
         st.executeUpdate(query);
     }
 

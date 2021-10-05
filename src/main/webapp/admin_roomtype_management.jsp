@@ -56,6 +56,7 @@
                     <tr>
                         <input type="hidden" value="yes" name="submitted">
                         <td><input type="submit" value="submit" class="button"></td>
+                        <td><a href="admin_room_management.jsp">Back</a></td>
                     </tr>
                 </form>
             </table>
@@ -76,7 +77,7 @@
                         for(RoomType roomType : roomTypeList) {
                     %>
                     <tr>
-                        <form action="#" method="POST">
+                        <form action="AdminUpdateRoomTypeServlet" method="POST">
                             <td><%=roomType.getRoomTypeId()%></td>
                             <td><input type="text" placeholder="Single" name="suite" value="<%=roomType.getSuite()%>"></td>
                             <td><input type="number" placeholder="100.00" step=".01" name="cost" value="<%=roomType.getCost()%>"></td>
