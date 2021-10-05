@@ -26,7 +26,6 @@ public class DeleteEnquiryServlet extends HttpServlet{
         try {
             manager.deleteEnquiry(Integer.parseInt(id));
             request.getRequestDispatcher("staffEnquiry.jsp").include(request, response);
-
         } catch (SQLException ex) {
             Logger.getLogger(DeleteEnquiryServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
