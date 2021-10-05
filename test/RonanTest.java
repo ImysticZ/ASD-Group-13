@@ -10,15 +10,23 @@ import java.time.*;
 import java.time.format.*;
 
 public class RonanTest {
-    
+    DBConnector dbConn;
+    Connection conn;
+
+    RonanTest() throws ClassNotFoundException, SQLException {
+        dbConn = new DBConnector();
+        conn = dbConn.openConnection();
+    }
+
+
+
+
     @Test
     public void dbTest() {
         boolean err = false;
         AdminDBManager db = null;
         try {
-            db = new AdminDBManager(new DBConnector().openConnection());
-        } catch (ClassNotFoundException e) {
-            err = true;
+            db = new AdminDBManager(conn);
         } catch (SQLException e) {
             err = true;
         }
@@ -32,9 +40,7 @@ public class RonanTest {
         AdminDBManager db = null;
         ArrayList<User> uList = null;
         try {
-            db = new AdminDBManager(new DBConnector().openConnection());
-        } catch (ClassNotFoundException e) {
-            err = true;
+            db = new AdminDBManager(conn);
         } catch (SQLException e) {
             err = true;
         }
@@ -84,9 +90,7 @@ public class RonanTest {
         ArrayList<User> uList = null;
 
         try {
-            db = new AdminDBManager(new DBConnector().openConnection());
-        } catch (ClassNotFoundException e) {
-            err = true;
+            db = new AdminDBManager(conn);
         } catch (SQLException e) {
             err = true;
         }
@@ -135,9 +139,7 @@ public class RonanTest {
         ArrayList<Room> rList = null;
 
         try {
-            db = new AdminDBManager(new DBConnector().openConnection());
-        } catch (ClassNotFoundException e) {
-            err = true;
+            db = new AdminDBManager(conn);
         } catch (SQLException e) {
             err = true;
         }
