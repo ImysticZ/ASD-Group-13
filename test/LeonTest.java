@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.*;
 import uts.asd.model.*;
 
-public class UnitTest {
+public class LeonTest {
     
     // METHODS BELOW
 
