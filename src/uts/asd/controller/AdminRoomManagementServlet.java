@@ -41,7 +41,6 @@ public class AdminRoomManagementServlet extends HttpServlet {
                 try {
                     roomList = manager.fetchRoomBySuite(roomType);
                 } catch (SQLException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 session.setAttribute("roomList", roomList);
@@ -53,7 +52,6 @@ public class AdminRoomManagementServlet extends HttpServlet {
                 try {
                     roomList = manager.fetchRoomByNumber(Integer.parseInt(roomNumber));
                 } catch (NumberFormatException | SQLException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 session.setAttribute("roomList", roomList);
@@ -63,7 +61,6 @@ public class AdminRoomManagementServlet extends HttpServlet {
                 try {
                     roomList = manager.fetchRooms(Integer.parseInt(roomNumber), roomType);
                 } catch (NumberFormatException | SQLException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
 

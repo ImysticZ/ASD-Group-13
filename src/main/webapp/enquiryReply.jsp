@@ -7,7 +7,7 @@
     <head>
         <jsp:include page="nav.jsp"/>
         <link rel="stylesheet" href="css/enquiry.css">
-        <title>Enquiries</title> 
+        <title>Reply</title> 
     </head>
     <body>
 

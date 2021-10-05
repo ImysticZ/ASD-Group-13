@@ -26,8 +26,8 @@ public class FilterEnquiriesServlet extends HttpServlet{
         String status = request.getParameter("status");
 
         User user = (User) session.getAttribute("user");
-        
         EnquiryDBManager manager = (EnquiryDBManager) session.getAttribute("enquiryManager");
+        
         if(validator.checkEmpty(status, "a") && user.getType().equals("c")){
             session.setAttribute("filterEmptyErr", "Please select enquiry status.");
             request.getRequestDispatcher("userEnquiry.jsp").include(request, response);

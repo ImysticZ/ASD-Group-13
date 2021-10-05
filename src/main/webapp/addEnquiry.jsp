@@ -9,6 +9,7 @@
         <title>New Enquiry</title> 
     </head>
     <body>
+        
         <%
             User user = (User) session.getAttribute("user");
             String emptyErr = (String) session.getAttribute("enquiryEmptyErr");

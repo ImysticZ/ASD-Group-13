@@ -55,7 +55,6 @@ public class AdminUpdateUserServlet extends HttpServlet {
             try {
                 manager.updateUser(Integer.parseInt(id), firstName, lastName, email, phone, password, address, type);
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             session.setAttribute("editusermsg", "User has updated");

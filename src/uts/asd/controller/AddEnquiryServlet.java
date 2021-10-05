@@ -1,7 +1,6 @@
 package uts.asd.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +32,6 @@ public class AddEnquiryServlet extends HttpServlet{
             try {
                 manager.addEnquiry(question, reply, Integer.parseInt(id));
                 request.getRequestDispatcher("enquirySubmitted.jsp").include(request, response);
-                   
             } catch (SQLException ex) {
                 Logger.getLogger(AddEnquiryServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
