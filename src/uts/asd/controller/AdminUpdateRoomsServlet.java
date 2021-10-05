@@ -55,7 +55,6 @@ public class AdminUpdateRoomsServlet extends HttpServlet {
             try {
                 manager.updateRoomRange(Integer.parseInt(min), Integer.parseInt(max), Integer.parseInt(typeId));
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             session.setAttribute("updateroommsg", "Room/s has been updated");

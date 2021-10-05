@@ -32,7 +32,6 @@ public class AdminDeleteRoomServlet extends HttpServlet {
             try {
                 manager.deleteRoom(Integer.parseInt(id));
             } catch (NumberFormatException | SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             try {

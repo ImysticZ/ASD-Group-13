@@ -53,7 +53,6 @@ public class AdminCreateUserServlet extends HttpServlet {
             try {
                 manager.addUser(firstName, lastName, email, phone, password, address, type);
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             session.setAttribute("createusermsg", "User has been added");
