@@ -124,6 +124,10 @@
         <servlet-name>ViewBookingServlet</servlet-name>
         <servlet-class>uts.asd.controller.ViewBookingServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FilterEnquiriesServlet</servlet-name>
+        <servlet-class>uts.asd.controller.FilterEnquiriesServlet</servlet-class>
+    </servlet>
 
     <!-- insert servlet mapping stuff here -->
     <servlet-mapping>
@@ -237,6 +241,10 @@
     <servlet-mapping>
         <servlet-name>ViewBookingServlet</servlet-name>
         <url-pattern>/ViewBookingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FilterEnquiriesServlet</servlet-name>
+        <url-pattern>/FilterEnquiriesServlet</url-pattern>
     </servlet-mapping>
 
     <!-- yo whats up -->

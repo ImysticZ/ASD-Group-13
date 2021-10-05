@@ -149,3 +149,23 @@ body {
 .emptyErr{
   color: red;
 }
+
+.filter{
+  margin-left: 130px;
+  padding-top: 10px;
+  margin-bottom:10px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border-style: none;
+  width:40%;
+}
+
+.staffFilter{
+  margin-left: 130px;
+  padding-top: 10px;
+  margin-bottom:10px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border-style: none;
+  width:80%;
+}

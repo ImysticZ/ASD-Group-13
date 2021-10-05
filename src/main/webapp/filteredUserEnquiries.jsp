@@ -14,33 +14,19 @@
         <%
             EnquiryDBManager manager = (EnquiryDBManager) session.getAttribute("enquiryManager");
             User user = (User) session.getAttribute("user");
-            ArrayList<Enquiry> enquiries = manager.findEnquiriesByID(user.getId());
-            String filterEmptyErr = (String) session.getAttribute("filterEmptyErr");
+            ArrayList<Enquiry> enquiries = (ArrayList)request.getAttribute("filteredEnquiries");
         %>
         
         <h1>Enquiries</h1>
 
-        <%--Filter enquiries--%>
-        <p class="emptyErr"><%= filterEmptyErr != null ? filterEmptyErr : ""%></p>
-        <form method="post" action="FilterEnquiriesServlet">
-            <table class="filter">
-                <tr>
-                    <input type="hidden" value="<%=user.getId()%>" name="UserID">
-                    <td><label for="status">Filter by status: </label></td>
-                    <td>
-                        <select id="status" name="status">
-                            <option value="">Select Status</option>
-                            <option value="pending">Pending</option>
-                            <option value="resolved">Resolved</option>
-                        </select>
-                    </td>
-                    <td><input type="submit" value="Submit"></td>
-                </tr>
-            </table>
-
-        </form>
+        <%--Clear filter--%>
+        <table class="filter">
+            <tr>
+                <td><a href="userEnquiry.jsp">Clear Filter</a></td>
+            </tr>
+        </table>
         
-        <%--List of enquiries from the customer that is logged in--%>
+        <%--Filtered enquiries--%>
         <table class="enquiriesTable">
             <tr>
                 <th class="tableColumn">Enquiry</th>

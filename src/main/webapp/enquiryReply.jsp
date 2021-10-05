@@ -39,7 +39,7 @@
                     <th>Reply: </th>
                 </tr>
                 <tr>
-                    <td><textarea class="textbox" type="text" value="<%=enquiry.getReply()%>" name="reply"></textarea></td>
+                    <td><textarea class="textbox" type="text" value="<%=enquiry.getReply()%>" placeholder="Enter reply" name="reply"><%=enquiry.getReply()%></textarea></td>
                 </tr>
                 <tr>
                     <td><input class="submit" type="submit" value="Submit"></td>
