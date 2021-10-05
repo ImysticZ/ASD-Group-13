@@ -81,7 +81,7 @@
                             </form>
                         </td>
                         <td>
-                            <%--DELETE USER BUTTON--%>
+                            <%--DELETE ROOM BUTTON--%>
                             <form action="AdminDeleteRoomServlet" method="post">
                                 <input type="hidden" name="id" value="<%=room.getRoomId()%>">
                                 <input type="submit" value="Delete" class="button">

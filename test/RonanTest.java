@@ -15,14 +15,11 @@ public class RonanTest {
 
     RonanTest() throws ClassNotFoundException, SQLException {
         dbConn = new DBConnector();
-        conn = dbConn.openConnection();
     }
 
-
-
-
     @Test
-    public void dbTest() {
+    public void dbTest() throws SQLException {
+        conn = dbConn.openConnection();
         boolean err = false;
         AdminDBManager db = null;
         try {
@@ -32,10 +29,12 @@ public class RonanTest {
         }
         if(db == null) err = true;
         assertEquals(false, err);
+        dbConn.closeConnection();
     }
 
     @Test
-    public void fetchUserTest() {
+    public void fetchUserTest() throws SQLException {
+        conn = dbConn.openConnection();
         boolean err = false;
         AdminDBManager db = null;
         ArrayList<User> uList = null;
@@ -52,6 +51,7 @@ public class RonanTest {
         }
         if(uList == null) err = true;
         assertEquals(false, err);
+        dbConn.closeConnection();
     }
 
     @Test
@@ -77,7 +77,8 @@ public class RonanTest {
     }
 
     @Test
-    public void userDBTest() {
+    public void userDBTest() throws SQLException {
+        conn = dbConn.openConnection();
         String firstName = "TestFirstName";
         String lastName = "TestLastName";
         String email = "TestEmail@funny.com";
@@ -129,10 +130,12 @@ public class RonanTest {
         }
         assertTrue(uList.isEmpty());
         assertEquals(false, err);
+        dbConn.closeConnection();
     }
 
     @Test
-    public void roomDBTest() {
+    public void roomDBTest() throws SQLException {
+        conn = dbConn.openConnection();
         int id = 123456789;
         boolean err = false;
         AdminDBManager db = null;
@@ -181,10 +184,12 @@ public class RonanTest {
         }
         assertTrue(rList.isEmpty());
         assertEquals(false, err);
+        dbConn.closeConnection();
     }
 
     @Test
-    public void roomTypeDBTest() {
+    public void roomTypeDBTest() throws SQLException {
+        conn = dbConn.openConnection();
         boolean err = false;
         AdminDBManager db = null;
         ArrayList<RoomType> rTypes = null;
@@ -227,5 +232,6 @@ public class RonanTest {
             assertEquals(rTypes.get(i).getSuite(), type);
         }
         assertEquals(false, err);
+        dbConn.closeConnection();
     }
 }
