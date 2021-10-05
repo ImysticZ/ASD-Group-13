@@ -1,15 +1,19 @@
 import static org.junit.jupiter.api.Assertions.*;
 import uts.asd.model.*;
+import uts.asd.model.dao.*;
 import org.junit.jupiter.api.*;
-import java.sql.*;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.time.*;
-import java.time.format.*;
-
 
 public class ClarenceTest {
+
+    static RoomDBManager manager;
+
+    @BeforeAll
+    public static void setup() throws Exception {
+        manager = new RoomDBManager(new DBConnector().openConnection());
+    }
+
 
     @Test
     public void roomTypeTest() {
@@ -50,6 +54,24 @@ public class ClarenceTest {
         LocalDate today = LocalDate.now();
         LocalDate tomorrow = LocalDate.now().plusDays(1);
         assertEquals(ChronoUnit.DAYS.between(today, tomorrow), 1);
+    }
+
+    @Test
+    public void differenceInDaysTest2() {
+        LocalDate today = LocalDate.now();
+        LocalDate tomorrow = LocalDate.now().plusDays(34);
+        assertEquals(ChronoUnit.DAYS.between(today, tomorrow), 34);
+    }
+
+    @Test
+    public void findBookingByID() throws Exception {
+        int bookingID = 15;
+        Booking booking = manager.findBookingByID(bookingID);
+        assertEquals(booking.getBookingID(), bookingID);
+        assertEquals(booking.getRoomID(), 152);
+        assertEquals(booking.getTotalCost(), 1049.93);
+
+
     }
 
 }
