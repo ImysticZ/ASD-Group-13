@@ -14,26 +14,43 @@
         <%
             EnquiryDBManager manager = (EnquiryDBManager) session.getAttribute("enquiryManager");
             String id = request.getParameter("enquiryID");
+            if(id == null){
+                id = (String) session.getAttribute("enquiryID");
+            }
             Enquiry enquiry = manager.findEnquiryByID(Integer.parseInt(id));
+            String emptyErr = (String) session.getAttribute("enquiryEmptyErr");
         %>
         
         <h1>Reply</h1>
+
+        <%--Add reply--%>
+        <p class="emptyErr"><%= emptyErr != null ? emptyErr : ""%></p>
         <form method="post" action="EnquiryReplyServlet">
-            <table>
+            <table class="enquiryForm">
                 <input type="hidden" value="<%=enquiry.getEnquiryID()%>" name="id">
-                <tr><th>Enquiry: </th><td><input type="text" value="<%=enquiry.getQuestion()%>" name="question" readonly></td></tr>
-                <tr><th>Reply: </th><td><input type="text" value="<%=enquiry.getReply()%>" name="reply"></td></tr>
+                <input type="hidden" value="<%=enquiry.getUserID()%>" name="UserID">
                 <tr>
-                    <td></td><td><input class="button" type="submit" value="Edit"></td>
+                    <th>Enquiry: </th>
+                </tr>
+                <tr>
+                    <td><textarea class="textbox" type="text" name="question" readonly><%=enquiry.getQuestion()%></textarea></td>
+                </tr>
+                <tr>
+                    <th>Reply: </th>
+                </tr>
+                <tr>
+                    <td><textarea class="textbox" type="text" value="<%=enquiry.getReply()%>" placeholder="Enter reply" name="reply"><%=enquiry.getReply()%></textarea></td>
+                </tr>
+                <tr>
+                    <td><input class="submit" type="submit" value="Submit"></td>
                 </tr>               
             </table>                   
         </form>
 
+        <%--Return to enquiries page--%>
         <div class="button">
             <a href="staffEnquiry.jsp">Return</a>
         </div>
-
-        
 
     </body>
 </html>

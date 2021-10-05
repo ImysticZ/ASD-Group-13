@@ -40,7 +40,24 @@ public class EnquiryDBManager {
         return null;
     }
 
-    public ArrayList<Enquiry> filterEnquiries(boolean resolved) throws SQLException {
+    public ArrayList<Enquiry> findEnquiriesByID(int ID) throws SQLException {
+        String query = "SELECT * FROM Enquiry WHERE UserID = " + ID + "";
+        ResultSet rs = st.executeQuery(query);
+        ArrayList<Enquiry> enquiries = new ArrayList<Enquiry>();
+
+        while (rs.next()) {
+            int enquiryID = rs.getInt(1);
+            String question = rs.getString(2);
+            String reply = rs.getString(3);
+            boolean status = rs.getBoolean(4);
+            int userID = rs.getInt(5);
+
+            enquiries.add(new Enquiry(enquiryID, question, reply, status, userID));
+        }
+        return enquiries;
+    }
+
+    public ArrayList<Enquiry> filterEnquiriesByStatus(boolean resolved) throws SQLException {
         String query = "SELECT * FROM Enquiry WHERE Resolved = " + resolved + "";
         ResultSet rs = st.executeQuery(query);
         ArrayList<Enquiry> enquiries = new ArrayList<Enquiry>();
@@ -57,7 +74,23 @@ public class EnquiryDBManager {
         return enquiries;
     }
 
-    
+    public ArrayList<Enquiry> filterEnquiries(boolean resolved, String id) throws SQLException {
+        String query = "SELECT * FROM Enquiry WHERE Resolved = " + resolved + " AND UserID = " + id + "";
+        ResultSet rs = st.executeQuery(query);
+        ArrayList<Enquiry> enquiries = new ArrayList<Enquiry>();
+
+        while (rs.next()) {
+            int enquiryID = rs.getInt(1);
+            String question = rs.getString(2);
+            String reply = rs.getString(3);
+            boolean status = rs.getBoolean(4);
+            int userID = rs.getInt(5);
+
+            enquiries.add(new Enquiry(enquiryID, question, reply, status, userID));
+        }
+        return enquiries;
+    }
+
     //Update
     public void updateEnquiry(int enquiryID, String question, String reply, boolean status, int userID) throws SQLException {
         st.executeUpdate("UPDATE Enquiry SET Question='" + question + "', Reply= '" + reply + "', Resolved= " + status
