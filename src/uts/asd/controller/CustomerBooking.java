@@ -17,15 +17,14 @@ public class CustomerBooking extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        // retrieve paymentDB from session
-        PaymentDB paymentDB = (PaymentDB) session.getAttribute("paymentDB");
+        HttpSession session = request.getSession(); // retrieve session
+        PaymentDB paymentDB = (PaymentDB) session.getAttribute("paymentDB"); // retrieve paymentDB from session
         try {
-            ArrayList<Booking> allBooking = paymentDB.fetchBooking();
-            session.setAttribute("bookings", allBooking);
+            ArrayList<Booking> allBooking = paymentDB.fetchBooking(); // fetch all Customer bookings and store in arraylist 
+            session.setAttribute("bookings", allBooking); //store list of booking in session variable
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("cusBooking.jsp").include(request, response);
+        request.getRequestDispatcher("cusBooking.jsp").include(request, response); //direct to Customer Bookings page
     }
 }

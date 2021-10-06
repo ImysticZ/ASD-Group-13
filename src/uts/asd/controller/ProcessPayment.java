@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import uts.asd.model.*;
 import uts.asd.model.dao.PaymentDB;
+import uts.asd.model.dao.RoomDBManager;
 
 public class ProcessPayment extends HttpServlet {
     @Override
@@ -19,6 +20,8 @@ public class ProcessPayment extends HttpServlet {
         HttpSession session = request.getSession(); // retrieve session
 
         PaymentDB paymentDB = (PaymentDB) session.getAttribute("paymentDB"); // retrieve paymentDB from session
+        
+        RoomDBManager manager = (RoomDBManager) session.getAttribute("room"); //retroeve roomDB
 
         // retrieve user from session if exists
         User user = session.getAttribute("user") != null ? (User) session.getAttribute("user") : null; 
@@ -29,43 +32,40 @@ public class ProcessPayment extends HttpServlet {
         // retrieve booking from session if exists
         Booking booking = session.getAttribute("booking") != null ? (Booking) session.getAttribute("booking") : null; 
 
-        String cardNo = request.getParameter("card").trim();
-        String cvc = request.getParameter("cvc").trim();
-        String date = request.getParameter("date");
+        String cardNo = request.getParameter("card").trim(); //retrive cardNo from parameter
+        String cvc = request.getParameter("cvc").trim(); //retrive cvc from parameter
+        String date = request.getParameter("date"); //retrive date from parameter
 
-        Card userCard= null;
+        Card userCard= null; //initiate card class based on user card details
 
         // regex to check user input
 
         if (!cardNo.matches("^[0-9]{16}")) { // check cardNo is in correct format
             session.setAttribute("cardErr", "*Invalid card Number, must be 16 digits*");
-            request.getRequestDispatcher("payments.jsp").include(request, response);
+            request.getRequestDispatcher("payments.jsp").include(request, response); // return to payments page
         } else if (!cvc.matches("^[0-9]{3}")) { // check cvc is in correct format
             session.setAttribute("cardErr", "*Invalid cvc Number, must be 3 digits*");
-            request.getRequestDispatcher("payments.jsp").include(request, response);
+            request.getRequestDispatcher("payments.jsp").include(request, response); // return to payments page
         } else {
             System.out.println("Input were validated");
             try {
-                userCard = paymentDB.saveCard(cardNo, cvc, date); // card details inserted by user
-                System.out.println("card detail stored");
-                paymentDB.makePayment(booking.getBookingID(), userCard.getcardID());
+                userCard = paymentDB.saveCard(cardNo, cvc, date); // card details inserted by user saved to database 
+                paymentDB.makePayment(booking.getBookingID(), userCard.getcardID()); // insert payment record
+                manager.payBooking(booking.getBookingID()); //Update booking to paid
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
 
-            if (request.getParameter("save") != null) { // save credit card to user database
+            if (request.getParameter("save") != null) { // save credit card to user for auto - fill, allow system to remember card
                 try {
-                //    System.out.println(" card ID is " + userCard.getcardID());
-                //    System.out.println("user id is " + user.getId()); 
                     paymentDB.saveCardToUser(user.getId(), userCard);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                session.setAttribute("card", userCard);
+                session.setAttribute("card", userCard); // save user card to session
                 System.out.println("card is " + userCard.getnumber() + " cvc is " + userCard.getcvc() + " date is " + userCard.getdate());
-                // System.out.println("Scream and shout and let it all out");  successful
             }
-            request.getRequestDispatcher("success.jsp").include(request, response);
+            request.getRequestDispatcher("success.jsp").include(request, response); // direct to booking successful page
 
         }
     }

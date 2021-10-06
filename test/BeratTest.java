@@ -8,7 +8,7 @@ import uts.asd.model.dao.DBConnector;
 import uts.asd.model.dao.testPaymentDB;
 
 public class BeratTest {
-    private testPaymentDB testPayment;
+    static testPaymentDB testPayment;
     DBConnector dbConn;
     Connection conn;
 

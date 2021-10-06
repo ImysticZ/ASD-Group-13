@@ -107,5 +107,9 @@ public class RoomDBManager {
         st.executeUpdate("UPDATE Booking SET Status='Cancelled' WHERE BookingID=" + bookingID);
     }
 
+    public void payBooking(int bookingID) throws SQLException {
+        st.executeUpdate("UPDATE Booking SET Paid=1 WHERE BookingID=" + bookingID);
+    }
+
 
 }
