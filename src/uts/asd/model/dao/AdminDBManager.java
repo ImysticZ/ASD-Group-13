@@ -41,7 +41,7 @@ public class AdminDBManager {
 
     // Add User
     public void addUser(String firstname, String lastname, String email, String phone, String password, String address, String type) throws SQLException {
-        String query = "insert into USER (FIRST_NAME, LAST_NAME, EMAIL, PHONE, PASSWORD, ADDRESS, TYPE)" + "values (' "+ firstname + " ',' "+  lastname + "',' "+ email + " ',' "+ phone + " ',' "+ password +"',' "+ address + " ', '"+type+"')";
+        String query = "insert into USER (FIRST_NAME, LAST_NAME, EMAIL, PHONE, PASSWORD, ADDRESS, TYPE)" + "values ('"+ firstname + "','"+  lastname + "','"+ email + "','"+ phone + "','"+ password +"','"+ address + "','"+type+"')";
         st.executeUpdate(query);
     }
 
@@ -210,6 +210,24 @@ public class AdminDBManager {
         return temp;
     }
 
+    // Add room type
+    public void addRoomType(double cost, int beds, String suite, String desc) throws SQLException {
+        String query = "insert into RoomType (CostPerDay, NumBeds, Suite, Description)" + "values ("+cost+","+beds+",'"+suite+"','"+desc+"')";
+        st.executeUpdate(query);
+    }
+
+    // Delete room type
+    public void deleteRoomType(int id) throws SQLException {
+        String query = "delete from RoomType where RoomTypeID = " + id;
+        st.executeUpdate(query);
+    }
+
+    // Update RoomType
+    public void updateRoomType(int id, double cost, int beds, String suite, String desc) throws SQLException {
+        String query = "update RoomType set CostPerDay="+cost+", NumBeds="+beds+", Suite='"+suite+"', Description='"+desc+"' where RoomTypeID = "+id;
+        st.executeUpdate(query);
+    }
+
     /*
         Helper Functions
     */
@@ -229,7 +247,7 @@ public class AdminDBManager {
     }
 
     // Helper function to get room type id
-    private int checkRTypeID(String suite) throws SQLException {
+    public int checkRTypeID(String suite) throws SQLException {
         ResultSet rs = st.executeQuery("select * from RoomType where Suite = '"+suite+"'");
         while(rs.next())
             return rs.getInt(1);

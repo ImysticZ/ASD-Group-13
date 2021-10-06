@@ -29,12 +29,12 @@ steps:
     TargetFolder: '$(build.artifactstagingdirectory)'
   condition: succeededOrFailed()
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: ASD-Group-13'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
-    ArtifactName: 'ASD-Group-13'
-  condition: succeededOrFailed()
+# - task: PublishBuildArtifacts@1
+#   displayName: 'Publish Artifact: ASD-Group-13'
+#   inputs:
+#     PathtoPublish: '$(build.artifactstagingdirectory)'
+#     ArtifactName: 'ASD-Group-13'
+#   condition: succeededOrFailed()
   
 - task: PublishTestResults@2
   inputs:

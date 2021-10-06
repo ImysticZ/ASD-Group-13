@@ -32,7 +32,6 @@ public class AddEnquiryServlet extends HttpServlet{
             try {
                 manager.addEnquiry(question, reply, Integer.parseInt(id));
                 request.getRequestDispatcher("enquirySubmitted.jsp").include(request, response);
-                   
             } catch (SQLException ex) {
                 Logger.getLogger(AddEnquiryServlet.class.getName()).log(Level.SEVERE, null, ex);
             }

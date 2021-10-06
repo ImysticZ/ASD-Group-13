@@ -36,7 +36,13 @@
                     <option value="<%=a.getRoomId()%>">Room <%= a.getRoomId() %></option>
                 <%}%>
             </select>
-            <button type="submit">View Booking Details</a>
+            <%if (session.getAttribute("user") == null) {%>
+            <button type="submit" disabled>View Booking Details</button>
+            <h3>You need to be signed in to book!</h3>
+            <%}
+            else {%>
+            <button type="submit">View Booking Details</button>
+            <%}%>
         </form>
     </div>
 </body>
