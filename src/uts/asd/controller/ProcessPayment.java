@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import uts.asd.model.*;
 import uts.asd.model.dao.PaymentDB;
+import uts.asd.model.dao.RoomDBManager;
 
 public class ProcessPayment extends HttpServlet {
     @Override
@@ -19,6 +20,8 @@ public class ProcessPayment extends HttpServlet {
         HttpSession session = request.getSession(); // retrieve session
 
         PaymentDB paymentDB = (PaymentDB) session.getAttribute("paymentDB"); // retrieve paymentDB from session
+        
+        RoomDBManager manager = (RoomDBManager) session.getAttribute("room"); //retroeve roomDB
 
         // retrieve user from session if exists
         User user = session.getAttribute("user") != null ? (User) session.getAttribute("user") : null; 
@@ -48,6 +51,7 @@ public class ProcessPayment extends HttpServlet {
             try {
                 userCard = paymentDB.saveCard(cardNo, cvc, date); // card details inserted by user saved to database 
                 paymentDB.makePayment(booking.getBookingID(), userCard.getcardID()); // insert payment record
+                manager.payBooking(booking.getBookingID()); //Update booking to paid
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
