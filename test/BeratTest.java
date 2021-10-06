@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import uts.asd.model.dao.DBConnector;
 import uts.asd.model.dao.testPaymentDB;
 
 public class BeratTest {
-    private testPaymentDB testPayment;
+    static testPaymentDB testPayment;
     DBConnector dbConn;
     Connection conn;
 
