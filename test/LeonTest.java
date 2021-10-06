@@ -1,17 +1,18 @@
-
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.*;
 import uts.asd.model.*;
-import uts.asd.model.dao.PaymentDB;
+import uts.asd.model.dao.*;
 
 public class LeonTest {
-    String url = "jdbc:mysql://bc2dyro2kdvcc2jmmd9e-mysql.services.clever-cloud.com:3306/bc2dyro2kdvcc2jmmd9e";
-    String dbuser = "usws9urc96uqn2aw";
-    String dbpass = "aOuX54759girLCF7QIkY";
+    static DBConnector db;
+    static PaymentDB paymentDB;
+
+    @BeforeAll
+    public static void setup() throws Exception {
+        db = new DBConnector();
+        paymentDB = new PaymentDB(db.openConnection());
+    }
 
     @Test
     public void returnCardTest() throws SQLException
@@ -26,10 +27,8 @@ public class LeonTest {
         String type = "c";
 
         User user = new User(id, fname, lname, email, phone, pass, address, type);
-        Connection connection=DriverManager.getConnection(url, dbuser, dbpass);
-        PaymentDB paymentDB = new PaymentDB(connection);
 
-        assertEquals(47, paymentDB.returnCard(user).getcardID());
+        assertEquals(52, paymentDB.returnCard(user).getcardID());
         assertNotEquals(48, paymentDB.returnCard(user).getcardID());
     }
 
@@ -40,5 +39,10 @@ public class LeonTest {
         User userType = new User(1, "First Name", "Last Name", "Email", "Phone", "Password", "Address", userTypeCustomer);
         
         assertEquals(userType.getType(), userTypeCustomer);
+    }
+
+    @AfterAll
+    public static void end() throws Exception {
+        db.closeConnection();
     }
 }
