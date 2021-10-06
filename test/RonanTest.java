@@ -18,43 +18,6 @@ public class RonanTest {
     }
 
     @Test
-    public void dbTest() throws SQLException {
-        conn = dbConn.openConnection();
-        boolean err = false;
-        AdminDBManager db = null;
-        try {
-            db = new AdminDBManager(conn);
-        } catch (SQLException e) {
-            err = true;
-        }
-        if(db == null) err = true;
-        assertEquals(false, err);
-        dbConn.closeConnection();
-    }
-
-    @Test
-    public void fetchUserTest() throws SQLException {
-        conn = dbConn.openConnection();
-        boolean err = false;
-        AdminDBManager db = null;
-        ArrayList<User> uList = null;
-        try {
-            db = new AdminDBManager(conn);
-        } catch (SQLException e) {
-            err = true;
-        }
-        if(db == null) err = true;
-        try {
-            uList = db.fetchAllUsers();
-        } catch (SQLException e) {
-            err = true;
-        }
-        if(uList == null) err = true;
-        assertEquals(false, err);
-        dbConn.closeConnection();
-    }
-
-    @Test
     public void userTest() {
         Random rng = new Random();
         int id = 123123;
