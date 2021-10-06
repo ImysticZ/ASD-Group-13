@@ -8,12 +8,13 @@ import java.time.*;
 public class ClarenceTest {
 
     static RoomDBManager manager;
+    static DBConnector db;
 
     @BeforeAll
     public static void setup() throws Exception {
-        manager = new RoomDBManager(new DBConnector().openConnection());
+        db = new DBConnector();
+        manager = new RoomDBManager(db.openConnection());
     }
-
 
     @Test
     public void roomTypeTest() {
@@ -70,8 +71,11 @@ public class ClarenceTest {
         assertEquals(booking.getBookingID(), bookingID);
         assertEquals(booking.getRoomID(), 152);
         assertEquals(booking.getTotalCost(), 1049.93);
+    }
 
-
+    @AfterAll
+    public static void end() throws Exception {
+        db.closeConnection();
     }
 
 }
