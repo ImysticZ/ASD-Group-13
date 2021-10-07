@@ -20,8 +20,8 @@ public class ViewRoomServlet extends HttpServlet {
             int roomId = Integer.parseInt(request.getParameter("roomid"));
             RoomType room = manager.findRoomById(roomId);
             ArrayList<Room> rooms = manager.listRoomsByID(roomId);
-            session.setAttribute("theroom", room);
-            session.setAttribute("allrooms", rooms);
+            session.setAttribute("theroom", room); // sets roomtype into session
+            session.setAttribute("allrooms", rooms); // sets list of rooms with the roomtype into session
             request.getRequestDispatcher("room.jsp").include(request, response);
         }
         catch (Exception e) {

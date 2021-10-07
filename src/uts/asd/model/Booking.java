@@ -10,7 +10,7 @@ public class Booking implements Serializable {
     private boolean paid;
     private double totalCost;
 
-    public Booking(int bookingID, int userID, int roomID, String startingDate, String endingDate, String status, boolean paid, double totalCost) {
+    public Booking(int bookingID, int userID, int roomID, String startingDate, String endingDate, String status, boolean paid, double totalCost) { // constructor
         this.bookingID = bookingID;
 
         this.userID = userID;
