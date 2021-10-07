@@ -18,7 +18,7 @@ public class RoomServlet extends HttpServlet {
         RoomDBManager manager = (RoomDBManager) session.getAttribute("room");
         try {
             ArrayList<RoomType> rooms = manager.listRooms();
-            session.setAttribute("rooms", rooms);
+            session.setAttribute("rooms", rooms); // sets list of roomtypes into session
             request.getRequestDispatcher("viewRoom.jsp").include(request, response);
         }
         catch (Exception e) {
