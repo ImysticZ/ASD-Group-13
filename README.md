@@ -11,12 +11,12 @@ Friday 1:00PM - 3:00PM
 
 # There are 6 branches in the repository
 
-main : Central Team branch
-clarence : Clarence Cheung | 13534971
-gyoun-im : Gyoun Im	| 13554124
-leonwang : Leon Wang | 13612294
-BeratAppak : Berat Appak | 13854157
-ronan-branch-new : Ronan Konstantin	| 13717119
+* main : Central Team branch
+* clarence : Clarence Cheung | 13534971
+* gyoun-im : Gyoun Im	| 13554124
+* leonwang : Leon Wang | 13612294
+* BeratAppak : Berat Appak | 13854157
+* ronan-branch-new : Ronan Konstantin	| 13717119
 
 # Team Features
 Clarence Cheung
@@ -39,3 +39,9 @@ Ronan Konstantin
   - Admin User management
   - Admin Room Management
 
+# Repository Structure
+* [Web Pages](src/main/webapp)
+* [Models](src/uts/asd/model)
+* [Database Managers](src/uts/asd/model/dao)
+* [Tests](test)
+* [Servlets](src/uts/asd/controller)
