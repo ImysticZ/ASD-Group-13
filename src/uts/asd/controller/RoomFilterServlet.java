@@ -23,7 +23,7 @@ public class RoomFilterServlet extends HttpServlet {
         String sort = request.getParameter("sort");
 
         RoomDBManager manager = (RoomDBManager) session.getAttribute("room");
-        try {
+        try { // sets list of roomtypes into session depending on what user has inputted
             if (num == -1) {
                 if (sort.equals("ascending")) {
                     ArrayList<RoomType> rooms = manager.listRoomAscending();

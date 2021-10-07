@@ -19,7 +19,7 @@ public class ViewBookingServlet extends HttpServlet {
         try {
             int userID = ((User)session.getAttribute("user")).getId();;
             ArrayList<Booking> bookings = manager.listBookingByUserID(userID);
-            session.setAttribute("bookings", bookings);
+            session.setAttribute("bookings", bookings); // sets list of bookings into session
             request.getRequestDispatcher("listBookings.jsp").include(request, response);
         }
         catch (Exception e) {

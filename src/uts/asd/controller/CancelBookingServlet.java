@@ -21,7 +21,7 @@ public class CancelBookingServlet extends HttpServlet {
             manager.cancelBooking(bookingID);
             int userID = ((User)session.getAttribute("user")).getId();;
             ArrayList<Booking> bookings = manager.listBookingByUserID(userID);
-            session.setAttribute("bookings", bookings);
+            session.setAttribute("bookings", bookings); // sets the booking into session
             request.getRequestDispatcher("listBookings.jsp").include(request, response);
             
         }

@@ -6,7 +6,7 @@ public class RoomType implements Serializable {
     private int numBeds, roomTypeId;
     private String suite, description;
 
-    public RoomType(int roomTypeId, double cost, int numBeds, String suite, String description) {
+    public RoomType(int roomTypeId, double cost, int numBeds, String suite, String description) { // constructor
         this.roomTypeId = roomTypeId;
         this.cost = cost;
         this.numBeds = numBeds;

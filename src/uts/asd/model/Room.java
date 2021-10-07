@@ -5,7 +5,7 @@ public class Room implements Serializable {
     private int roomId, roomTypeId;
     private boolean availability;
 
-    public Room(int roomId, int roomTypeId, boolean availability) {
+    public Room(int roomId, int roomTypeId, boolean availability) { // constructor
         this.roomId = roomId;
         this.roomTypeId = roomTypeId;
         this.availability = availability;

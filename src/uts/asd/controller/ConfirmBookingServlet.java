@@ -25,7 +25,7 @@ public class ConfirmBookingServlet extends HttpServlet {
             double totalCost = Double.parseDouble(request.getParameter("totalCost"));
             int bookingID = manager.addNewBooking(userID, roomID, startingDate, endingDate, "Booked", false, totalCost);
             Booking newBooking = manager.findBookingByID(bookingID);
-            session.setAttribute("booking", newBooking);
+            session.setAttribute("booking", newBooking); // sets the booking into session
             Card card= paymentDB.returnCard((User)session.getAttribute("user"));
             session.setAttribute("card", card);
             request.getRequestDispatcher("payments.jsp").include(request, response);
