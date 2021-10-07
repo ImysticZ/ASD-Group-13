@@ -1,3 +1,7 @@
+# Access the application on azure cloud platform
+
+https://hotel-booking-webapp.azurewebsites.net/
+
 # ASD-Group-13
 
 This is the major project for the subject Advanced Software Development (ASD) 
@@ -34,7 +38,4 @@ Berat Appak
 Ronan Konstantin
   - Admin User management
   - Admin Room Management
-
-# Instructions for deploying software
-
 
