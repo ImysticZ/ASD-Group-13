@@ -12,19 +12,20 @@
 
     <%-- ADMIN VIBE CHECK --%>
     <%
+        // Get the type of the user in the session
         User currentUser = (User) session.getAttribute("user");
         String userType = (currentUser == null) ? "" : currentUser.getType();
+
         if(userType == null || !userType.equals("a")) {
             // Error, user is not an admin
-            Random rng = new Random();
-            String[] gifSource = Funny.funnies;
-            int i = rng.nextInt(gifSource.length); // Random integer 
+            Random rng = new Random();                  // RNG to select the funnies
+            int i = rng.nextInt(Funny.funnies.length);  // Random integer for the funnies
             %>
             <body>
                 <h1>ERROR: Access Denied</h1>
-                <h2>User do not have access to this page.</h2>
+                <h3>User does not have access to this page.</h3>
                 <p style="text-align:center;">
-                    <img src="<%=gifSource[i]%>" alt=":(" >
+                    <img src="<%=Funny.funnies[i]%>" alt="sad :(" >
                 </p>
             </body>
             <%
