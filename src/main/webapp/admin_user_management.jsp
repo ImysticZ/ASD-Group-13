@@ -9,11 +9,36 @@
     <head>
         <jsp:include page="nav.jsp"/> 
     </head>
+
+    <%-- ADMIN VIBE CHECK --%>
+    <%
+        User currentUser = (User) session.getAttribute("user");
+        String userType = (currentUser == null) ? "" : currentUser.getType();
+        if(userType == null || !userType.equals("a")) {
+            // Error, user is not an admin
+            Random rng = new Random();
+            String[] gifSource = Funny.funnies;
+            int i = rng.nextInt(gifSource.length); // Random integer 
+            %>
+            <body>
+                <h1>ERROR: Access Denied</h1>
+                <h2>User do not have access to this page.</h2>
+                <p style="text-align:center;">
+                    <img src="<%=gifSource[i]%>" alt=":(" >
+                </p>
+            </body>
+            <%
+        }
+        else {
+            // Load page
+    %>
+
+
     <body>
 
         <%
             String submitted = request.getParameter("submitted");
-            AdminDBManager db = (AdminDBManager)session.getAttribute("adminmngr");
+            AdminDBManager db = (AdminDBManager) session.getAttribute("adminmngr");
             if(db == null) {
                 db = new AdminDBManager(new DBConnector().openConnection());
                 session.setAttribute("adminmngr", db);
@@ -95,4 +120,5 @@
             </table>
         </div>
     </body>
+    <%}%>
 </html>
