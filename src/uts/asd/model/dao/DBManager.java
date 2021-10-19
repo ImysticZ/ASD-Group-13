@@ -111,6 +111,10 @@ public class DBManager {
     }
 
     public void deleteUser(int id) throws SQLException {
+        st.executeUpdate("DELETE Payment FROM Booking INNER JOIN Payment ON Booking.BookingID = Payment.BookingID WHERE Booking.UserID =" + id);
+        st.executeUpdate("DELETE FROM Booking WHERE UserID =" + id);
+        st.executeUpdate("DELETE FROM CUSTOMER WHERE ID =" + id);
+        st.executeUpdate("DELETE FROM Enquiry WHERE UserID =" + id);
         st.executeUpdate("DELETE FROM USER WHERE ID =" + id);
     }
 

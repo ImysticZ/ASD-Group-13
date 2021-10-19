@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.asd.model.User;
+import uts.asd.model.Booking;
 import uts.asd.model.dao.DBManager;
 
 
@@ -21,7 +22,6 @@ public class DeleteAccServlet extends HttpServlet {
         DBManager manager = (DBManager) session.getAttribute("manager");
 
         try {
-            System.out.println(user.getId());
             manager.deleteUser(user.getId());
             session.invalidate();
             request.getRequestDispatcher("accDeleted.jsp").include(request, response);

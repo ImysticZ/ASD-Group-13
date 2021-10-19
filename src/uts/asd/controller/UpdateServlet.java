@@ -19,14 +19,14 @@ public class UpdateServlet extends HttpServlet{
         HttpSession session = request.getSession();
         Validator validator = new Validator();
         
-        int id = Integer.parseInt(request.getParameter("ID"));
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String fname = request.getParameter("fname");
-        String lname = request.getParameter("lname");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String type = request.getParameter("type");
+        int id = Integer.parseInt(request.getParameter("ID")); // get id
+        String email = request.getParameter("email"); // get email
+        String password = request.getParameter("password"); // get pass
+        String fname = request.getParameter("fname"); // get name
+        String lname = request.getParameter("lname");// get name
+        String phone = request.getParameter("phone");// get phone
+        String address = request.getParameter("address"); // get address
+        String type = request.getParameter("type"); // get type
         
         DBManager manager = (DBManager) session.getAttribute("manager");
         session.setAttribute("updated", ""); //clear any error messages

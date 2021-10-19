@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Edit Page</title>
-        <jsp:include page="navCustomer.jsp"/> 
+        <jsp:include page="nav.jsp"/> 
     </head>
     <%
         String passErr = (String) session.getAttribute("passErr");
