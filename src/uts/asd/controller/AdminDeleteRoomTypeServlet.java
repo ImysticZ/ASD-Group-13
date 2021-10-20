@@ -47,7 +47,6 @@ public class AdminDeleteRoomTypeServlet extends HttpServlet {
             try {
                 manager.deleteRoomType(Integer.parseInt(id));;
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             session.setAttribute("roomtypemsg", "RoomType has been deleted");
