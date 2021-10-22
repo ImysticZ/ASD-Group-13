@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>uts.asd</groupId>
-  <artifactId>demo</artifactId>
+  <artifactId>ROOT</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
@@ -47,7 +47,7 @@
   </dependencies>
 
   <build>
-    <finalName>demo</finalName>
+    <finalName>ROOT</finalName>
     <sourceDirectory>src</sourceDirectory>
     <testSourceDirectory>test</testSourceDirectory>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
