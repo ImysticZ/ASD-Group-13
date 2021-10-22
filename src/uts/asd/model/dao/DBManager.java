@@ -110,7 +110,7 @@ public class DBManager {
         st.executeUpdate("UPDATE USER SET EMAIL = '" + email + "' WHERE ID = " + id);
     }
 
-    public void deleteUser(int id) throws SQLException {
+    public void deleteUser(int id) throws SQLException { // Deletes user
         st.executeUpdate("DELETE Payment FROM Booking INNER JOIN Payment ON Booking.BookingID = Payment.BookingID WHERE Booking.UserID =" + id);
         st.executeUpdate("DELETE FROM Booking WHERE UserID =" + id);
         st.executeUpdate("DELETE FROM CUSTOMER WHERE ID =" + id);

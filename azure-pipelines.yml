@@ -29,14 +29,28 @@ steps:
     TargetFolder: '$(build.artifactstagingdirectory)'
   condition: succeededOrFailed()
 
-# - task: PublishBuildArtifacts@1
-#   displayName: 'Publish Artifact: ASD-Group-13'
-#   inputs:
-#     PathtoPublish: '$(build.artifactstagingdirectory)'
-#     ArtifactName: 'ASD-Group-13'
-#   condition: succeededOrFailed()
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: ASD-Group-13'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: 'ASD-Group-13'
+  condition: succeededOrFailed()
   
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
     testResultsFiles: '**/TEST-*.xml' 
+
+# - task: AzureWebApp@1
+#   inputs:
+#     azureSubscription: 'Azure subscription 1 (6de8f942-1053-47f0-bc0b-de6156766fb2)'
+#     appType: 'webApp'
+#     appName: 'hotel-asd'
+#     package: '$(System.DefaultWorkingDirectory)/**/*.war'
+
+- task: AzureRmWebAppDeployment@4
+  displayName: 'Azure App Service Deploy: hotel-boooking-webapp'
+  inputs:
+    azureSubscription: 'Azure subscription 1 (6de8f942-1053-47f0-bc0b-de6156766fb2)'
+    WebAppName: 'hotel-asd'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
