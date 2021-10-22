@@ -40,10 +40,10 @@ steps:
   inputs:
     testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
     testResultsFiles: '**/TEST-*.xml' 
-- task: AzureRmWebAppDeployment@4
+
+- task: AzureWebApp@1
   inputs:
-    ConnectionType: 'AzureRM'
     azureSubscription: 'Azure subscription 1 (6de8f942-1053-47f0-bc0b-de6156766fb2)'
     appType: 'webApp'
-    WebAppName: 'hotel-asd'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
+    appName: 'hotel-asd'
+    package: '$(System.DefaultWorkingDirectory)/**/*.war'
