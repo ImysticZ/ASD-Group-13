@@ -45,7 +45,7 @@ steps:
 #   inputs:
 #     azureSubscription: 'Azure subscription 1 (6de8f942-1053-47f0-bc0b-de6156766fb2)'
 #     appType: 'webApp'
-#     appName: 'hotel-booking-webapp'
+#     appName: 'hotel-asd'
 #     package: '$(System.DefaultWorkingDirectory)/**/*.war'
 
 - task: AzureRmWebAppDeployment@4
