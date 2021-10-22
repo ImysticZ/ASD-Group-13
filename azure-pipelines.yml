@@ -53,4 +53,4 @@ steps:
   inputs:
     azureSubscription: 'Azure subscription 1 (6de8f942-1053-47f0-bc0b-de6156766fb2)'
     WebAppName: 'hotel-boooking-webapp'
-    packageForLinux: '$(build.artifactstagingdirectory)/*.war'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
