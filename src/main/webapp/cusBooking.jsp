@@ -41,9 +41,9 @@
     <section class="container">
         <% if (user!=null && user.getType().equals("s")) { %>
             <div class="form-group">
+                <input type="text" class="form-control" id="search" style="display: inline-block;" placeholder="Search for booking"/>
                 <a data-toggle="tooltip" data-placement="right"
                     title="Enter booking ID to filter" style="display: inline-block;"><span style="font-size:24px;"class="glyphicon glyphicon-info-sign"></span></a>
-                <input type="text" class="form-control" id="search" placeholder="Search for booking"/>
             </div>
             <article class="row">
                 <table>

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import uts.asd.model.*;
 import uts.asd.model.dao.PaymentDB;
 import uts.asd.model.dao.RoomDBManager;
+import org.apache.commons.text.StringEscapeUtils;
+
 
 public class ProcessPayment extends HttpServlet {
     @Override
@@ -22,7 +24,7 @@ public class ProcessPayment extends HttpServlet {
         PaymentDB paymentDB = (PaymentDB) session.getAttribute("paymentDB"); // retrieve paymentDB from session
         
         RoomDBManager manager = (RoomDBManager) session.getAttribute("room"); //retroeve roomDB
-
+        
         // retrieve user from session if exists
         User user = session.getAttribute("user") != null ? (User) session.getAttribute("user") : null; 
 
@@ -31,9 +33,9 @@ public class ProcessPayment extends HttpServlet {
         
         // retrieve booking from session if exists
         Booking booking = session.getAttribute("booking") != null ? (Booking) session.getAttribute("booking") : null; 
-
-        String cardNo = request.getParameter("card").trim(); //retrive cardNo from parameter
-        String cvc = request.getParameter("cvc").trim(); //retrive cvc from parameter
+        
+        String cardNo = StringEscapeUtils.unescapeHtml4(request.getParameter("card").trim()); //sanitizes cardNo from parameter
+        String cvc = StringEscapeUtils.unescapeHtml4(request.getParameter("cvc").trim()); //sanitizes cvc from parameter
         String date = request.getParameter("date"); //retrive date from parameter
 
         Card userCard= null; //initiate card class based on user card details
