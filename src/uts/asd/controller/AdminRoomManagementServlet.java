@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import uts.asd.model.Room;
+import uts.asd.model.User;
 import uts.asd.model.dao.AdminDBManager;
 
 public class AdminRoomManagementServlet extends HttpServlet {
@@ -18,6 +19,12 @@ public class AdminRoomManagementServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+
+        // ADMIN VIBE CHECK
+        User currentUser = (User) session.getAttribute("user");
+        String userType = (currentUser == null) ? "" : currentUser.getType();
+        if(userType == null || !userType.equals("a")) return;
+
         Validator validator = new Validator();
         String roomNumber = request.getParameter("roomnumber");
         String roomType = request.getParameter("type");
@@ -33,7 +40,7 @@ public class AdminRoomManagementServlet extends HttpServlet {
         }
 
         if(roomNumber == null || roomNumber.isEmpty()) {    // room num is null
-            if(roomType == null || roomType.isEmpty()) {    // roomnum is null, roomtype is null
+            if(roomType == null || roomType.isEmpty() || roomType.equals("none123123")) {    // roomnum is null, roomtype is null
                 session.setAttribute("roomList", roomList);
                 request.getRequestDispatcher("admin_room_management.jsp").include(request, response);
             } 

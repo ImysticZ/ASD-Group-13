@@ -54,10 +54,14 @@
             }
 
             ArrayList<Room> roomList = (ArrayList<Room>)session.getAttribute("roomList");
+            ArrayList<RoomType> roomTypes = (ArrayList<RoomType>)session.getAttribute("roomType");
             
             if(roomList == null)
                 roomList = db.fetchAllRooms();
-            
+            if(roomTypes == null) {
+                roomTypes = db.getRoomTypes();
+                session.setAttribute("roomType", roomTypes);
+            }
         %>
 
         <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
@@ -70,16 +74,35 @@
                     </tr>
                     <tr>
                         <td>Room Type</td>
-                        <td><input type="text" placeholder="Single" name="type"></td>
+                        <td>
+                            <select name="type">
+                                <option value="none123123">Select Type</option>
+                                <%
+                                    for(RoomType rt : roomTypes) {
+                                %>
+                                <option value="<%=rt.getSuite()%>"><%=rt.getSuite()%></option>
+                                <%
+                                    }
+                                %>
+                            </select>
+                        </td>
                         <input type="hidden" value="yes" name="submitted">
                         <td><input type="submit" value="submit" class="button"></td>
                     </tr>
                 </form>
                 <tr>
-                    <td><a href="admin_create_room.jsp">Add Range</a></td>
-                    <td><a href="admin_delete_rooms.jsp">Delete Range</a></td>
-                    <td><a href="admin_update_rooms.jsp">Update Range</a></td>
-                    <td><a href="admin_roomtype_management.jsp">Manage Room Types</a></td>
+                    <form action="admin_create_room.jsp" method="POST">
+                        <td><input type="submit" value="Add Range" class="button"></td>
+                    </form>
+                    <form action="admin_delete_rooms.jsp" method="POST">
+                        <td><input type="submit" value="Delete Range" class="button"></td>
+                    </form>
+                    <form action="admin_update_rooms.jsp" method="POST">
+                        <td><input type="submit" value="Update Range" class="button"></td>
+                    </form>
+                    <form action="admin_roomtype_management.jsp" method="POST">
+                        <td><input type="submit" value="Manage Room Types" class="button"></td>
+                    </form>
                 </tr>
             </table>
         </div>

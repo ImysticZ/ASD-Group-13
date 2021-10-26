@@ -71,16 +71,18 @@
 
         <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
             <table>
-                <form action="AdminUserManagementServlet" method="POST">
                     <th>Search User</th>
                     <tr>
-                        <td>First Name</td>
-                        <td><input type="text" placeholder="Joe" name="firstname"></td>
-                        <input type="hidden" value="yes" name="submitted">
-                        <td><input type="submit" value="submit" class="button"></td>
-                        <td><a href="admin_create_user.jsp" class="button">Create user</a></td>
+                        <form action="AdminUserManagementServlet" method="POST">
+                            <td>First Name</td>
+                            <td><input type="text" placeholder="Joe" name="firstname"></td>
+                            <input type="hidden" value="yes" name="submitted">
+                            <td><input type="submit" value="submit" class="button"></td>
+                        </form>
+                        <form action="admin_create_user.jsp" method="POST">
+                            <td><input type="submit" value="Create User" class="button"></td>
+                        </form>
                     </tr>
-                </form>
             </table>
         </div>
 

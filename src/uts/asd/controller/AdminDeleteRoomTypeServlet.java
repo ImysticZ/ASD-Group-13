@@ -2,12 +2,16 @@ package uts.asd.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import uts.asd.model.RoomType;
+import uts.asd.model.User;
 import uts.asd.model.dao.AdminDBManager;
 
 public class AdminDeleteRoomTypeServlet extends HttpServlet {
@@ -15,6 +19,12 @@ public class AdminDeleteRoomTypeServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+
+        // ADMIN VIBE CHECK
+        User currentUser = (User) session.getAttribute("user");
+        String userType = (currentUser == null) ? "" : currentUser.getType();
+        if(userType == null || !userType.equals("a")) return;
+
         Validator validator = new Validator();
 
         String id = request.getParameter("id");
@@ -49,6 +59,14 @@ public class AdminDeleteRoomTypeServlet extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            ArrayList<RoomType> roomTypeList = null;
+            try {
+                roomTypeList = manager.getRoomTypes();
+                
+            } catch (SQLException | NullPointerException ex) {
+    
+            }
+            session.setAttribute("roomType", roomTypeList);
             session.setAttribute("roomtypemsg", "RoomType has been deleted");
             request.getRequestDispatcher("admin_roomtype_management.jsp").include(request, response);
         }

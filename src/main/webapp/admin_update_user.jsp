@@ -58,9 +58,9 @@
         <h1>Update user</h1>
 
         <div class='col-xl-8 mx-auto card p-5 mt-5 bg-light'>
-            <form action="AdminUpdateUserServlet" method="POST">
-            <input type="hidden" name="id" value="<%=user.getId()%>">
                 <table class='table'>
+                <form action="AdminUpdateUserServlet" method="POST">
+                    <input type="hidden" name="id" value="<%=user.getId()%>">
                     <tr>
                         <td>First Name: </td>
                         <td><input type="text" value="<%=user.getFirstName()%>" name="firstname"></td>
@@ -78,10 +78,6 @@
                         <td><input type="text" value="<%=user.getPhoneNum()%>" name="phone"></td>
                     </tr>
                     <tr>
-                        <td>Password: </td>
-                        <td><input type="password" value="<%=user.getPassword()%>" name = password></td>
-                    </tr>
-                    <tr>
                         <td>Address: </td>
                         <td><input type="text" value="<%=user.getAddress()%>" name="address"></td>
                     </tr>
@@ -95,12 +91,15 @@
                               </select>
                         </td>
                     </tr>
+                    <input type="hidden" value="<%=user.getPassword()%>" name = password>
                     <tr>
                         <td><input type="submit" value="submit" class="button"></td>
-                        <td><a href="admin_user_management.jsp" class="button">Back</a></td>
+                    </form>
+                    <form action="admin_user_management.jsp" method="POST">
+                        <td><input type="submit" value="Back" class="button"></td>
+                        </form>
                     </tr>
                 </table>
-            </form>
         </div>
     </body>
     <%}%>

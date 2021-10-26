@@ -18,6 +18,11 @@ public class AdminDeleteUserServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
+        // ADMIN VIBE CHECK
+        User currentUser = (User) session.getAttribute("user");
+        String userType = (currentUser == null) ? "" : currentUser.getType();
+        if(userType == null || !userType.equals("a")) return;
+
         String id = request.getParameter("id");
         ArrayList<User> userList = null;
 

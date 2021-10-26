@@ -53,7 +53,7 @@
                 <%
             }
 
-            ArrayList<RoomType> roomTypeList = (ArrayList<RoomType>)session.getAttribute("roomTypeList");
+            ArrayList<RoomType> roomTypeList = (ArrayList<RoomType>)session.getAttribute("roomType");
             
             if(roomTypeList == null)
                 roomTypeList = db.getRoomTypes();
@@ -81,9 +81,13 @@
                     <tr>
                         <input type="hidden" value="yes" name="submitted">
                         <td><input type="submit" value="submit" class="button"></td>
-                        <td><a href="admin_room_management.jsp">Back</a></td>
                     </tr>
                 </form>
+                    <tr>
+                        <form action="admin_room_management.jsp" method="POST">
+                            <td><input type="submit" value="Back" class="button"></td>
+                        </form>
+                    </tr>
             </table>
         </div>
 

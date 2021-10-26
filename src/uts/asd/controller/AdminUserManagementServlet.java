@@ -19,6 +19,12 @@ public class AdminUserManagementServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+
+        // ADMIN VIBE CHECK
+        User currentUser = (User) session.getAttribute("user");
+        String userType = (currentUser == null) ? "" : currentUser.getType();
+        if(userType == null || !userType.equals("a")) return;
+
         Validator validator = new Validator();
         String firstName = request.getParameter("firstname");
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
