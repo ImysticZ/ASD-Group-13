@@ -37,7 +37,7 @@ public class ProcessPayment extends HttpServlet {
         String cardNo = StringEscapeUtils.unescapeHtml4(request.getParameter("card").trim()); //sanitizes cardNo from parameter
         String cvc = StringEscapeUtils.unescapeHtml4(request.getParameter("cvc").trim()); //sanitizes cvc from parameter
         String date = request.getParameter("date"); //retrive date from parameter
-
+                
         Card userCard= null; //initiate card class based on user card details
 
         // regex to check user input
@@ -49,9 +49,9 @@ public class ProcessPayment extends HttpServlet {
             session.setAttribute("cardErr", "*Invalid cvc Number, must be 3 digits*");
             request.getRequestDispatcher("payments.jsp").include(request, response); // return to payments page
         } else {
-            System.out.println("Input were validated");
             try {
-                userCard = paymentDB.saveCard(cardNo, cvc, date); // card details inserted by user saved to database 
+                paymentDB.saveCard(cardNo, cvc, date); // card details inserted by user saved to database 
+                userCard = paymentDB.returnLastCard();
                 paymentDB.makePayment(booking.getBookingID(), userCard.getcardID()); // insert payment record
                 manager.payBooking(booking.getBookingID()); //Update booking to paid
             } catch (SQLException e) {
@@ -65,7 +65,6 @@ public class ProcessPayment extends HttpServlet {
                     e.printStackTrace();
                 }
                 session.setAttribute("card", userCard); // save user card to session
-                System.out.println("card is " + userCard.getnumber() + " cvc is " + userCard.getcvc() + " date is " + userCard.getdate());
             }
             request.getRequestDispatcher("success.jsp").include(request, response); // direct to booking successful page
 
