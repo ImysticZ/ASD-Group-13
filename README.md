@@ -1,6 +1,7 @@
 # Access the application on azure cloud platform
 
-https://hotel-booking-webapp.azurewebsites.net/
+http://hotel-asd.azurewebsites.net/
+
 
 # ASD-Group-13
 
