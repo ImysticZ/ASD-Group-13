@@ -113,7 +113,7 @@
             </article>
             <% } else { %>
                 <center>
-                    <h4>You do not have access, please login <a href="login.jsp">here</a></h4>
+                    <h4>You do not have access, You must be a staff privileges</h4>
                 </center>
                 <% } %>
     </section>
