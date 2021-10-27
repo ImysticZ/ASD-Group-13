@@ -27,8 +27,8 @@ public class AdminRoomManagementServlet extends HttpServlet {
         if(userType == null || !userType.equals("a")) return;
 
         Validator validator = new Validator();
-        String roomNumber = StringEscapeUtils.unescapeHtml4(request.getParameter("roomnumber"));
-        String roomType = StringEscapeUtils.unescapeHtml4(request.getParameter("type"));
+        String roomNumber = StringEscapeUtils.unescapeHtml4(request.getParameter("roomnumber").trim());
+        String roomType = StringEscapeUtils.unescapeHtml4(request.getParameter("type").trim());
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         ArrayList<Room> roomList = null;
         System.out.println(session.toString());

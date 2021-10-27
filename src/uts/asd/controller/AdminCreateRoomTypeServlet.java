@@ -29,10 +29,10 @@ public class AdminCreateRoomTypeServlet extends HttpServlet {
         
         Validator validator = new Validator();
 
-        String suite = StringEscapeUtils.unescapeHtml4(request.getParameter("suite"));
-        String cost = StringEscapeUtils.unescapeHtml4(request.getParameter("cost"));
-        String numBeds = StringEscapeUtils.unescapeHtml4(request.getParameter("numberofbeds"));
-        String desc = StringEscapeUtils.unescapeHtml4(request.getParameter("desc"));
+        String suite = StringEscapeUtils.unescapeHtml4(request.getParameter("suite").trim());
+        String cost = StringEscapeUtils.unescapeHtml4(request.getParameter("cost").trim());
+        String numBeds = StringEscapeUtils.unescapeHtml4(request.getParameter("numberofbeds").trim());
+        String desc = StringEscapeUtils.unescapeHtml4(request.getParameter("desc").trim());
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         System.out.println(session.toString());

@@ -28,9 +28,9 @@ public class AdminUpdateRoomsServlet extends HttpServlet {
 
         Validator validator = new Validator();
 
-        String min = StringEscapeUtils.unescapeHtml4(request.getParameter("lowerbound"));
-        String max = StringEscapeUtils.unescapeHtml4(request.getParameter("upperbound"));
-        String typeId = StringEscapeUtils.unescapeHtml4(request.getParameter("roomtype"));
+        String min = StringEscapeUtils.unescapeHtml4(request.getParameter("lowerbound").trim());
+        String max = StringEscapeUtils.unescapeHtml4(request.getParameter("upperbound").trim());
+        String typeId = StringEscapeUtils.unescapeHtml4(request.getParameter("roomtype").trim());
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         System.out.println(session.toString());

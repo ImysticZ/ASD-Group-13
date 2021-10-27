@@ -28,8 +28,8 @@ public class AdminUpdateRoomServlet extends HttpServlet {
 
         Validator validator = new Validator();
 
-        String id = StringEscapeUtils.unescapeHtml4(request.getParameter("id"));
-        String type = StringEscapeUtils.unescapeHtml4(request.getParameter("roomtype"));
+        String id = StringEscapeUtils.unescapeHtml4(request.getParameter("id").trim());
+        String type = StringEscapeUtils.unescapeHtml4(request.getParameter("roomtype").trim());
 
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");

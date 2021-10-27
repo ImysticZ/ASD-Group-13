@@ -27,13 +27,13 @@ public class AdminCreateUserServlet extends HttpServlet {
 
         Validator validator = new Validator();
 
-        String firstName = StringEscapeUtils.unescapeHtml4(request.getParameter("firstname"));
-        String lastName = StringEscapeUtils.unescapeHtml4(request.getParameter("lastname"));
-        String email = StringEscapeUtils.unescapeHtml4(request.getParameter("email"));
-        String phone = StringEscapeUtils.unescapeHtml4(request.getParameter("phone"));
-        String password = StringEscapeUtils.unescapeHtml4(request.getParameter("password"));
-        String address = StringEscapeUtils.unescapeHtml4(request.getParameter("address"));
-        String type = StringEscapeUtils.unescapeHtml4(request.getParameter("type"));
+        String firstName = StringEscapeUtils.unescapeHtml4(request.getParameter("firstname").trim());
+        String lastName = StringEscapeUtils.unescapeHtml4(request.getParameter("lastname").trim());
+        String email = StringEscapeUtils.unescapeHtml4(request.getParameter("email").trim());
+        String phone = StringEscapeUtils.unescapeHtml4(request.getParameter("phone").trim());
+        String password = StringEscapeUtils.unescapeHtml4(request.getParameter("password").trim());
+        String address = StringEscapeUtils.unescapeHtml4(request.getParameter("address").trim());
+        String type = StringEscapeUtils.unescapeHtml4(request.getParameter("type").trim());
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         System.out.println(session.toString());

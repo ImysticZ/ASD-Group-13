@@ -27,7 +27,7 @@ public class AdminUserManagementServlet extends HttpServlet {
         if(userType == null || !userType.equals("a")) return;
 
         Validator validator = new Validator();
-        String firstName = StringEscapeUtils.unescapeHtml4(request.getParameter("firstname"));
+        String firstName = StringEscapeUtils.unescapeHtml4(request.getParameter("firstname").trim());
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         ArrayList<User> userList = null;
         System.out.println(session.toString());

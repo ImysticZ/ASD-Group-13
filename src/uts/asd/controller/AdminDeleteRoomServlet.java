@@ -26,7 +26,7 @@ public class AdminDeleteRoomServlet extends HttpServlet {
         String userType = (currentUser == null) ? "" : currentUser.getType();
         if(userType == null || !userType.equals("a")) return;
 
-        String id = StringEscapeUtils.unescapeHtml4(request.getParameter("id"));
+        String id = StringEscapeUtils.unescapeHtml4(request.getParameter("id").trim());
         ArrayList<Room> roomList = null;
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");

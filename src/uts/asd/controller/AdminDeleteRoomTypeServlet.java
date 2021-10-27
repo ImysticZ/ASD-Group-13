@@ -28,7 +28,7 @@ public class AdminDeleteRoomTypeServlet extends HttpServlet {
 
         Validator validator = new Validator();
 
-        String id = StringEscapeUtils.unescapeHtml4(request.getParameter("id"));
+        String id = StringEscapeUtils.unescapeHtml4(request.getParameter("id").trim());
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         System.out.println(session.toString());
