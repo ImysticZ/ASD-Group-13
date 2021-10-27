@@ -14,6 +14,7 @@ import uts.asd.model.Room;
 import uts.asd.model.RoomType;
 import uts.asd.model.User;
 import uts.asd.model.dao.AdminDBManager;
+import org.apache.commons.text.StringEscapeUtils;
 
 public class AdminCreateRoomTypeServlet extends HttpServlet {
 
@@ -28,10 +29,10 @@ public class AdminCreateRoomTypeServlet extends HttpServlet {
         
         Validator validator = new Validator();
 
-        String suite = request.getParameter("suite");
-        String cost = request.getParameter("cost");
-        String numBeds = request.getParameter("numberofbeds");
-        String desc = request.getParameter("desc");
+        String suite = StringEscapeUtils.unescapeHtml4(request.getParameter("suite"));
+        String cost = StringEscapeUtils.unescapeHtml4(request.getParameter("cost"));
+        String numBeds = StringEscapeUtils.unescapeHtml4(request.getParameter("numberofbeds"));
+        String desc = StringEscapeUtils.unescapeHtml4(request.getParameter("desc"));
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         System.out.println(session.toString());

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import uts.asd.model.User;
 import uts.asd.model.dao.AdminDBManager;
+import org.apache.commons.text.StringEscapeUtils;
 
 public class AdminCreateUserServlet extends HttpServlet {
 
@@ -26,13 +27,13 @@ public class AdminCreateUserServlet extends HttpServlet {
 
         Validator validator = new Validator();
 
-        String firstName = request.getParameter("firstname");
-        String lastName = request.getParameter("lastname");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String password = request.getParameter("password");
-        String address = request.getParameter("address");
-        String type = request.getParameter("type");
+        String firstName = StringEscapeUtils.unescapeHtml4(request.getParameter("firstname"));
+        String lastName = StringEscapeUtils.unescapeHtml4(request.getParameter("lastname"));
+        String email = StringEscapeUtils.unescapeHtml4(request.getParameter("email"));
+        String phone = StringEscapeUtils.unescapeHtml4(request.getParameter("phone"));
+        String password = StringEscapeUtils.unescapeHtml4(request.getParameter("password"));
+        String address = StringEscapeUtils.unescapeHtml4(request.getParameter("address"));
+        String type = StringEscapeUtils.unescapeHtml4(request.getParameter("type"));
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         System.out.println(session.toString());

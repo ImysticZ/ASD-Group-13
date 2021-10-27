@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import uts.asd.model.Room;
 import uts.asd.model.User;
 import uts.asd.model.dao.AdminDBManager;
+import org.apache.commons.text.StringEscapeUtils;
 
 public class AdminUpdateRoomServlet extends HttpServlet {
 
@@ -27,8 +28,8 @@ public class AdminUpdateRoomServlet extends HttpServlet {
 
         Validator validator = new Validator();
 
-        String id = request.getParameter("id");
-        String type = request.getParameter("roomtype");
+        String id = StringEscapeUtils.unescapeHtml4(request.getParameter("id"));
+        String type = StringEscapeUtils.unescapeHtml4(request.getParameter("roomtype"));
 
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");

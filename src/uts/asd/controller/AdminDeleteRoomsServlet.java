@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import uts.asd.model.Room;
 import uts.asd.model.User;
 import uts.asd.model.dao.AdminDBManager;
+import org.apache.commons.text.StringEscapeUtils;
 
 public class AdminDeleteRoomsServlet extends HttpServlet {
 
@@ -25,8 +26,8 @@ public class AdminDeleteRoomsServlet extends HttpServlet {
         String userType = (currentUser == null) ? "" : currentUser.getType();
         if(userType == null || !userType.equals("a")) return;
 
-        String min = request.getParameter("lowerbound");
-        String max = request.getParameter("upperbound");
+        String min = StringEscapeUtils.unescapeHtml4(request.getParameter("lowerbound"));
+        String max = StringEscapeUtils.unescapeHtml4(request.getParameter("upperbound"));
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         System.out.println(session.toString());

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import uts.asd.model.Room;
 import uts.asd.model.User;
 import uts.asd.model.dao.AdminDBManager;
+import org.apache.commons.text.StringEscapeUtils;
 
 public class AdminDeleteRoomServlet extends HttpServlet {
 
@@ -25,7 +26,7 @@ public class AdminDeleteRoomServlet extends HttpServlet {
         String userType = (currentUser == null) ? "" : currentUser.getType();
         if(userType == null || !userType.equals("a")) return;
 
-        String id = request.getParameter("id");
+        String id = StringEscapeUtils.unescapeHtml4(request.getParameter("id"));
         ArrayList<Room> roomList = null;
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
