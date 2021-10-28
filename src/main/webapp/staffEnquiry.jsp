@@ -10,7 +10,7 @@
         <title>Enquiries</title> 
     </head>
     <body>
-
+        <div class="main group">
         <%
             EnquiryDBManager manager = (EnquiryDBManager) session.getAttribute("enquiryManager");
             ArrayList<Enquiry> enquiries = manager.fetchAll();
@@ -73,6 +73,6 @@
                 </tr>
             <%}%>
         </table>
-        
+    </div>
     </body>
 </html>

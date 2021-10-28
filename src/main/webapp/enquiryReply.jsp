@@ -10,7 +10,7 @@
         <title>Reply</title> 
     </head>
     <body>
-
+        <div class="main group">
         <%
             EnquiryDBManager manager = (EnquiryDBManager) session.getAttribute("enquiryManager");
             String id = request.getParameter("enquiryID");
@@ -51,6 +51,6 @@
         <div class="button">
             <a href="staffEnquiry.jsp">Return</a>
         </div>
-
+    </div>
     </body>
 </html>

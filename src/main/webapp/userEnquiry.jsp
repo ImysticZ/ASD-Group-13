@@ -10,7 +10,7 @@
         <title>Enquiries</title> 
     </head>
     <body>
-
+        <div class="main group">
         <%
             EnquiryDBManager manager = (EnquiryDBManager) session.getAttribute("enquiryManager");
             User user = (User) session.getAttribute("user");
@@ -67,6 +67,6 @@
         
         <%--Return to FAQ page--%>
         <a class="button" href="faq.jsp">Return</a>
-
+    </div>
     </body>
 </html>

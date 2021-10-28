@@ -9,12 +9,12 @@
         <title>New Enquiry</title> 
     </head>
     <body>
-        
+        <div class="main group">
         <%
             User user = (User) session.getAttribute("user");
             String emptyErr = (String) session.getAttribute("enquiryEmptyErr");
         %>
-
+        
         <h1>Submit Enquiry</h1>
 
         <%--Add enquiry details--%>
@@ -35,9 +35,8 @@
         </form>
 
         <%--Return to enquiries page--%>
-        <div class="button">
-            <a href="userEnquiry.jsp">Return</a>
+        <a href="userEnquiry.jsp" class="button">Return</a>
+
         </div>
-        
     </body>
 </html>
