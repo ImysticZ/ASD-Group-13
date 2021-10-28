@@ -17,18 +17,18 @@ public class LeonTest {
     @Test
     public void returnCardTest() throws SQLException
     {
-        int id = 1028;
-        String fname = "Louis";
-        String lname = "Lui";
-        String email = "test2@test.com";
-        String phone = "0421891583";
-        String pass = "pass";
-        String address = "12 Ogre Street";
+        int id = 1029;
+        String fname = "Clarence";
+        String lname = "Cheung";
+        String email = "clarence@clarence";
+        String phone = "0412345678";
+        String pass = "urmum";
+        String address = "ur mum";
         String type = "c";
 
         User user = new User(id, fname, lname, email, phone, pass, address, type);
 
-        assertEquals(52, paymentDB.returnCard(user).getcardID());
+        assertEquals(67, paymentDB.returnCard(user).getcardID());
         assertNotEquals(48, paymentDB.returnCard(user).getcardID());
     }
 
