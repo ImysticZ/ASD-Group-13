@@ -11,16 +11,24 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import uts.asd.model.Room;
+import uts.asd.model.User;
 import uts.asd.model.dao.AdminDBManager;
+import org.apache.commons.text.StringEscapeUtils;
 
 public class AdminRoomManagementServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+
+        // ADMIN VIBE CHECK
+        User currentUser = (User) session.getAttribute("user");
+        String userType = (currentUser == null) ? "" : currentUser.getType();
+        if(userType == null || !userType.equals("a")) return;
+
         Validator validator = new Validator();
-        String roomNumber = request.getParameter("roomnumber");
-        String roomType = request.getParameter("type");
+        String roomNumber = StringEscapeUtils.unescapeHtml4(request.getParameter("roomnumber").trim());
+        String roomType = StringEscapeUtils.unescapeHtml4(request.getParameter("type").trim());
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         ArrayList<Room> roomList = null;
         System.out.println(session.toString());
@@ -33,7 +41,7 @@ public class AdminRoomManagementServlet extends HttpServlet {
         }
 
         if(roomNumber == null || roomNumber.isEmpty()) {    // room num is null
-            if(roomType == null || roomType.isEmpty()) {    // roomnum is null, roomtype is null
+            if(roomType == null || roomType.isEmpty() || roomType.equals("none123123")) {    // roomnum is null, roomtype is null
                 session.setAttribute("roomList", roomList);
                 request.getRequestDispatcher("admin_room_management.jsp").include(request, response);
             } 
@@ -48,7 +56,7 @@ public class AdminRoomManagementServlet extends HttpServlet {
             }
         }
         else { // room num is not null
-            if(roomType == null || roomType.isEmpty()) {    // roomnum is not null, roomtype is null
+            if(roomType == null || roomType.isEmpty() || roomType.equals("none123123")) {    // roomnum is not null, roomtype is null
                 try {
                     roomList = manager.fetchRoomByNumber(Integer.parseInt(roomNumber));
                 } catch (NumberFormatException | SQLException e) {

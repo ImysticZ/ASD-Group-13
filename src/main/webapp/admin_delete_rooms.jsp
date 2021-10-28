@@ -63,10 +63,12 @@
                     </tr>
                     <tr>
                         <td><input type="submit" value="submit" class="button"></td>
-                        <td><a href="admin_room_management.jsp" class="button">Back</a></td>
+                    </form>
+                        <form action="admin_room_management.jsp" method="POST">
+                            <td><input type="submit" value="Back" class="button"></td>
+                        </form>
                     </tr>
                 </table>
-            </form>
         </div>
     </body>
     <%}%>

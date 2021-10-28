@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import uts.asd.model.Room;
+import uts.asd.model.User;
 import uts.asd.model.dao.AdminDBManager;
+import org.apache.commons.text.StringEscapeUtils;
 
 public class AdminDeleteRoomServlet extends HttpServlet {
 
@@ -19,7 +21,12 @@ public class AdminDeleteRoomServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        String id = request.getParameter("id");
+        // ADMIN VIBE CHECK
+        User currentUser = (User) session.getAttribute("user");
+        String userType = (currentUser == null) ? "" : currentUser.getType();
+        if(userType == null || !userType.equals("a")) return;
+
+        String id = StringEscapeUtils.unescapeHtml4(request.getParameter("id").trim());
         ArrayList<Room> roomList = null;
 
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");

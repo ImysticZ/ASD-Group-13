@@ -2,13 +2,17 @@ package uts.asd.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import uts.asd.model.User;
 import uts.asd.model.dao.AdminDBManager;
+import org.apache.commons.text.StringEscapeUtils;
 
 
 public class AdminUpdateUserServlet extends HttpServlet {
@@ -16,17 +20,23 @@ public class AdminUpdateUserServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+
+        // ADMIN VIBE CHECK
+        User currentUser = (User) session.getAttribute("user");
+        String userType = (currentUser == null) ? "" : currentUser.getType();
+        if(userType == null || !userType.equals("a")) return;
+
         Validator validator = new Validator();
 
-        String id = request.getParameter("id");
-        String firstName = request.getParameter("firstname");
-        String lastName = request.getParameter("lastname");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String password = request.getParameter("password");
-        String address = request.getParameter("address");
-        String type = request.getParameter("type");
-
+        String id = StringEscapeUtils.unescapeHtml4(request.getParameter("id").trim());
+        String firstName = StringEscapeUtils.unescapeHtml4(request.getParameter("firstname").trim());
+        String lastName = StringEscapeUtils.unescapeHtml4(request.getParameter("lastname").trim());
+        String email = StringEscapeUtils.unescapeHtml4(request.getParameter("email").trim());
+        String phone = StringEscapeUtils.unescapeHtml4(request.getParameter("phone").trim());
+        String password = StringEscapeUtils.unescapeHtml4(request.getParameter("password").trim());
+        String address = StringEscapeUtils.unescapeHtml4(request.getParameter("address").trim());
+        String type = StringEscapeUtils.unescapeHtml4(request.getParameter("type").trim());
+        
         AdminDBManager manager = (AdminDBManager) session.getAttribute("adminmngr");
         System.out.println(session.toString());
 
@@ -57,6 +67,13 @@ public class AdminUpdateUserServlet extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            ArrayList<User> userList = null;
+            try {
+                userList = manager.fetchAllUsers();
+            } catch (SQLException | NullPointerException ex) {
+
+            }
+            session.setAttribute("userList", userList);
             session.setAttribute("editusermsg", "User has updated");
             request.getRequestDispatcher("admin_update_user.jsp").include(request, response);
         }
