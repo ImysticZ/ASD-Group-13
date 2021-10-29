@@ -7,40 +7,73 @@
     <head>
         <jsp:include page="nav.jsp"/>
         <link rel="stylesheet" href="css/enquiry.css">
-        <title>FAQ</title> 
+        <title>FAQ</title>
     </head>
     <body>
 
-        <h1>FAQ</h1>
+        <div class="main group">
+            <h1>FAQ</h1>
 
-        <%--Questions--%>
-        <h2>How do I find directions to the hotel?</h2>
-        <p>We recommend searching for our hotel on Google Maps, our address can be found on the "About Us" page.</p>
+            <%--Questions--%>
+            <button type="button" class="collapsible">How do I find directions to the hotel?</button>
+            <div class="content">
+            <p>We recommend searching for our hotel on Google Maps, our address can be found on the "About Us" page.</p>
+            </div>
 
-        <h2>Can I make more than one booking at a time?</h2>
-        <p>Yes, you can make multiple bookings at the same time.</p>
+            <button type="button" class="collapsible">Can I make more than one booking at a time?</button>
+            <div class="content">
+            <p>Yes, you can make multiple bookings at the same time.</p>
+            </div>
+            
+            <button type="button" class="collapsible">Where can I find contact details for the hotel?</button>
+            <div class="content">
+            <p>Our contact details are available on the "About Us" page. You can also send us an enquiry through the link below.</p>
+            </div>
 
-        <h2>Where can I find contact details for the hotel?</h2>
-        <p>Our contact details are available on the "About Us" page. You can also send us an enquiry through the link below.</p>
+            <button type="button" class="collapsible">Can I save multiple credit cards on my account?</button>
+            <div class="content">
+            <p>No. Currently, only 1 credit card is allowed on an account.</p>
+            </div>
 
-        <h2>Can I save multiple credit cards on my account?</h2>
-        <p>No. Currently, only 1 credit card is allowed on an account.</p>
+            <button type="button" class="collapsible">When will I be charged for a booking?</button>
+            <div class="content">
+            <p>Payment will be taken after the booking is made.</p>
+            </div>
 
-        <h2>When will I be charged for a booking?</h2>
-        <p>Payment will be taken after the booking is made.</p>
+            <button type="button" class="collapsible">I don't have a credit card, can I still make a booking?</button>
+            <div class="content">
+            <p>Unfortunely, bookings on our website will require a credit card.</p>
+            </div>
+            <br>
 
-        <h2>I don't have a credit card, can I still make a booking?</h2>
-        <p>Unfortunely, bookings on our website will require a credit card.</p>
+            <%--To Enquiries page--%>
+            <h3>Couldn't find an answer to your question? Send us an enquiry:</h3>
+            <img src="css/envelope.png" width="15%" class="center" alt="Enquiry">
+                <%if(session.getAttribute("user") == null){%>
+                    <a class="enquiriesButton" href="login.jsp">Enquiries</a>
+                <%}else{%>
+                    <a class="enquiriesButton" href="userEnquiry.jsp">Enquiries</a>
+                <%}%>
+            <br>
+        </div>
         
-        <br>
-
-        <%--To Enquiries page--%>
-        <h3>Couldn't find an answer to your question? Send us an enquiry:</h3>
-            <%if(session.getAttribute("user") == null){%>
-                <a class="enquiriesButton" href="login.jsp">Enquiries</a>
-            <%}else{%>
-                <a class="enquiriesButton" href="userEnquiry.jsp">Enquiries</a>
-            <%}%>
+        <%--JavaScript--%>    
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+    
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight){
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+        </script> 
         
     </body>
 </html>

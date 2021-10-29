@@ -198,9 +198,9 @@
 </head>
 
 <body>
-    <div class="row text-center container-fluid">
+    <div class="container-fluid">
         <form method="POST" action="RoomFilterServlet">
-            <section class="container"> 
+            <section class="container" style="text-align: center;"> 
                 <div>
                     <h3>Beds</h3>
                     <input min="0" name="quantity" value="" type="number">
@@ -219,24 +219,27 @@
             </section>
         </form>
         <p></p>
-        <% for (RoomType roomType : (ArrayList<RoomType>)session.getAttribute("rooms")) { %>
-        <div class="col-xl-3 col-md-4 col-sm-6 mb-4">
-            <div class="card h-100 box-shadow">
-                <h6 class="card-header text-muted"><%= roomType.getSuite()%></h6>
-                <div class="card-body">
-                    <p class="card-text">Price: $<%= roomType.getCost()%> per night</p>
-                    <p class="card-text"><%= roomType.getNumBeds()%> Bed</p>
-                    <p class="card-text"><%= roomType.getDescription()%></p>
+        <div class="row">
+            <h2>Our Rooms</h2>
+            <% for (RoomType roomType : (ArrayList<RoomType>)session.getAttribute("rooms")) { %>
+            <div class="col-md-3 col-sm-6">
+                <span class="thumbnail">
+                    <h4><%=roomType.getSuite()%></h4>
+                    <p><%=roomType.getDescription()%></p>
+                    <p><%=roomType.getNumBeds()%> beds</p>
+                    <hr class="line">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <p>$<%= roomType.getCost()%></p>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                        <a href="ViewRoomServlet?roomid=<%=roomType.getRoomTypeId()%>"><button class="btn btn-info right" > More Info</button></a>
+                        </div>
+                    </div>
+                </span>
                 </div>
-                <div class="card-footer">
-                    <form method="get" action="ViewRoomServlet">
-                        <input type="hidden" name="roomid" value="<%= roomType.getRoomTypeId()%>">
-                        <button type="submit" class="btn btn-outline-info">More</a>
-                    </form>
-                </div>
-            </div>
+            <% } %>
         </div>
-        <% } %>
     </div>
 </body>
 </html>

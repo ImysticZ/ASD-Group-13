@@ -33,8 +33,8 @@ public class GyounTest {
     public void findEnquiryByIDTest() throws SQLException{
         conn = dbConn.openConnection();
         EnquiryDBManager manager = new EnquiryDBManager(conn);
-        Enquiry enquiry = manager.findEnquiryByID(33);
-        assertEquals(enquiry.getEnquiryID(), 33);
+        Enquiry enquiry = manager.findEnquiryByID(59);
+        assertEquals(enquiry.getEnquiryID(), 59);
         dbConn.closeConnection();
     }
 
